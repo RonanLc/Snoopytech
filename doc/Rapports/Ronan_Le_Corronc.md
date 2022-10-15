@@ -35,8 +35,16 @@ So I started to think about the precise design of the leg and I chose to make it
 
 So I started to model the leg but I haven't finished yet because of lack of time.
 
+I modeled the shoulder tube used to rotate the leg. It is made of carbon so I entered its density (1.79g/cm3) in Fusion 360 to estimate the weight at the end.
+
+I also modeled the ball bearing that will connect the leg to the shoulder.
+
 ![Leg modeling](/doc/Rapports/assets/Ronan/Leg_modeling.png "Leg modeling")
 
 ## **Next week**
 
 I will concentrate next week on the modeling of the leg and its assembly with the different components.
+
+My goal is to finish modeling the leg at the end of the next session. For that I still need to design the most solid and light solution of the leg.
+
+Once that is done, I can start modeling the shoulder and then the junction with the rest of the body.
