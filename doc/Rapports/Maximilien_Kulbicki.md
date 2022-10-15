@@ -8,7 +8,7 @@ En suivant les plans que nous avions fixés avec Ronan, j'ai modélisé plusieur
 - le tube autour duquel les pattes pivoteront
 - des entretoises pour assurer la solidité du corps 
 - des équerres pour éviter de perdre l'orthogonalité entre les plaques et les cadres
-- 
+
 
 ![Resume](https://user-images.githubusercontent.com/95374519/195982006-61ebdf0e-ffb6-454f-8b92-c16641e4df19.png)
 
