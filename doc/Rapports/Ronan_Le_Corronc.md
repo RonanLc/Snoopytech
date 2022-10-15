@@ -1,20 +1,18 @@
-# Weekly report Snoopytech project - Ronan Le Corronc
+# Week 41 - 14 October 2022
 
-- ## Week 41 - 14 October 2022
-
-### **Component change**
+## **Component change**
 
 During the design of the leg I realized a problem, **the rotary life** of [the potentiometers we had chosen](https://fr.aliexpress.com/item/32996236826.html?spm=a2g0o.detail.1000060.3.2dfd75067cm24G&gps-id=pcDetailBottomMoreThisSeller&scm=1007.13339.291025.0&scm_id=1007.13339.291025.0&scm-url=1007.13339.291025.0&pvid=aa5bbdd6-37f4-4697-8922-a5d47906774f&_t=gps-i). They had a rotary life about **100 cycles** which is not enough. So we chose to start on [new potentiometers](https://fr.aliexpress.com/item/1005002766893077.html?spm=a2g0o.detail.1000014.28.6d93d6c1fPOoi0&gps-id=pcDetailBottomMoreOtherSeller&scm=1007.40050.281175.0&scm_id=1007.40050.281175.0&scm-url=1007.40050.281175.0&pvid=c4eb49e9-017c-42e1-bc5a-36d0b91caa96&_t=gps-id:pcDetailBottomMoreOtherSeller,scm-url:1007.40050.281175.0,pvid:c4eb49e9-017c-42e1-bc5a-36d0b91caa96,tpp_buckets:668%232846%238116%232002&pdp_ext_f=%7B%22sku_id%22%3A%2212000022084500624%22%2C%22sceneId%22%3A%2230050%22%7D&pdp_npi=2%40dis%21EUR%210.42%210.37%21%21%21%21%21%402101f6b416658300092574280e1af7%2112000022084500624%21rec) with a rotary life about **10,000 cycles** which will be much more resistant.
 
 So I updated the list of components available here.
 
-### **Important and modeling of default components**
+## **Important and modeling of default components**
 
 After Maximilien created [a common project on Fusion 360](https://myetu3651.autodesk360.com/g/projects/20221014567544581/data/dXJuOmFkc2sud2lwcHJvZDpmcy5mb2xkZXI6Y28uNXprUVZwQ0VTM3VlQ1hmSjdNN09nQQ), I imported and modeled the components we will use like an Arduino Uno, a Nvidia JN30D and others. This will allow us to have accurate references for our modeling.
 
 ![Default components](/doc/Rapports/assets/Ronan/Default_components.png "Default components")
 
-### **Research on leg transmission**
+## **Research on leg transmission**
 
 We were not yet decided on the transmission used for the legs of the robot. So I took the time to break down the possibilities to choose the best one.
 
@@ -29,7 +27,7 @@ I have therefore determined **3 possible transmissions** :
 Given the reliability and complexity of these transmissions, we have chosen to use the **B. transmission, with a belt**. It seems to be the most feasible and aesthetic. It will also allow us to use it directly as a gearbox.
 
 
-### **Leg design**
+## **Leg design**
 
 So I started to think about the precise design of the leg and I chose to make it like the following sketch.
 
@@ -39,6 +37,6 @@ So I started to model the leg but I haven't finished yet because of lack of time
 
 ![Leg modeling](/doc/Rapports/assets/Ronan/Leg_modeling.png "Leg modeling")
 
-### **Next week**
+## **Next week**
 
 I will concentrate next week on the modeling of the leg and its assembly with the different components.
