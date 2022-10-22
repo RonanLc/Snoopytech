@@ -1,4 +1,4 @@
-# **~New~** Week 42 - October 18, 2022 - 17h
+# **New -** Week 42 - October 18, 2022 - 17h
 
 I focused this week on the robot leg. I looked at its design, its performance and how can I build something strong and light.
 
