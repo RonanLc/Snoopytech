@@ -6,7 +6,7 @@ I focused this week on the robot leg. I looked at its design, its performance an
 
 I realized that most of the existing robots were still designed in a similar way.
 
-![Leg design](/assets/Ronan/Leg_design.png "Leg design")
+![Leg design](/doc/Rapports/assets/Ronan/Leg_design.png "Leg design")
 
 They all have a straight thigh and then a curved tibia so I decided to base the leg on that.
 
@@ -16,21 +16,21 @@ The thigh and the shin being generally of the same size, I decided to make the t
 
 As indicated in our report, I designed the thigh and the tibia so that they can be cut out of plexiglass. This will allow us to quickly change these parts if there is a problem because they are parts that will undergo strong constraints.
 
-![thigh and tibia modeling](/assets/Ronan/Thing_and_tibia_modeling.png "thigh and tibia modeling")
+![thigh and tibia modeling](/doc/Rapports/assets/Ronan/Thing_and_tibia_modeling.png "thigh and tibia modeling")
 
 I then modeled the knee joint, then the hip joint. I decided to use mainly 3D printing to design the parts that hold the bearings.
 
-![knee joint](/assets/Ronan/articulation_genou.png "knee joint")
+![knee joint](/doc/Rapports/assets/Ronan/articulation_genou.png "knee joint")
 
-![hip joint](/assets/Ronan/articulation_hanche.png "hip joint")
+![hip joint](/doc/Rapports/assets/Ronan/articulation_hanche.png "hip joint")
 
 The joints are almost finished. I have set up the materials of each part to have an idea of the weight of our future legs.
 
-![leg mass](/assets/Ronan/Leg_mass.png "Leg mass")
+![leg mass](/doc/Rapports/assets/Ronan/Leg_mass.png "Leg mass")
 
 So now we have the look and design that our leg will have, this gives us an idea of the visual that our robot will have and also the weight and capabilities.
 
-![total leg view](/assets/Ronan/Leg_3D_view.png "total leg view")
+![total leg view](/doc/Rapports/assets/Ronan/Leg_3D_view.png "total leg view")
 
 ## **Next week**
 
@@ -51,13 +51,13 @@ So I updated the list of components available [here](https://github.com/RonanLc/
 
 After Maximilien created [a common project on Fusion 360](https://myetu3651.autodesk360.com/g/projects/20221014567544581/data/dXJuOmFkc2sud2lwcHJvZDpmcy5mb2xkZXI6Y28uNXprUVZwQ0VTM3VlQ1hmSjdNN09nQQ), I imported and modeled the components we will use like an Arduino Uno, a Nvidia JN30D and others. This will allow us to have accurate references for our modeling.
 
-![Default components](/assets/Ronan/Default_components.png "Default components")
+![Default components](/doc/Rapports/assets/Ronan/Default_components.png "Default components")
 
 ## **Research on leg transmission**
 
 We were not yet decided on the transmission used for the legs of the robot. So I took the time to break down the possibilities to choose the best one.
 
-![Transmission ideas](/assets/Ronan/Plan_idees_transmissions_pattes.png "Transmission ideas")
+![Transmission ideas](/doc/Rapports/assets/Ronan/Plan_idees_transmissions_pattes.png "Transmission ideas")
 
 I have therefore determined **3 possible transmissions** :
 
@@ -72,7 +72,7 @@ Given the reliability and complexity of these transmissions, we have chosen to u
 
 So I started to think about the precise design of the leg and I chose to make it like the following sketch.
 
-![Leg design](/assets/Ronan/Plan_leg_idees.png "Led design")
+![Leg design](/doc/Rapports/assets/Ronan/Plan_leg_idees.png "Led design")
 
 So I started to model the leg but I haven't finished yet because of lack of time.
 
@@ -80,7 +80,7 @@ I modeled the shoulder tube used to rotate the leg. It is made of carbon so I en
 
 I also modeled the ball bearing that will connect the leg to the shoulder.
 
-![Leg modeling](/assets/Ronan/Leg_modeling.png "Leg modeling")
+![Leg modeling](/doc/Rapports/assets/Ronan/Leg_modeling.png "Leg modeling")
 
 ## **Next week**
 
