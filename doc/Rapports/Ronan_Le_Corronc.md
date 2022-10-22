@@ -39,7 +39,7 @@ The joints are now almost finished so I'm going to focus on modeling the transmi
 The next step will also be to design the shoulder which will contain the motors and the position sensors. Then to focus on the connection with the body. This will allow us to start the complete assembly of the robot and correct the different errors before starting the production.
 
 
-# Week 41 - October 14, 2022 - 4h
+# Week 41 - October 14, 2022 - 7h
 
 ## **Component change**
 
