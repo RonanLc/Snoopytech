@@ -27,6 +27,7 @@ J'ai également fait de recherches sur les entretoises existantes sur le marché
 # Worksession 2 -17/10/2022
 
 ## Camera and ultrasound sensor
+
 During this session, my work was focused on the recherch and the conception/design of a piece allowing our camera and ultrasound sensor to rotate at an angle of 180°. 
 Each sensor will have its own support, which will use a servo motor SG-90 to rotate. 
 Thus, I needed to design a support for the servo that makes its rotation axis the same as the support's swivel axis.
@@ -55,11 +56,12 @@ Thereby, the body seems capable of withstanding the totale weight that it will b
 # Worksession 3 - 28/10/2022
 
 ## Motor and support
+
 Over this session, I focused of the implementation of the brushless motors we will be using (ACK-5312CP).
 I began by modeling it from the dimensions found on the merchant's website.
 
 
-[Photo]![brushless](https://user-images.githubusercontent.com/95374519/198837114-64c4d344-b746-41b4-a09e-99b204f7412f.png)
+![brushless](https://user-images.githubusercontent.com/95374519/198837114-64c4d344-b746-41b4-a09e-99b204f7412f.png)
 
 
 My next aim was to find a solution allowing us to link the motors to the body.
@@ -75,8 +77,9 @@ I haven't figure out yet if the support that holds the motor by the foot will be
 make it in steel. In the case we make it in steel, we might not need a support for the motor's axe. 
 Thus, I only modeled the support for the motor's foot, since the modeling for the axe is similar.
 
-## Assmebly
-Finally, I attached the head desgined last week to the body to get a first preview of the assembly.
+## Assembly
+
+Finally, I attached the head designed last week to the body to get a first preview of the assembly.
 
 ![assembly_head](https://user-images.githubusercontent.com/95374519/198837129-d87fb6bd-d6a1-41e4-b9e3-22690e76c07c.png)
 
