@@ -1,44 +1,44 @@
-# **New -** Week 42 - October 18, 2022 - 17h
+# **New -** Week 43 - October 28, 2022 - 22h
 
-I focused this week on the robot leg. I looked at its design, its performance and how can I build something strong and light.
+## Shoulder preliminary conception 
 
-## **Leg schematic**
+The leg was finish so I start working about the motor part and mostly **the shoulder part**. I made a lot of sketching because this part is the **most complex** of the leg build.
 
-I realized that most of the existing robots were still designed in a similar way.
+The shoulder must fit a lot of part in it :
+- The 2 motors of the legs
+- The belt of the hip speed reduction
+- The 2 potentiometers to check the knee and hip position
+- A cable connector to power all the leg part
+- The pullet for the shoulder rotation
 
-![Leg design](/doc/Rapports/assets/Ronan/Leg_design.png "Leg design")
+The difficulty here is to fit every thing in the shoulder. But the shoulder must be very **compact, light and also have a good design.**
 
-They all have a straight thigh and then a curved tibia so I decided to base the leg on that.
+## Shoulder modeling
 
-The thigh and the shin being generally of the same size, I decided to make the thigh and the shin of 15cm. This will allow us to make the robot go up to 30cm high in case we have to overcome big obstacles. This will also be more than enough to climb the steps.
+I decided to made the shoulder in **2 part**, one for the top and one for the bottom. These parts will be made with a **3D printer**.
 
-## **Modeling of the leg**
+So I start to modeling the part to fix the shoulder on the frame. I decided to made an other tube, around the carbon fiber tube with 2 bearings.
 
-As indicated in our report, I designed the thigh and the tibia so that they can be cut out of plexiglass. This will allow us to quickly change these parts if there is a problem because they are parts that will undergo strong constraints.
+![Shoulder tube](/doc/Rapports/assets/Ronan/shoulder_tube.png)
 
-![thigh and tibia modeling](/doc/Rapports/assets/Ronan/Thing_and_tibia_modeling.png "thigh and tibia modeling")
+After that I had to modeling someting to fix the 2 motors. I didn't want to fix the motors directly on 3D parts because it's not precise and solid enough.
 
-I then modeled the knee joint, then the hip joint. I decided to use mainly 3D printing to design the parts that hold the bearings.
+So i decided to fix the motors on a **plexiglass piece**.
 
-![knee joint](/doc/Rapports/assets/Ronan/articulation_genou.png "knee joint")
+For that I modeled **a gutter** that can accommodate the plexiglass plate. So the 2 3D parts will close on the plexiglass piece.
 
-![hip joint](/doc/Rapports/assets/Ronan/articulation_hanche.png "hip joint")
+![Shoulder gutter](/doc/Rapports/assets/Ronan/shoulder_gutter_part.png)
 
-The joints are almost finished. I have set up the materials of each part to have an idea of the weight of our future legs.
+The bottom part isn't finish yet but I start a assembly of the shoulder. I had the bottom and the top part, and the 2 bearing.
 
-![leg mass](/doc/Rapports/assets/Ronan/Leg_mass.png "Leg mass")
+![First shoulder assembly](/doc/Rapports/assets/Ronan/first_shoulder_assembly.png)
 
-So now we have the look and design that our leg will have, this gives us an idea of the visual that our robot will have and also the weight and capabilities.
+## Next week
 
-![total leg view](/doc/Rapports/assets/Ronan/Leg_3D_view.png "total leg view")
+During the next I'll continue the shoulder part.
 
-## **Next week**
-
-The joints are now almost finished so I'm going to focus on modeling the transmissions and the motorization next week.
-
-The next step will also be to design the shoulder which will contain the motors and the position sensors. Then to focus on the connection with the body. This will allow us to start the complete assembly of the robot and correct the different errors before starting the production.
-
-# __________________________________________________________________
+Now I need to focus on the motors fixation and the transmission part. When the transmission will be done, I'll fix the shoulder to the rest of the leg.
+_________________________________________________________________
 
 # Week 41 - October 14, 2022 - 7h
 
@@ -129,3 +129,44 @@ So now we have the look and design that our leg will have, this gives us an idea
 The joints are now almost finished so I'm going to focus on modeling the transmissions and the motorization next week.
 
 The next step will also be to design the shoulder which will contain the motors and the position sensors. Then to focus on the connection with the body. This will allow us to start the complete assembly of the robot and correct the different errors before starting the production.
+
+# Week 43 - October 28, 2022 - 22h
+
+## Shoulder preliminary conception 
+
+The leg was finish so I start working about the motor part and mostly **the shoulder part**. I made a lot of sketching because this part is the **most complex** of the leg build.
+
+The shoulder must fit a lot of part in it :
+- The 2 motors of the legs
+- The belt of the hip speed reduction
+- The 2 potentiometers to check the knee and hip position
+- A cable connector to power all the leg part
+- The pullet for the shoulder rotation
+
+The difficulty here is to fit every thing in the shoulder. But the shoulder must be very **compact, light and also have a good design.**
+
+## Shoulder modeling
+
+I decided to made the shoulder in **2 part**, one for the top and one for the bottom. These parts will be made with a **3D printer**.
+
+So I start to modeling the part to fix the shoulder on the frame. I decided to made an other tube, around the carbon fiber tube with 2 bearings.
+
+![Shoulder tube](/doc/Rapports/assets/Ronan/shoulder_tube.png)
+
+After that I had to modeling someting to fix the 2 motors. I didn't want to fix the motors directly on 3D parts because it's not precise and solid enough.
+
+So i decided to fix the motors on a **plexiglass piece**.
+
+For that I modeled **a gutter** that can accommodate the plexiglass plate. So the 2 3D parts will close on the plexiglass piece.
+
+![Shoulder gutter](/doc/Rapports/assets/Ronan/shoulder_gutter_part.png)
+
+The bottom part isn't finish yet but I start a assembly of the shoulder. I had the bottom and the top part, and the 2 bearing.
+
+![First shoulder assembly](/doc/Rapports/assets/Ronan/first_shoulder_assembly.png)
+
+## Next week
+
+During the next I'll continue the shoulder part.
+
+Now I need to focus on the motors fixation and the transmission part. When the transmission will be done, I'll fix the shoulder to the rest of the leg.
