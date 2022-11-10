@@ -1,0 +1,751 @@
+<!DOCTYPE html>
+<html dir="ltr" lang="en-US"
+prefix="og: https://ogp.me/ns#" >
+<head>
+<meta charset="UTF-8">
+<link rel="profile" href="https://gmpg.org/xfn/11">
+<title>How to Compress and Decompress a .bz2 File in Linux</title>
+<!-- All in One SEO 4.2.6.1 - aioseo.com -->
+<meta name="description" content="In this tutorial, we will look at how to compress and decompress .bz2 files using the bzip2 command-line tool in Linux systems." />
+<meta name="robots" content="max-image-preview:large" />
+<meta name="google-site-verification" content="Lm2_CHFkgECZgEzZiN-gzDJYEF-xw7OMoGrpvemM-rs" />
+<meta name="msvalidate.01" content="A92F4825ED7ABD97DAACAC1C05B9AF8E" />
+<meta name="yandex-verification" content="327bf54006030f4a" />
+<meta name="keywords" content="unpack bzip2 file,extract bz2 centos,compress bzip2 linux,linux tricks,tar command examples" />
+<link rel="canonical" href="https://www.tecmint.com/linux-compress-decompress-bz2-files-using-bzip2/" />
+<meta name="generator" content="All in One SEO (AIOSEO) 4.2.6.1 " />
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-33207530-1"></script>
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'UA-33207530-1');
+</script>
+<meta property="og:locale" content="en_US" />
+<meta property="og:site_name" content="How to Compress and Decompress a .bz2 File in Linux" />
+<meta property="og:type" content="article" />
+<meta property="og:title" content="How to Compress and Decompress a .bz2 File in Linux" />
+<meta property="og:description" content="In this tutorial, we will look at how to compress and decompress .bz2 files using the bzip2 command-line tool in Linux systems." />
+<meta property="og:url" content="https://www.tecmint.com/linux-compress-decompress-bz2-files-using-bzip2/" />
+<meta property="og:image" content="https://www.tecmint.com/wp-content/uploads/2016/11/Compress-Decompress-bz2-File-bzip2-Linux.png" />
+<meta property="og:image:secure_url" content="https://www.tecmint.com/wp-content/uploads/2016/11/Compress-Decompress-bz2-File-bzip2-Linux.png" />
+<meta property="og:image:width" content="720" />
+<meta property="og:image:height" content="340" />
+<meta property="article:published_time" content="2016-11-03T06:00:05+00:00" />
+<meta property="article:modified_time" content="2022-11-08T05:14:51+00:00" />
+<meta name="twitter:card" content="summary" />
+<meta name="twitter:title" content="How to Compress and Decompress a .bz2 File in Linux" />
+<meta name="twitter:description" content="In this tutorial, we will look at how to compress and decompress .bz2 files using the bzip2 command-line tool in Linux systems." />
+<meta name="twitter:image" content="https://www.tecmint.com/wp-content/uploads/2016/11/Compress-Decompress-bz2-File-bzip2-Linux.png" />
+<!-- All in One SEO -->
+<meta name="viewport" content="width=device-width, initial-scale=1"><link rel='dns-prefetch' href='//www.tecmint.com' />
+<link rel='dns-prefetch' href='//fonts.googleapis.com' />
+<link href='https://fonts.gstatic.com' crossorigin rel='preconnect' />
+<link rel="alternate" type="application/rss+xml" title="Tecmint: Linux Howtos, Tutorials &amp; Guides &raquo; Feed" href="https://www.tecmint.com/feed/" />
+<link rel="alternate" type="application/rss+xml" title="Tecmint: Linux Howtos, Tutorials &amp; Guides &raquo; Comments Feed" href="https://www.tecmint.com/comments/feed/" />
+<link rel="alternate" type="application/rss+xml" title="Tecmint: Linux Howtos, Tutorials &amp; Guides &raquo; How to Compress and Decompress a .bz2 File in Linux Comments Feed" href="https://www.tecmint.com/linux-compress-decompress-bz2-files-using-bzip2/feed/" />
+<!-- <link rel='stylesheet' id='classic-theme-styles-css' href='https://www.tecmint.com/wp-includes/css/classic-themes.min.css?ver=1' media='all' /> -->
+<link rel="stylesheet" type="text/css" href="//www.tecmint.com/wp-content/cache/wpfc-minified/kz47tdcq/84lpd.css" media="all"/>
+<style id='global-styles-inline-css'>
+body{--wp--preset--color--black: #000000;--wp--preset--color--cyan-bluish-gray: #abb8c3;--wp--preset--color--white: #ffffff;--wp--preset--color--pale-pink: #f78da7;--wp--preset--color--vivid-red: #cf2e2e;--wp--preset--color--luminous-vivid-orange: #ff6900;--wp--preset--color--luminous-vivid-amber: #fcb900;--wp--preset--color--light-green-cyan: #7bdcb5;--wp--preset--color--vivid-green-cyan: #00d084;--wp--preset--color--pale-cyan-blue: #8ed1fc;--wp--preset--color--vivid-cyan-blue: #0693e3;--wp--preset--color--vivid-purple: #9b51e0;--wp--preset--color--contrast: var(--contrast);--wp--preset--color--contrast-2: var(--contrast-2);--wp--preset--color--contrast-3: var(--contrast-3);--wp--preset--color--base: var(--base);--wp--preset--color--base-2: var(--base-2);--wp--preset--color--base-3: var(--base-3);--wp--preset--color--accent: var(--accent);--wp--preset--gradient--vivid-cyan-blue-to-vivid-purple: linear-gradient(135deg,rgba(6,147,227,1) 0%,rgb(155,81,224) 100%);--wp--preset--gradient--light-green-cyan-to-vivid-green-cyan: linear-gradient(135deg,rgb(122,220,180) 0%,rgb(0,208,130) 100%);--wp--preset--gradient--luminous-vivid-amber-to-luminous-vivid-orange: linear-gradient(135deg,rgba(252,185,0,1) 0%,rgba(255,105,0,1) 100%);--wp--preset--gradient--luminous-vivid-orange-to-vivid-red: linear-gradient(135deg,rgba(255,105,0,1) 0%,rgb(207,46,46) 100%);--wp--preset--gradient--very-light-gray-to-cyan-bluish-gray: linear-gradient(135deg,rgb(238,238,238) 0%,rgb(169,184,195) 100%);--wp--preset--gradient--cool-to-warm-spectrum: linear-gradient(135deg,rgb(74,234,220) 0%,rgb(151,120,209) 20%,rgb(207,42,186) 40%,rgb(238,44,130) 60%,rgb(251,105,98) 80%,rgb(254,248,76) 100%);--wp--preset--gradient--blush-light-purple: linear-gradient(135deg,rgb(255,206,236) 0%,rgb(152,150,240) 100%);--wp--preset--gradient--blush-bordeaux: linear-gradient(135deg,rgb(254,205,165) 0%,rgb(254,45,45) 50%,rgb(107,0,62) 100%);--wp--preset--gradient--luminous-dusk: linear-gradient(135deg,rgb(255,203,112) 0%,rgb(199,81,192) 50%,rgb(65,88,208) 100%);--wp--preset--gradient--pale-ocean: linear-gradient(135deg,rgb(255,245,203) 0%,rgb(182,227,212) 50%,rgb(51,167,181) 100%);--wp--preset--gradient--electric-grass: linear-gradient(135deg,rgb(202,248,128) 0%,rgb(113,206,126) 100%);--wp--preset--gradient--midnight: linear-gradient(135deg,rgb(2,3,129) 0%,rgb(40,116,252) 100%);--wp--preset--duotone--dark-grayscale: url('#wp-duotone-dark-grayscale');--wp--preset--duotone--grayscale: url('#wp-duotone-grayscale');--wp--preset--duotone--purple-yellow: url('#wp-duotone-purple-yellow');--wp--preset--duotone--blue-red: url('#wp-duotone-blue-red');--wp--preset--duotone--midnight: url('#wp-duotone-midnight');--wp--preset--duotone--magenta-yellow: url('#wp-duotone-magenta-yellow');--wp--preset--duotone--purple-green: url('#wp-duotone-purple-green');--wp--preset--duotone--blue-orange: url('#wp-duotone-blue-orange');--wp--preset--font-size--small: 13px;--wp--preset--font-size--medium: 20px;--wp--preset--font-size--large: 36px;--wp--preset--font-size--x-large: 42px;--wp--preset--spacing--20: 0.44rem;--wp--preset--spacing--30: 0.67rem;--wp--preset--spacing--40: 1rem;--wp--preset--spacing--50: 1.5rem;--wp--preset--spacing--60: 2.25rem;--wp--preset--spacing--70: 3.38rem;--wp--preset--spacing--80: 5.06rem;}:where(.is-layout-flex){gap: 0.5em;}body .is-layout-flow > .alignleft{float: left;margin-inline-start: 0;margin-inline-end: 2em;}body .is-layout-flow > .alignright{float: right;margin-inline-start: 2em;margin-inline-end: 0;}body .is-layout-flow > .aligncenter{margin-left: auto !important;margin-right: auto !important;}body .is-layout-constrained > .alignleft{float: left;margin-inline-start: 0;margin-inline-end: 2em;}body .is-layout-constrained > .alignright{float: right;margin-inline-start: 2em;margin-inline-end: 0;}body .is-layout-constrained > .aligncenter{margin-left: auto !important;margin-right: auto !important;}body .is-layout-constrained > :where(:not(.alignleft):not(.alignright):not(.alignfull)){max-width: var(--wp--style--global--content-size);margin-left: auto !important;margin-right: auto !important;}body .is-layout-constrained > .alignwide{max-width: var(--wp--style--global--wide-size);}body .is-layout-flex{display: flex;}body .is-layout-flex{flex-wrap: wrap;align-items: center;}body .is-layout-flex > *{margin: 0;}:where(.wp-block-columns.is-layout-flex){gap: 2em;}.has-black-color{color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-color{color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-color{color: var(--wp--preset--color--white) !important;}.has-pale-pink-color{color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-color{color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-color{color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-color{color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-color{color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-color{color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-color{color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-color{color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-color{color: var(--wp--preset--color--vivid-purple) !important;}.has-black-background-color{background-color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-background-color{background-color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-background-color{background-color: var(--wp--preset--color--white) !important;}.has-pale-pink-background-color{background-color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-background-color{background-color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-background-color{background-color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-background-color{background-color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-background-color{background-color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-background-color{background-color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-background-color{background-color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-background-color{background-color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-background-color{background-color: var(--wp--preset--color--vivid-purple) !important;}.has-black-border-color{border-color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-border-color{border-color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-border-color{border-color: var(--wp--preset--color--white) !important;}.has-pale-pink-border-color{border-color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-border-color{border-color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-border-color{border-color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-border-color{border-color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-border-color{border-color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-border-color{border-color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-border-color{border-color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-border-color{border-color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-border-color{border-color: var(--wp--preset--color--vivid-purple) !important;}.has-vivid-cyan-blue-to-vivid-purple-gradient-background{background: var(--wp--preset--gradient--vivid-cyan-blue-to-vivid-purple) !important;}.has-light-green-cyan-to-vivid-green-cyan-gradient-background{background: var(--wp--preset--gradient--light-green-cyan-to-vivid-green-cyan) !important;}.has-luminous-vivid-amber-to-luminous-vivid-orange-gradient-background{background: var(--wp--preset--gradient--luminous-vivid-amber-to-luminous-vivid-orange) !important;}.has-luminous-vivid-orange-to-vivid-red-gradient-background{background: var(--wp--preset--gradient--luminous-vivid-orange-to-vivid-red) !important;}.has-very-light-gray-to-cyan-bluish-gray-gradient-background{background: var(--wp--preset--gradient--very-light-gray-to-cyan-bluish-gray) !important;}.has-cool-to-warm-spectrum-gradient-background{background: var(--wp--preset--gradient--cool-to-warm-spectrum) !important;}.has-blush-light-purple-gradient-background{background: var(--wp--preset--gradient--blush-light-purple) !important;}.has-blush-bordeaux-gradient-background{background: var(--wp--preset--gradient--blush-bordeaux) !important;}.has-luminous-dusk-gradient-background{background: var(--wp--preset--gradient--luminous-dusk) !important;}.has-pale-ocean-gradient-background{background: var(--wp--preset--gradient--pale-ocean) !important;}.has-electric-grass-gradient-background{background: var(--wp--preset--gradient--electric-grass) !important;}.has-midnight-gradient-background{background: var(--wp--preset--gradient--midnight) !important;}.has-small-font-size{font-size: var(--wp--preset--font-size--small) !important;}.has-medium-font-size{font-size: var(--wp--preset--font-size--medium) !important;}.has-large-font-size{font-size: var(--wp--preset--font-size--large) !important;}.has-x-large-font-size{font-size: var(--wp--preset--font-size--x-large) !important;}
+.wp-block-navigation a:where(:not(.wp-element-button)){color: inherit;}
+:where(.wp-block-columns.is-layout-flex){gap: 2em;}
+.wp-block-pullquote{font-size: 1.5em;line-height: 1.6;}
+</style>
+<!-- <link rel='stylesheet' id='fancybox-style-css' href='https://www.tecmint.com/wp-content/plugins/light/css/jquery.fancybox.css?ver=6.1' media='all' /> -->
+<!-- <link rel='stylesheet' id='stcr-style-css' href='https://www.tecmint.com/wp-content/plugins/subscribe-to-comments-reloaded/includes/css/stcr-style.css?ver=6.1' media='all' /> -->
+<!-- <link rel='stylesheet' id='wp-show-posts-css' href='https://www.tecmint.com/wp-content/plugins/wp-show-posts/css/wp-show-posts-min.css?ver=1.1.3' media='all' /> -->
+<!-- <link rel='stylesheet' id='generate-style-css' href='https://www.tecmint.com/wp-content/themes/tecmint/assets/css/all.min.css?ver=3.1.3' media='all' /> -->
+<link rel="stylesheet" type="text/css" href="//www.tecmint.com/wp-content/cache/wpfc-minified/7xbcmap3/e0oix.css" media="all"/>
+<style id='generate-style-inline-css'>
+body{background-color:#f9f9fe;color:#3a3a3a;}a{color:#1e73be;}a:hover, a:focus, a:active{color:#000000;}body .grid-container{max-width:1200px;}.wp-block-group__inner-container{max-width:1200px;margin-left:auto;margin-right:auto;}.site-header .header-image{width:300px;}.generate-back-to-top{font-size:20px;border-radius:3px;position:fixed;bottom:30px;right:30px;line-height:40px;width:40px;text-align:center;z-index:10;transition:opacity 300ms ease-in-out;}.navigation-search{position:absolute;left:-99999px;pointer-events:none;visibility:hidden;z-index:20;width:100%;top:0;transition:opacity 100ms ease-in-out;opacity:0;}.navigation-search.nav-search-active{left:0;right:0;pointer-events:auto;visibility:visible;opacity:1;}.navigation-search input[type="search"]{outline:0;border:0;vertical-align:bottom;line-height:1;opacity:0.9;width:100%;z-index:20;border-radius:0;-webkit-appearance:none;height:60px;}.navigation-search input::-ms-clear{display:none;width:0;height:0;}.navigation-search input::-ms-reveal{display:none;width:0;height:0;}.navigation-search input::-webkit-search-decoration, .navigation-search input::-webkit-search-cancel-button, .navigation-search input::-webkit-search-results-button, .navigation-search input::-webkit-search-results-decoration{display:none;}.main-navigation li.search-item{z-index:21;}li.search-item.active{transition:opacity 100ms ease-in-out;}.nav-left-sidebar .main-navigation li.search-item.active,.nav-right-sidebar .main-navigation li.search-item.active{width:auto;display:inline-block;float:right;}.gen-sidebar-nav .navigation-search{top:auto;bottom:0;}.dropdown-click .main-navigation ul ul{display:none;visibility:hidden;}.dropdown-click .main-navigation ul ul ul.toggled-on{left:0;top:auto;position:relative;box-shadow:none;border-bottom:1px solid rgba(0,0,0,0.05);}.dropdown-click .main-navigation ul ul li:last-child > ul.toggled-on{border-bottom:0;}.dropdown-click .main-navigation ul.toggled-on, .dropdown-click .main-navigation ul li.sfHover > ul.toggled-on{display:block;left:auto;right:auto;opacity:1;visibility:visible;pointer-events:auto;height:auto;overflow:visible;float:none;}.dropdown-click .main-navigation.sub-menu-left .sub-menu.toggled-on, .dropdown-click .main-navigation.sub-menu-left ul li.sfHover > ul.toggled-on{right:0;}.dropdown-click nav ul ul ul{background-color:transparent;}.dropdown-click .widget-area .main-navigation ul ul{top:auto;position:absolute;float:none;width:100%;left:-99999px;}.dropdown-click .widget-area .main-navigation ul ul.toggled-on{position:relative;left:0;right:0;}.dropdown-click .widget-area.sidebar .main-navigation ul li.sfHover ul, .dropdown-click .widget-area.sidebar .main-navigation ul li:hover ul{right:0;left:0;}.dropdown-click .sfHover > a > .dropdown-menu-toggle > .gp-icon svg{transform:rotate(180deg);}:root{--contrast:#222222;--contrast-2:#575760;--contrast-3:#b2b2be;--base:#f0f0f0;--base-2:#f7f8f9;--base-3:#ffffff;--accent:#1e73be;}.has-contrast-color{color:#222222;}.has-contrast-background-color{background-color:#222222;}.has-contrast-2-color{color:#575760;}.has-contrast-2-background-color{background-color:#575760;}.has-contrast-3-color{color:#b2b2be;}.has-contrast-3-background-color{background-color:#b2b2be;}.has-base-color{color:#f0f0f0;}.has-base-background-color{background-color:#f0f0f0;}.has-base-2-color{color:#f7f8f9;}.has-base-2-background-color{background-color:#f7f8f9;}.has-base-3-color{color:#ffffff;}.has-base-3-background-color{background-color:#ffffff;}.has-accent-color{color:#1e73be;}.has-accent-background-color{background-color:#1e73be;}body, button, input, select, textarea{font-family:Muli, sans-serif;font-weight:400;}body{line-height:1.7;}.top-bar{font-weight:900;font-size:15px;}.main-title{font-size:45px;}.main-navigation a, .main-navigation .menu-toggle, .main-navigation .menu-bar-items{font-family:Nunito, sans-serif;font-weight:900;font-size:15px;}.widget-title{font-family:Nunito, sans-serif;font-weight:700;}.site-info{font-family:Nunito, sans-serif;}h1{font-family:Nunito, sans-serif;font-weight:600;font-size:38px;line-height:1.3;}h2{font-family:Nunito, sans-serif;font-weight:700;font-size:26px;line-height:1.2;}h3{font-family:Nunito, sans-serif;font-weight:600;font-size:30px;line-height:1.3;}h4{font-family:Nunito, sans-serif;font-weight:600;font-size:26px;}h5{font-family:Nunito, sans-serif;font-weight:600;font-size:25px;}.top-bar{background-color:#f15a29;color:#ffffff;}.top-bar a{color:#ffffff;}.top-bar a:hover{color:#ffffff;}.site-header{background-color:#075b88;color:#3a3a3a;}.site-header a{color:#3a3a3a;}.main-title a,.main-title a:hover{color:#222222;}.site-description{color:#757575;}.main-navigation,.main-navigation ul ul{background-color:#2f6dab;}.main-navigation .main-nav ul li a, .main-navigation .menu-toggle, .main-navigation .menu-bar-items{color:#ffffff;}.main-navigation .main-nav ul li:not([class*="current-menu-"]):hover > a, .main-navigation .main-nav ul li:not([class*="current-menu-"]):focus > a, .main-navigation .main-nav ul li.sfHover:not([class*="current-menu-"]) > a, .main-navigation .menu-bar-item:hover > a, .main-navigation .menu-bar-item.sfHover > a{color:#ffffff;background-color:#3f3f3f;}button.menu-toggle:hover,button.menu-toggle:focus,.main-navigation .mobile-bar-items a,.main-navigation .mobile-bar-items a:hover,.main-navigation .mobile-bar-items a:focus{color:#ffffff;}.main-navigation .main-nav ul li[class*="current-menu-"] > a{color:#ffffff;background-color:#3498db;}.navigation-search input[type="search"],.navigation-search input[type="search"]:active, .navigation-search input[type="search"]:focus, .main-navigation .main-nav ul li.search-item.active > a, .main-navigation .menu-bar-items .search-item.active > a{color:#ffffff;background-color:#3f3f3f;}.main-navigation ul ul{background-color:#3f3f3f;}.main-navigation .main-nav ul ul li a{color:#ffffff;}.main-navigation .main-nav ul ul li:not([class*="current-menu-"]):hover > a,.main-navigation .main-nav ul ul li:not([class*="current-menu-"]):focus > a, .main-navigation .main-nav ul ul li.sfHover:not([class*="current-menu-"]) > a{color:#ffffff;background-color:#4f4f4f;}.main-navigation .main-nav ul ul li[class*="current-menu-"] > a{color:#ffffff;background-color:#4f4f4f;}.separate-containers .inside-article, .separate-containers .comments-area, .separate-containers .page-header, .one-container .container, .separate-containers .paging-navigation, .inside-page-header{background-color:#ffffff;}.inside-article a,.paging-navigation a,.comments-area a,.page-header a{color:#212d45;}.inside-article a:hover,.paging-navigation a:hover,.comments-area a:hover,.page-header a:hover{color:#dc3545;}.entry-header h1,.page-header h1{color:#212d45;}.entry-meta{color:#595959;}.entry-meta a{color:#595959;}.entry-meta a:hover{color:#1e73be;}h1{color:#212d45;}h2{color:#212d45;}h3{color:#3498db;}h4{color:#aa4b80;}.sidebar .widget{background-color:#ffffff;}.sidebar .widget .widget-title{color:#000000;}.footer-widgets{background-color:#ffffff;}.footer-widgets .widget-title{color:#000000;}.site-info{color:#ffffff;background-color:#222222;}.site-info a{color:#ffffff;}.site-info a:hover{color:#606060;}.footer-bar .widget_nav_menu .current-menu-item a{color:#606060;}input[type="text"],input[type="email"],input[type="url"],input[type="password"],input[type="search"],input[type="tel"],input[type="number"],textarea,select{color:#666666;background-color:#fafafa;border-color:#cccccc;}input[type="text"]:focus,input[type="email"]:focus,input[type="url"]:focus,input[type="password"]:focus,input[type="search"]:focus,input[type="tel"]:focus,input[type="number"]:focus,textarea:focus,select:focus{color:#666666;background-color:#ffffff;border-color:#bfbfbf;}button,html input[type="button"],input[type="reset"],input[type="submit"],a.button,a.wp-block-button__link:not(.has-background){color:#ffffff;background-color:#666666;}button:hover,html input[type="button"]:hover,input[type="reset"]:hover,input[type="submit"]:hover,a.button:hover,button:focus,html input[type="button"]:focus,input[type="reset"]:focus,input[type="submit"]:focus,a.button:focus,a.wp-block-button__link:not(.has-background):active,a.wp-block-button__link:not(.has-background):focus,a.wp-block-button__link:not(.has-background):hover{color:#ffffff;background-color:#3f3f3f;}a.generate-back-to-top{background-color:rgba( 0,0,0,0.4 );color:#ffffff;}a.generate-back-to-top:hover,a.generate-back-to-top:focus{background-color:rgba( 0,0,0,0.6 );color:#ffffff;}@media (max-width:768px){.main-navigation .menu-bar-item:hover > a, .main-navigation .menu-bar-item.sfHover > a{background:none;color:#ffffff;}}.inside-top-bar{padding:5px;}.inside-header{padding:40px;}.site-main .wp-block-group__inner-container{padding:40px;}.entry-content .alignwide, body:not(.no-sidebar) .entry-content .alignfull{margin-left:-40px;width:calc(100% + 80px);max-width:calc(100% + 80px);}.container.grid-container{max-width:1280px;}.rtl .menu-item-has-children .dropdown-menu-toggle{padding-left:20px;}.rtl .main-navigation .main-nav ul li.menu-item-has-children > a{padding-right:20px;}.widget-area .widget{padding:20px 10px 20px 10px;}.site-info{padding:20px;}@media (max-width:768px){.separate-containers .inside-article, .separate-containers .comments-area, .separate-containers .page-header, .separate-containers .paging-navigation, .one-container .site-content, .inside-page-header{padding:30px;}.site-main .wp-block-group__inner-container{padding:30px;}.site-info{padding-right:10px;padding-left:10px;}.entry-content .alignwide, body:not(.no-sidebar) .entry-content .alignfull{margin-left:-30px;width:calc(100% + 60px);max-width:calc(100% + 60px);}}/* End cached CSS */@media (max-width:768px){.main-navigation .menu-toggle,.main-navigation .mobile-bar-items,.sidebar-nav-mobile:not(#sticky-placeholder){display:block;}.main-navigation ul,.gen-sidebar-nav{display:none;}[class*="nav-float-"] .site-header .inside-header > *{float:none;clear:both;}}
+.dynamic-author-image-rounded{border-radius:100%;}.dynamic-featured-image, .dynamic-author-image{vertical-align:middle;}.one-container.blog .dynamic-content-template:not(:last-child), .one-container.archive .dynamic-content-template:not(:last-child){padding-bottom:0px;}.dynamic-entry-excerpt > p:last-child{margin-bottom:0px;}
+.post-image:not(:first-child), .page-content:not(:first-child), .entry-content:not(:first-child), .entry-summary:not(:first-child), footer.entry-meta{margin-top:1.5em;}.post-image-above-header .inside-article div.featured-image, .post-image-above-header .inside-article div.post-image{margin-bottom:1.5em;}
+</style>
+<!-- <link rel='stylesheet' id='generate-child-css' href='https://www.tecmint.com/wp-content/themes/tecmint_child/style.css?ver=1649917367' media='all' /> -->
+<link rel="stylesheet" type="text/css" href="//www.tecmint.com/wp-content/cache/wpfc-minified/1otcli0l/e0oix.css" media="all"/>
+<link rel='stylesheet' id='generate-google-fonts-css' href='https://fonts.googleapis.com/css?family=Muli%3A200%2C200italic%2C300%2C300italic%2Cregular%2Citalic%2C600%2C600italic%2C700%2C700italic%2C800%2C800italic%2C900%2C900italic%7CNunito%3A200%2C200italic%2C300%2C300italic%2Cregular%2Citalic%2C600%2C600italic%2C700%2C700italic%2C800%2C800italic%2C900%2C900italic&#038;display=auto&#038;ver=3.1.3' media='all' />
+<!-- <link rel='stylesheet' id='generate-secondary-nav-css' href='https://www.tecmint.com/wp-content/plugins/gp-premium/secondary-nav/functions/css/style.min.css?ver=2.2.0' media='all' /> -->
+<link rel="stylesheet" type="text/css" href="//www.tecmint.com/wp-content/cache/wpfc-minified/g1nakzht/e0oix.css" media="all"/>
+<style id='generate-secondary-nav-inline-css'>
+.secondary-navigation{background-color:#0a1e48;}.secondary-navigation .top-bar{color:#ffffff;line-height:60px;}.secondary-navigation .top-bar a{color:#ffffff;}.secondary-navigation .top-bar a:hover, .secondary-navigation .top-bar a:focus{color:#303030;}.secondary-navigation .main-nav ul li a,.secondary-navigation .menu-toggle,.secondary-menu-bar-items .menu-bar-item > a{color:#ffffff;line-height:60px;}.secondary-navigation .secondary-menu-bar-items{color:#ffffff;}button.secondary-menu-toggle:hover,button.secondary-menu-toggle:focus{color:#ffffff;}.widget-area .secondary-navigation{margin-bottom:20px;}.secondary-navigation ul ul{background-color:#303030;top:auto;}.secondary-navigation .main-nav ul ul li a{color:#ffffff;}.secondary-navigation .main-nav ul li:not([class*="current-menu-"]):hover > a, .secondary-navigation .main-nav ul li:not([class*="current-menu-"]):focus > a, .secondary-navigation .main-nav ul li.sfHover:not([class*="current-menu-"]) > a, .secondary-menu-bar-items .menu-bar-item:hover > a{color:#ff6060;background-color:#303030;}.secondary-navigation .main-nav ul ul li:not([class*="current-menu-"]):hover > a,.secondary-navigation .main-nav ul ul li:not([class*="current-menu-"]):focus > a,.secondary-navigation .main-nav ul ul li.sfHover:not([class*="current-menu-"]) > a{color:#ffffff;background-color:#474747;}.secondary-navigation .main-nav ul li[class*="current-menu-"] > a{color:#f1c40f;background-color:#031230;}.secondary-navigation .main-nav ul ul li[class*="current-menu-"] > a{color:#ffffff;background-color:#474747;}.secondary-navigation.toggled .dropdown-menu-toggle:before{display:none;}@media (max-width:768px) {.secondary-menu-bar-items .menu-bar-item:hover > a{background: none;color: #ffffff;}}
+.secondary-navigation .main-nav ul li a, .secondary-navigation .menu-toggle, .secondary-navigation .menu-bar-items{font-family:Nunito, sans-serif;font-weight:900;font-size:15px;}
+</style>
+<!-- <link rel='stylesheet' id='generate-secondary-nav-mobile-css' href='https://www.tecmint.com/wp-content/plugins/gp-premium/secondary-nav/functions/css/style-mobile.min.css?ver=2.2.0' media='all' /> -->
+<link rel="stylesheet" type="text/css" href="//www.tecmint.com/wp-content/cache/wpfc-minified/g4dzjuqj/e0oix.css" media="all"/>
+<script src='//www.tecmint.com/wp-content/cache/wpfc-minified/fhgf5ep8/e0oix.js' type="text/javascript"></script>
+<!-- <script src='https://www.tecmint.com/wp-includes/js/jquery/jquery.min.js?ver=3.6.1' id='jquery-core-js'></script> -->
+<!-- <script src='https://www.tecmint.com/wp-includes/js/jquery/jquery-migrate.min.js?ver=3.3.2' id='jquery-migrate-js'></script> -->
+<link rel="https://api.w.org/" href="https://www.tecmint.com/wp-json/" /><link rel="alternate" type="application/json" href="https://www.tecmint.com/wp-json/wp/v2/posts/23300" /><link rel="EditURI" type="application/rsd+xml" title="RSD" href="https://www.tecmint.com/xmlrpc.php?rsd" />
+<link rel="wlwmanifest" type="application/wlwmanifest+xml" href="https://www.tecmint.com/wp-includes/wlwmanifest.xml" />
+<link rel='shortlink' href='https://www.tecmint.com/?p=23300' />
+<link rel="alternate" type="application/json+oembed" href="https://www.tecmint.com/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fwww.tecmint.com%2Flinux-compress-decompress-bz2-files-using-bzip2%2F" />
+<link rel="alternate" type="text/xml+oembed" href="https://www.tecmint.com/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fwww.tecmint.com%2Flinux-compress-decompress-bz2-files-using-bzip2%2F&#038;format=xml" />
+<!-- Google Sitelinks Search Box -->    
+<script type="application/ld+json">
+{
+"@context": "http://schema.org",
+"@type": "WebSite",
+"url": "https://www.tecmint.com/",
+"potentialAction": {
+"@type": "SearchAction",
+"target": "https://www.tecmint.com/?q={search_term}",
+"query-input": "required name=search_term"
+}
+}
+</script>
+<!-- PLACE THIS SECTION INSIDE OF YOUR HEAD TAGS -->
+<!-- Below is a link to a CSS file that accounts for Cumulative Layout Shift, a new Core Web Vitals subset that Google uses to help rank your site in search -->
+<!-- The file is intended to eliminate the layout shifts that are seen when ads load into the page. If you don't want to use this, simply remove this file -->
+<!-- To find out more about CLS, visit https://web.dev/vitals/ -->
+<link rel="stylesheet" href="https://a.pub.network/core/pubfig/cls.css">
+<script data-cfasync="false" type="text/javascript">
+var freestar = freestar || {};
+freestar.queue = freestar.queue || [];
+freestar.config = freestar.config || {};
+freestar.config.enabled_slots = [];
+freestar.initCallback = function () { (freestar.config.enabled_slots.length === 0) ? freestar.initCallbackCalled = false : freestar.newAdSlots(freestar.config.enabled_slots) }
+</script>
+<script src="https://a.pub.network/tecmint-com/pubfig.min.js" data-cfasync="false" async></script>
+<!-- PLACE THIS SECTION INSIDE OF YOUR BODY TAGS -->
+<link rel="icon" href="https://www.tecmint.com/wp-content/uploads/2020/07/favicon.ico" sizes="32x32" />
+<link rel="icon" href="https://www.tecmint.com/wp-content/uploads/2020/07/favicon.ico" sizes="192x192" />
+<link rel="apple-touch-icon" href="https://www.tecmint.com/wp-content/uploads/2020/07/favicon.ico" />
+<meta name="msapplication-TileImage" content="https://www.tecmint.com/wp-content/uploads/2020/07/favicon.ico" />
+<style id="wp-custom-css">
+.alertbox {background-color: #edf7fe;border-left: 4px solid #bde2fb;display: block;padding: 10px;margin-bottom: 25px;}
+.alertbox a {color:#bb0e30;text-decoration:underline;}
+.entry-content p a:visited {
+color: #c33;
+}
+@media (min-width: 1150px) {
+nav#secondary-navigation {
+max-height: 60px;
+}
+header#masthead {
+min-height: 186px;
+}
+nav#site-navigation {
+max-height:120px;
+min-height:60px;
+}
+}
+body {
+overflow-x:hidden;
+}
+.entry-header .entry-meta {font-size: 81%;}		</style>
+</head>
+<body data-rsssl=1 class="post-template-default single single-post postid-23300 single-format-standard wp-custom-logo wp-embed-responsive post-image-above-header post-image-aligned-center secondary-nav-above-header secondary-nav-aligned-left right-sidebar nav-below-header separate-containers fluid-header active-footer-widgets-3 nav-search-enabled nav-aligned-center header-aligned-left dropdown-click dropdown-click-menu-item" itemtype="https://schema.org/Blog" itemscope>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 0 0" width="0" height="0" focusable="false" role="none" style="visibility: hidden; position: absolute; left: -9999px; overflow: hidden;" ><defs><filter id="wp-duotone-dark-grayscale"><feColorMatrix color-interpolation-filters="sRGB" type="matrix" values=" .299 .587 .114 0 0 .299 .587 .114 0 0 .299 .587 .114 0 0 .299 .587 .114 0 0 " /><feComponentTransfer color-interpolation-filters="sRGB" ><feFuncR type="table" tableValues="0 0.49803921568627" /><feFuncG type="table" tableValues="0 0.49803921568627" /><feFuncB type="table" tableValues="0 0.49803921568627" /><feFuncA type="table" tableValues="1 1" /></feComponentTransfer><feComposite in2="SourceGraphic" operator="in" /></filter></defs></svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 0 0" width="0" height="0" focusable="false" role="none" style="visibility: hidden; position: absolute; left: -9999px; overflow: hidden;" ><defs><filter id="wp-duotone-grayscale"><feColorMatrix color-interpolation-filters="sRGB" type="matrix" values=" .299 .587 .114 0 0 .299 .587 .114 0 0 .299 .587 .114 0 0 .299 .587 .114 0 0 " /><feComponentTransfer color-interpolation-filters="sRGB" ><feFuncR type="table" tableValues="0 1" /><feFuncG type="table" tableValues="0 1" /><feFuncB type="table" tableValues="0 1" /><feFuncA type="table" tableValues="1 1" /></feComponentTransfer><feComposite in2="SourceGraphic" operator="in" /></filter></defs></svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 0 0" width="0" height="0" focusable="false" role="none" style="visibility: hidden; position: absolute; left: -9999px; overflow: hidden;" ><defs><filter id="wp-duotone-purple-yellow"><feColorMatrix color-interpolation-filters="sRGB" type="matrix" values=" .299 .587 .114 0 0 .299 .587 .114 0 0 .299 .587 .114 0 0 .299 .587 .114 0 0 " /><feComponentTransfer color-interpolation-filters="sRGB" ><feFuncR type="table" tableValues="0.54901960784314 0.98823529411765" /><feFuncG type="table" tableValues="0 1" /><feFuncB type="table" tableValues="0.71764705882353 0.25490196078431" /><feFuncA type="table" tableValues="1 1" /></feComponentTransfer><feComposite in2="SourceGraphic" operator="in" /></filter></defs></svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 0 0" width="0" height="0" focusable="false" role="none" style="visibility: hidden; position: absolute; left: -9999px; overflow: hidden;" ><defs><filter id="wp-duotone-blue-red"><feColorMatrix color-interpolation-filters="sRGB" type="matrix" values=" .299 .587 .114 0 0 .299 .587 .114 0 0 .299 .587 .114 0 0 .299 .587 .114 0 0 " /><feComponentTransfer color-interpolation-filters="sRGB" ><feFuncR type="table" tableValues="0 1" /><feFuncG type="table" tableValues="0 0.27843137254902" /><feFuncB type="table" tableValues="0.5921568627451 0.27843137254902" /><feFuncA type="table" tableValues="1 1" /></feComponentTransfer><feComposite in2="SourceGraphic" operator="in" /></filter></defs></svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 0 0" width="0" height="0" focusable="false" role="none" style="visibility: hidden; position: absolute; left: -9999px; overflow: hidden;" ><defs><filter id="wp-duotone-midnight"><feColorMatrix color-interpolation-filters="sRGB" type="matrix" values=" .299 .587 .114 0 0 .299 .587 .114 0 0 .299 .587 .114 0 0 .299 .587 .114 0 0 " /><feComponentTransfer color-interpolation-filters="sRGB" ><feFuncR type="table" tableValues="0 0" /><feFuncG type="table" tableValues="0 0.64705882352941" /><feFuncB type="table" tableValues="0 1" /><feFuncA type="table" tableValues="1 1" /></feComponentTransfer><feComposite in2="SourceGraphic" operator="in" /></filter></defs></svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 0 0" width="0" height="0" focusable="false" role="none" style="visibility: hidden; position: absolute; left: -9999px; overflow: hidden;" ><defs><filter id="wp-duotone-magenta-yellow"><feColorMatrix color-interpolation-filters="sRGB" type="matrix" values=" .299 .587 .114 0 0 .299 .587 .114 0 0 .299 .587 .114 0 0 .299 .587 .114 0 0 " /><feComponentTransfer color-interpolation-filters="sRGB" ><feFuncR type="table" tableValues="0.78039215686275 1" /><feFuncG type="table" tableValues="0 0.94901960784314" /><feFuncB type="table" tableValues="0.35294117647059 0.47058823529412" /><feFuncA type="table" tableValues="1 1" /></feComponentTransfer><feComposite in2="SourceGraphic" operator="in" /></filter></defs></svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 0 0" width="0" height="0" focusable="false" role="none" style="visibility: hidden; position: absolute; left: -9999px; overflow: hidden;" ><defs><filter id="wp-duotone-purple-green"><feColorMatrix color-interpolation-filters="sRGB" type="matrix" values=" .299 .587 .114 0 0 .299 .587 .114 0 0 .299 .587 .114 0 0 .299 .587 .114 0 0 " /><feComponentTransfer color-interpolation-filters="sRGB" ><feFuncR type="table" tableValues="0.65098039215686 0.40392156862745" /><feFuncG type="table" tableValues="0 1" /><feFuncB type="table" tableValues="0.44705882352941 0.4" /><feFuncA type="table" tableValues="1 1" /></feComponentTransfer><feComposite in2="SourceGraphic" operator="in" /></filter></defs></svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 0 0" width="0" height="0" focusable="false" role="none" style="visibility: hidden; position: absolute; left: -9999px; overflow: hidden;" ><defs><filter id="wp-duotone-blue-orange"><feColorMatrix color-interpolation-filters="sRGB" type="matrix" values=" .299 .587 .114 0 0 .299 .587 .114 0 0 .299 .587 .114 0 0 .299 .587 .114 0 0 " /><feComponentTransfer color-interpolation-filters="sRGB" ><feFuncR type="table" tableValues="0.098039215686275 1" /><feFuncG type="table" tableValues="0 0.66274509803922" /><feFuncB type="table" tableValues="0.84705882352941 0.41960784313725" /><feFuncA type="table" tableValues="1 1" /></feComponentTransfer><feComposite in2="SourceGraphic" operator="in" /></filter></defs></svg><a class="screen-reader-text skip-link" href="#content" title="Skip to content">Skip to content</a>		<div class="top-bar top-bar-align-center">
+<div class="inside-top-bar grid-container grid-parent">
+<aside id="custom_html-3" class="widget_text widget inner-padding widget_custom_html"><div class="textwidget custom-html-widget"><script language="JavaScript">
+<!--
+var r_text = new Array ();
+r_text[0] = "<a target='_blank' rel='noopener noreferrer' href='https://www.tecmint.com/red-hat-rhcsa-rhce-exam-certification-book/'>RedHat RHCSA and RHCE Certification Preparation Guide</a> - <a href='https://www.tecmint.com/red-hat-rhcsa-rhce-exam-certification-book/' target='_blank' rel='noopener noreferrer'>Get This Book</a>";
+r_text[1] = "<a target='_blank' rel='noopener noreferrer' href='https://www.tecmint.com/linux-foundation-lfcs-lfce-certification-exam-book/'>Linux Foundation LFCS and LFCE Certification Preparation Guide</a> - <a href='https://www.tecmint.com/linux-foundation-lfcs-lfce-certification-exam-book/' target='_blank' rel='noopener noreferrer'>Get This Book</a>";
+r_text[2] = "<a target='_blank' rel='noopener noreferrer' href='https://www.tecmint.com/learn-linux-in-one-week/'>Learn Linux in One Week and Go From Zero to Hero</a> - <a href='https://www.tecmint.com/learn-linux-in-one-week/' target='_blank' rel='noopener noreferrer'>Get This Book</a>";
+var i = Math.floor(3*Math.random())
+document.write(r_text[i]);
+//-->
+</script></div></aside>			</div>
+</div>
+<nav id="secondary-navigation" class="secondary-navigation" itemtype="https://schema.org/SiteNavigationElement" itemscope="itemscope">
+<div class="inside-navigation grid-container grid-parent">
+<button class="menu-toggle secondary-menu-toggle">
+<span class="gp-icon icon-menu-bars"><svg viewBox="0 0 512 512" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="1em" height="1em"><path d="M0 96c0-13.255 10.745-24 24-24h464c13.255 0 24 10.745 24 24s-10.745 24-24 24H24c-13.255 0-24-10.745-24-24zm0 160c0-13.255 10.745-24 24-24h464c13.255 0 24 10.745 24 24s-10.745 24-24 24H24c-13.255 0-24-10.745-24-24zm0 160c0-13.255 10.745-24 24-24h464c13.255 0 24 10.745 24 24s-10.745 24-24 24H24c-13.255 0-24-10.745-24-24z" /></svg><svg viewBox="0 0 512 512" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="1em" height="1em"><path d="M71.029 71.029c9.373-9.372 24.569-9.372 33.942 0L256 222.059l151.029-151.03c9.373-9.372 24.569-9.372 33.942 0 9.372 9.373 9.372 24.569 0 33.942L289.941 256l151.03 151.029c9.372 9.373 9.372 24.569 0 33.942-9.373 9.372-24.569 9.372-33.942 0L256 289.941l-151.029 151.03c-9.373 9.372-24.569 9.372-33.942 0-9.372-9.373-9.372-24.569 0-33.942L222.059 256 71.029 104.971c-9.372-9.373-9.372-24.569 0-33.942z" /></svg></span><span class="mobile-menu">Menu</span>					</button>
+<div class="main-nav"><ul id="menu-home" class=" secondary-menu sf-menu"><li id="menu-item-334" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-home menu-item-334"><a href="https://www.tecmint.com">Home</a></li>
+<li id="menu-item-3912" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-3912"><a title="Linux eBooks" target="_blank" rel="noopener" href="https://www.tecmint.com/linux-books-in-pdf-format/">Linux eBooks</a></li>
+<li id="menu-item-11736" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-11736"><a target="_blank" rel="noopener" href="https://www.tecmint.com/linux-online-training-courses/">Linux Online Courses</a></li>
+<li id="menu-item-13338" class="hosting menu-item menu-item-type-custom menu-item-object-custom menu-item-13338"><a title="Best Web Hosting Companies" target="_blank" rel="noopener" href="https://www.tecmint.com/best-web-hosting-for-linux/">Linux Hosting</a></li>
+<li id="menu-item-24734" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-24734"><a title="Linux Commands &#8211; A Beginners Cheat Sheet" target="_blank" rel="noopener" href="https://www.tecmint.com/linux-commands-cheat-sheet/">A-Z Linux Commands</a></li>
+<li id="menu-item-47601" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-47601"><a title="Tech Deals" target="_blank" rel="nofollow" href="https://deals.tecmint.com/">Tech Deals</a></li>
+<li id="menu-item-10774" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-10774"><a target="_blank" rel="noopener" href="https://www.tecmint.com/who-we-are/">About Us<span role="presentation" class="dropdown-menu-toggle"><span class="gp-icon icon-arrow"><svg viewBox="0 0 330 512" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="1em" height="1em"><path d="M305.913 197.085c0 2.266-1.133 4.815-2.833 6.514L171.087 335.593c-1.7 1.7-4.249 2.832-6.515 2.832s-4.815-1.133-6.515-2.832L26.064 203.599c-1.7-1.7-2.832-4.248-2.832-6.514s1.132-4.816 2.832-6.515l14.162-14.163c1.7-1.699 3.966-2.832 6.515-2.832 2.266 0 4.815 1.133 6.515 2.832l111.316 111.317 111.316-111.317c1.7-1.699 4.249-2.832 6.515-2.832s4.815 1.133 6.515 2.832l14.162 14.163c1.7 1.7 2.833 4.249 2.833 6.515z" /></svg></span></span></a>
+<ul class="sub-menu">
+<li id="menu-item-38583" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-38583"><a target="_blank" rel="noopener" href="https://www.tecmint.com/testimonials/">Testimonials</a></li>
+<li id="menu-item-38592" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-38592"><a target="_blank" rel="noopener" href="https://www.tecmint.com/hiring/">We are Hiring!</a></li>
+<li id="menu-item-11907" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-11907"><a title="Subscribe to TecMint Linux Updates" target="_blank" rel="noopener" href="https://www.tecmint.com/subscribe-to-blog/">Newsletter</a></li>
+<li id="menu-item-18575" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-18575"><a title="Support Us" href="https://www.tecmint.com/donate-to-tecmint/">Donate</a></li>
+<li id="menu-item-47590" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-47590"><a href="https://www.tecmint.com/advertise/">Advertise</a></li>
+<li id="menu-item-47591" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-47591"><a href="https://www.tecmint.com/contact-us/">Contact</a></li>
+<li id="menu-item-38582" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-38582"><a target="_blank" rel="noopener" href="https://www.tecmint.com/submit-article-request/">Submit Article Request</a></li>
+<li id="menu-item-38589" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-38589"><a target="_blank" rel="noopener" href="https://www.tecmint.com/suggest-an-update/">Suggest an Update</a></li>
+</ul>
+</li>
+<li id="menu-item-47594" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-47594"><a href="#">Follow Us<span role="presentation" class="dropdown-menu-toggle"><span class="gp-icon icon-arrow"><svg viewBox="0 0 330 512" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="1em" height="1em"><path d="M305.913 197.085c0 2.266-1.133 4.815-2.833 6.514L171.087 335.593c-1.7 1.7-4.249 2.832-6.515 2.832s-4.815-1.133-6.515-2.832L26.064 203.599c-1.7-1.7-2.832-4.248-2.832-6.514s1.132-4.816 2.832-6.515l14.162-14.163c1.7-1.699 3.966-2.832 6.515-2.832 2.266 0 4.815 1.133 6.515 2.832l111.316 111.317 111.316-111.317c1.7-1.699 4.249-2.832 6.515-2.832s4.815 1.133 6.515 2.832l14.162 14.163c1.7 1.7 2.833 4.249 2.833 6.515z" /></svg></span></span></a>
+<ul class="sub-menu">
+<li id="menu-item-47595" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-47595"><a title="Follow TecMint on Facebook" target="_blank" rel="nofollow" href="https://www.facebook.com/TecMint">Follow us on Facebook</a></li>
+<li id="menu-item-47596" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-47596"><a title="Follow TecMint on Twitter" target="_blank" rel="nofollow" href="https://twitter.com/tecmint">Follow us on Twitter</a></li>
+<li id="menu-item-47597" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-47597"><a title="Follow TecMint on Linkedin" target="_blank" rel="nofollow" href="https://www.linkedin.com/company/tecmint">Follow us on Linkedin</a></li>
+<li id="menu-item-47598" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-47598"><a title="Follow TecMint on Instagram" target="_blank" rel="nofollow" href="https://instagram.com/tecmint">Follow us on Instagram</a></li>
+<li id="menu-item-47599" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-47599"><a title="Subscribe to TecMint Newsletter" target="_blank" rel="noopener" href="https://www.tecmint.com/subscribe-to-blog/">Newsletter</a></li>
+<li id="menu-item-47600" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-47600"><a title="Follow Tecmint&#8217;s RSS Feed" target="_blank" rel="noopener" href="https://www.tecmint.com/feed/">Follow us via RSS Feed</a></li>
+</ul>
+</li>
+</ul></div>				</div><!-- .inside-navigation -->
+</nav><!-- #secondary-navigation -->
+<header class="site-header" id="masthead" aria-label="Site"  itemtype="https://schema.org/WPHeader" itemscope>
+<div class="inside-header grid-container grid-parent">
+<div class="header-widget">
+<aside id="custom_html-2" class="widget_text widget inner-padding widget_custom_html"><div class="textwidget custom-html-widget"><!-- Tag ID: tecmint_leaderboard_atf -->
+<div align="center" data-freestar-ad="__728x90" id="tecmint_leaderboard_atf">
+<script data-cfasync="false" type="text/javascript">
+freestar.config.enabled_slots.push({ placementName: "tecmint_leaderboard_atf", slotId: "tecmint_leaderboard_atf" });
+</script>
+</div></div></aside>			</div>
+<div class="site-logo">
+<a href="https://www.tecmint.com/" title="Tecmint: Linux Howtos, Tutorials &amp; Guides" rel="home">
+<img width="300" height="100" class="header-image" src="https://www.tecmint.com/wp-content/uploads/2020/07/logo.png" alt="Tecmint: Linux Howtos, Tutorials &amp; Guides" title="Tecmint: Linux Howtos, Tutorials &amp; Guides" />
+</a>
+</div>			</div>
+</header>
+<nav class="main-navigation sub-menu-right" id="site-navigation" aria-label="Primary"  itemtype="https://schema.org/SiteNavigationElement" itemscope>
+<div class="inside-navigation">
+<form method="get" class="search-form navigation-search" action="https://www.tecmint.com/">
+<input type="search" class="search-field" value="" name="s" title="Search" />
+</form>		<div class="mobile-bar-items">
+<span class="search-item">
+<a aria-label="Open Search Bar" href="#">
+<span class="gp-icon icon-search"><svg viewBox="0 0 512 512" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="1em" height="1em"><path fill-rule="evenodd" clip-rule="evenodd" d="M208 48c-88.366 0-160 71.634-160 160s71.634 160 160 160 160-71.634 160-160S296.366 48 208 48zM0 208C0 93.125 93.125 0 208 0s208 93.125 208 208c0 48.741-16.765 93.566-44.843 129.024l133.826 134.018c9.366 9.379 9.355 24.575-.025 33.941-9.379 9.366-24.575 9.355-33.941-.025L337.238 370.987C301.747 399.167 256.839 416 208 416 93.125 416 0 322.875 0 208z" /></svg><svg viewBox="0 0 512 512" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="1em" height="1em"><path d="M71.029 71.029c9.373-9.372 24.569-9.372 33.942 0L256 222.059l151.029-151.03c9.373-9.372 24.569-9.372 33.942 0 9.372 9.373 9.372 24.569 0 33.942L289.941 256l151.03 151.029c9.372 9.373 9.372 24.569 0 33.942-9.373 9.372-24.569 9.372-33.942 0L256 289.941l-151.029 151.03c-9.373 9.372-24.569 9.372-33.942 0-9.372-9.373-9.372-24.569 0-33.942L222.059 256 71.029 104.971c-9.372-9.373-9.372-24.569 0-33.942z" /></svg></span>				</a>
+</span>
+</div>
+<button class="menu-toggle" aria-controls="primary-menu" aria-expanded="false">
+<span class="gp-icon icon-menu-bars"><svg viewBox="0 0 512 512" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="1em" height="1em"><path d="M0 96c0-13.255 10.745-24 24-24h464c13.255 0 24 10.745 24 24s-10.745 24-24 24H24c-13.255 0-24-10.745-24-24zm0 160c0-13.255 10.745-24 24-24h464c13.255 0 24 10.745 24 24s-10.745 24-24 24H24c-13.255 0-24-10.745-24-24zm0 160c0-13.255 10.745-24 24-24h464c13.255 0 24 10.745 24 24s-10.745 24-24 24H24c-13.255 0-24-10.745-24-24z" /></svg><svg viewBox="0 0 512 512" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="1em" height="1em"><path d="M71.029 71.029c9.373-9.372 24.569-9.372 33.942 0L256 222.059l151.029-151.03c9.373-9.372 24.569-9.372 33.942 0 9.372 9.373 9.372 24.569 0 33.942L289.941 256l151.03 151.029c9.372 9.373 9.372 24.569 0 33.942-9.373 9.372-24.569 9.372-33.942 0L256 289.941l-151.029 151.03c-9.373 9.372-24.569 9.372-33.942 0-9.372-9.373-9.372-24.569 0-33.942L222.059 256 71.029 104.971c-9.372-9.373-9.372-24.569 0-33.942z" /></svg></span><span class="mobile-menu">Menu</span>				</button>
+<div id="primary-menu" class="main-nav"><ul id="menu-header" class=" menu sf-menu"><li id="menu-item-10770" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-10770"><a href="https://www.tecmint.com/best-linux-distributions/">Linux Distro&#8217;s<span role="presentation" class="dropdown-menu-toggle"><span class="gp-icon icon-arrow"><svg viewBox="0 0 330 512" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="1em" height="1em"><path d="M305.913 197.085c0 2.266-1.133 4.815-2.833 6.514L171.087 335.593c-1.7 1.7-4.249 2.832-6.515 2.832s-4.815-1.133-6.515-2.832L26.064 203.599c-1.7-1.7-2.832-4.248-2.832-6.514s1.132-4.816 2.832-6.515l14.162-14.163c1.7-1.699 3.966-2.832 6.515-2.832 2.266 0 4.815 1.133 6.515 2.832l111.316 111.317 111.316-111.317c1.7-1.699 4.249-2.832 6.515-2.832s4.815 1.133 6.515 2.832l14.162 14.163c1.7 1.7 2.833 4.249 2.833 6.515z" /></svg></span></span></a>
+<ul class="sub-menu">
+<li id="menu-item-42825" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-42825"><a href="https://www.tecmint.com/centos-alternative-distributions/">CentOS Alternatives</a></li>
+<li id="menu-item-40008" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-40008"><a href="https://www.tecmint.com/linux-distro-for-power-users/">Best Linux Distros</a></li>
+<li id="menu-item-40934" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-40934"><a href="https://www.tecmint.com/redhat-based-linux-distributions/">RedHat Distributions</a></li>
+<li id="menu-item-39889" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-39889"><a href="https://www.tecmint.com/best-linux-distributions-for-beginners/">Linux Distros for Beginners</a></li>
+<li id="menu-item-39890" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-39890"><a href="https://www.tecmint.com/10-best-linux-server-distributions/">Linux Server Distros</a></li>
+<li id="menu-item-39884" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-39884"><a href="https://www.tecmint.com/debian-based-linux-distributions/">Debian Distributions</a></li>
+<li id="menu-item-39885" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-39885"><a href="https://www.tecmint.com/ubuntu-based-linux-distributions/">Ubuntu Distributions</a></li>
+<li id="menu-item-39893" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-39893"><a href="https://www.tecmint.com/arch-based-linux-distributions/">Arch Linux Distros</a></li>
+<li id="menu-item-39886" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-39886"><a href="https://www.tecmint.com/best-rolling-release-linux-distributions/">Rolling Linux Distros</a></li>
+<li id="menu-item-39887" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-39887"><a href="https://www.tecmint.com/best-linux-distributions-for-kde-plasma/">KDE Linux Distros</a></li>
+<li id="menu-item-39892" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-39892"><a href="https://www.tecmint.com/best-security-centric-linux-distributions/">Secure Linux Distros</a></li>
+<li id="menu-item-39888" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-39888"><a href="https://www.tecmint.com/linux-distributions-for-old-computers/">Linux Distros for Old PC</a></li>
+<li id="menu-item-39891" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-39891"><a href="https://www.tecmint.com/new-linux-distributions/">New Linux Distros</a></li>
+<li id="menu-item-39894" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-39894"><a href="https://www.tecmint.com/best-linux-distributions-for-kids/">Linux Distros for Kids</a></li>
+<li id="menu-item-39895" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-39895"><a href="https://www.tecmint.com/best-alternative-linux-distributions-for-windows-users/">Linux Distros for Windows Users</a></li>
+<li id="menu-item-47367" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-47367"><a href="https://www.tecmint.com/linux-distros-students/">Linux Distributions for Students</a></li>
+</ul>
+</li>
+<li id="menu-item-10771" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-10771"><a title="Linux Interview Questions" target="_blank" rel="noopener" href="https://www.tecmint.com/category/interview-questions/">FAQ&#8217;s</a></li>
+<li id="menu-item-20869" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-home menu-item-has-children menu-item-20869"><a href="https://www.tecmint.com/#">Programming<span role="presentation" class="dropdown-menu-toggle"><span class="gp-icon icon-arrow"><svg viewBox="0 0 330 512" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="1em" height="1em"><path d="M305.913 197.085c0 2.266-1.133 4.815-2.833 6.514L171.087 335.593c-1.7 1.7-4.249 2.832-6.515 2.832s-4.815-1.133-6.515-2.832L26.064 203.599c-1.7-1.7-2.832-4.248-2.832-6.514s1.132-4.816 2.832-6.515l14.162-14.163c1.7-1.699 3.966-2.832 6.515-2.832 2.266 0 4.815 1.133 6.515 2.832l111.316 111.317 111.316-111.317c1.7-1.699 4.249-2.832 6.515-2.832s4.815 1.133 6.515 2.832l14.162 14.163c1.7 1.7 2.833 4.249 2.833 6.515z" /></svg></span></span></a>
+<ul class="sub-menu">
+<li id="menu-item-10772" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-10772"><a title="Learn Linux Shell Scripting" href="https://www.tecmint.com/category/bash-shell/">Shell Scripting</a></li>
+<li id="menu-item-20870" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-20870"><a href="https://www.tecmint.com/category/python/">Learn Python</a></li>
+<li id="menu-item-20871" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-20871"><a href="https://www.tecmint.com/category/awk-command/">Learn Awk</a></li>
+</ul>
+</li>
+<li id="menu-item-10773" class="menu-item menu-item-type-taxonomy menu-item-object-category current-post-ancestor current-menu-parent current-post-parent menu-item-10773"><a href="https://www.tecmint.com/category/linux-commands/">Linux Commands</a></li>
+<li id="menu-item-14795" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-14795"><a href="https://www.tecmint.com/tag/linux-tricks/">Linux Tricks</a></li>
+<li id="menu-item-19684" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-19684"><a href="https://www.tecmint.com/category/top-tools/">Best Linux Tools</a></li>
+<li id="menu-item-10443" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-home menu-item-has-children menu-item-10443"><a target="_blank" rel="noopener" href="https://www.tecmint.com/#">Certifications<span role="presentation" class="dropdown-menu-toggle"><span class="gp-icon icon-arrow"><svg viewBox="0 0 330 512" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="1em" height="1em"><path d="M305.913 197.085c0 2.266-1.133 4.815-2.833 6.514L171.087 335.593c-1.7 1.7-4.249 2.832-6.515 2.832s-4.815-1.133-6.515-2.832L26.064 203.599c-1.7-1.7-2.832-4.248-2.832-6.514s1.132-4.816 2.832-6.515l14.162-14.163c1.7-1.699 3.966-2.832 6.515-2.832 2.266 0 4.815 1.133 6.515 2.832l111.316 111.317 111.316-111.317c1.7-1.699 4.249-2.832 6.515-2.832s4.815 1.133 6.515 2.832l14.162 14.163c1.7 1.7 2.833 4.249 2.833 6.515z" /></svg></span></span></a>
+<ul class="sub-menu">
+<li id="menu-item-14880" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-14880"><a href="https://www.tecmint.com/how-to-setup-and-configure-static-network-routing-in-rhel/">RHCE Exam</a></li>
+<li id="menu-item-11906" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-11906"><a target="_blank" rel="noopener" href="https://www.tecmint.com/rhcsa-exam-reviewing-essential-commands-system-documentation/">RHCSA Exam</a></li>
+<li id="menu-item-10444" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-10444"><a target="_blank" rel="noopener" href="https://www.tecmint.com/installing-network-services-and-configuring-services-at-system-boot/">LFCE Exam</a></li>
+<li id="menu-item-14793" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-14793"><a href="https://www.tecmint.com/sed-command-to-create-edit-and-manipulate-files-in-linux/">LFCS Exam</a></li>
+<li id="menu-item-42469" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-42469"><a title="LFCA Certification Guide" target="_blank" rel="noopener" href="https://www.tecmint.com/understanding-linux-operating-system/">LFCA Exam</a></li>
+<li id="menu-item-34401" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-34401"><a title="Red Hat Ansible Exam Preparation Guide" target="_blank" rel="noopener" href="https://www.tecmint.com/understand-core-components-of-ansible/">Ansible Exam</a></li>
+</ul>
+</li>
+<li id="menu-item-12399" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-home menu-item-has-children menu-item-12399"><a href="https://www.tecmint.com/#">Guides<span role="presentation" class="dropdown-menu-toggle"><span class="gp-icon icon-arrow"><svg viewBox="0 0 330 512" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="1em" height="1em"><path d="M305.913 197.085c0 2.266-1.133 4.815-2.833 6.514L171.087 335.593c-1.7 1.7-4.249 2.832-6.515 2.832s-4.815-1.133-6.515-2.832L26.064 203.599c-1.7-1.7-2.832-4.248-2.832-6.514s1.132-4.816 2.832-6.515l14.162-14.163c1.7-1.699 3.966-2.832 6.515-2.832 2.266 0 4.815 1.133 6.515 2.832l111.316 111.317 111.316-111.317c1.7-1.699 4.249-2.832 6.515-2.832s4.815 1.133 6.515 2.832l14.162 14.163c1.7 1.7 2.833 4.249 2.833 6.515z" /></svg></span></span></a>
+<ul class="sub-menu">
+<li id="menu-item-40716" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-40716"><a href="https://www.tecmint.com/best-practices-for-deploying-hadoop-server-on-centos/">Hadoop Series</a></li>
+<li id="menu-item-18564" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-18564"><a target="_blank" rel="noopener" href="https://www.tecmint.com/install-docker-and-learn-containers-in-centos-rhel-7-6/">Docker Series</a></li>
+<li id="menu-item-17150" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-17150"><a href="https://www.tecmint.com/setup-postfix-mail-server-and-dovecot-with-mariadb-in-centos/">Postfix Mail</a></li>
+<li id="menu-item-15041" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-15041"><a href="https://www.tecmint.com/citrix-xenserver-installation-and-network-configuration-in-linux/">XenServer Series</a></li>
+<li id="menu-item-14794" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-14794"><a href="https://www.tecmint.com/install-redhat-virtualization-rhev/">RHEV Series</a></li>
+<li id="menu-item-14805" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-14805"><a href="https://www.tecmint.com/what-is-clustering-and-advantages-disadvantages-of-clustering-in-linux/">Clustering Series</a></li>
+<li id="menu-item-12400" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-12400"><a href="https://www.tecmint.com/create-lvm-storage-in-linux/">LVM Series</a></li>
+<li id="menu-item-12402" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-12402"><a href="https://www.tecmint.com/understanding-raid-setup-in-linux/">RAID Series</a></li>
+<li id="menu-item-12403" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-12403"><a href="https://www.tecmint.com/install-and-configure-kvm-in-linux/">KVM Series</a></li>
+<li id="menu-item-12401" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-12401"><a href="https://www.tecmint.com/create-centralized-secure-storage-using-iscsi-targetin-linux/">iSCSI Series</a></li>
+<li id="menu-item-12406" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-12406"><a href="https://www.tecmint.com/install-zentyal-as-primary-domain-controller-and-integrate-windows-system/">Zentyal Series</a></li>
+<li id="menu-item-16084" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-16084"><a href="https://www.tecmint.com/install-and-configure-ansible-automation-tool-in-linux/">Ansible Series</a></li>
+<li id="menu-item-16395" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-16395"><a href="https://www.tecmint.com/install-and-configure-django-web-framework-in-centos-debian-ubuntu/">Django Series</a></li>
+<li id="menu-item-14603" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-14603"><a href="https://www.tecmint.com/create-gui-applications-in-linux/">Create GUI Apps</a></li>
+</ul>
+</li>
+<li id="menu-item-14796" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-14796"><a href="https://www.tecmint.com/command-line-tools-to-monitor-linux-performance/">Monitoring Tools<span role="presentation" class="dropdown-menu-toggle"><span class="gp-icon icon-arrow"><svg viewBox="0 0 330 512" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="1em" height="1em"><path d="M305.913 197.085c0 2.266-1.133 4.815-2.833 6.514L171.087 335.593c-1.7 1.7-4.249 2.832-6.515 2.832s-4.815-1.133-6.515-2.832L26.064 203.599c-1.7-1.7-2.832-4.248-2.832-6.514s1.132-4.816 2.832-6.515l14.162-14.163c1.7-1.699 3.966-2.832 6.515-2.832 2.266 0 4.815 1.133 6.515 2.832l111.316 111.317 111.316-111.317c1.7-1.699 4.249-2.832 6.515-2.832s4.815 1.133 6.515 2.832l14.162 14.163c1.7 1.7 2.833 4.249 2.833 6.515z" /></svg></span></span></a>
+<ul class="sub-menu">
+<li id="menu-item-14797" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-14797"><a href="https://www.tecmint.com/install-nagios-in-linux/">Nagios</a></li>
+<li id="menu-item-14798" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-14798"><a href="https://www.tecmint.com/install-and-configure-zabbix-monitoring-on-debian-centos-rhel/">Zabbix</a></li>
+<li id="menu-item-14799" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-14799"><a href="https://www.tecmint.com/install-cacti-network-monitoring-on-rhel-centos-6-3-5-8-and-fedora-17-12/">Cacti</a></li>
+<li id="menu-item-14800" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-14800"><a href="https://www.tecmint.com/install-observium-in-centos/">Observium</a></li>
+<li id="menu-item-14801" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-14801"><a href="https://www.tecmint.com/monitorix-a-lightweight-system-and-network-monitoring-tool-for-linux/">Monitorix</a></li>
+<li id="menu-item-14802" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-14802"><a href="https://www.tecmint.com/install-collectd-and-collectd-web-to-monitor-server-resources-in-linux/">Collectd</a></li>
+<li id="menu-item-14803" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-14803"><a href="https://www.tecmint.com/collectl-linux-performance-reporting-monitoring/">Collectl</a></li>
+<li id="menu-item-14804" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-14804"><a href="https://www.tecmint.com/mysql-performance-monitoring/">MySQL Monitoring</a></li>
+</ul>
+</li>
+<li class="search-item menu-item-align-right"><a aria-label="Open Search Bar" href="#"><span class="gp-icon icon-search"><svg viewBox="0 0 512 512" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="1em" height="1em"><path fill-rule="evenodd" clip-rule="evenodd" d="M208 48c-88.366 0-160 71.634-160 160s71.634 160 160 160 160-71.634 160-160S296.366 48 208 48zM0 208C0 93.125 93.125 0 208 0s208 93.125 208 208c0 48.741-16.765 93.566-44.843 129.024l133.826 134.018c9.366 9.379 9.355 24.575-.025 33.941-9.379 9.366-24.575 9.355-33.941-.025L337.238 370.987C301.747 399.167 256.839 416 208 416 93.125 416 0 322.875 0 208z" /></svg><svg viewBox="0 0 512 512" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="1em" height="1em"><path d="M71.029 71.029c9.373-9.372 24.569-9.372 33.942 0L256 222.059l151.029-151.03c9.373-9.372 24.569-9.372 33.942 0 9.372 9.373 9.372 24.569 0 33.942L289.941 256l151.03 151.029c9.372 9.373 9.372 24.569 0 33.942-9.373 9.372-24.569 9.372-33.942 0L256 289.941l-151.029 151.03c-9.373 9.372-24.569 9.372-33.942 0-9.372-9.373-9.372-24.569 0-33.942L222.059 256 71.029 104.971c-9.372-9.373-9.372-24.569 0-33.942z" /></svg></span></a></li></ul></div>			</div>
+</nav>
+<div class="site grid-container container hfeed grid-parent" id="page">
+<div class="site-content" id="content">
+<div class="content-area grid-parent mobile-grid-100 grid-75 tablet-grid-75" id="primary">
+<main class="site-main" id="main">
+<article id="post-23300" class="post-23300 post type-post status-publish format-standard has-post-thumbnail hentry category-linux-commands tag-linux-tricks tag-tar-command-examples" itemtype="https://schema.org/CreativeWork" itemscope>
+<div class="inside-article">
+<header class="entry-header" aria-label="Content">
+<h1 class="entry-title" itemprop="headline">How to Compress and Decompress a .bz2 File in Linux</h1>		<div class="entry-meta">
+<span class="byline"><span class="author vcard" itemtype="http://schema.org/Person" itemscope="itemscope" itemprop="author"><a href="https://www.tecmint.com/author/aaronkili/" title="View all posts by Aaron Kili" rel="author"><span class="author-name" itemprop="name">Aaron Kili</span></a></span></span><span class="posted-on"><time class="updated" datetime="2022-11-08T10:44:51+05:30" itemprop="dateModified">November 8, 2022</time><time class="entry-date published" datetime="2016-11-03T11:30:05+05:30" itemprop="datePublished">November 3, 2016</time> </span><span class="cat-links"><span class="gp-icon icon-categories"><svg viewBox="0 0 512 512" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="1em" height="1em"><path d="M0 112c0-26.51 21.49-48 48-48h110.014a48 48 0 0143.592 27.907l12.349 26.791A16 16 0 00228.486 128H464c26.51 0 48 21.49 48 48v224c0 26.51-21.49 48-48 48H48c-26.51 0-48-21.49-48-48V112z" /></svg></span><span class="screen-reader-text">Categories </span><a href="https://www.tecmint.com/category/linux-commands/" rel="category tag">Linux Commands</a></span> <span class="comments-link"><span class="gp-icon icon-comments"><svg viewBox="0 0 512 512" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="1em" height="1em"><path d="M132.838 329.973a435.298 435.298 0 0016.769-9.004c13.363-7.574 26.587-16.142 37.419-25.507 7.544.597 15.27.925 23.098.925 54.905 0 105.634-15.311 143.285-41.28 23.728-16.365 43.115-37.692 54.155-62.645 54.739 22.205 91.498 63.272 91.498 110.286 0 42.186-29.558 79.498-75.09 102.828 23.46 49.216 75.09 101.709 75.09 101.709s-115.837-38.35-154.424-78.46c-9.956 1.12-20.297 1.758-30.793 1.758-88.727 0-162.927-43.071-181.007-100.61z"/><path d="M383.371 132.502c0 70.603-82.961 127.787-185.216 127.787-10.496 0-20.837-.639-30.793-1.757-38.587 40.093-154.424 78.429-154.424 78.429s51.63-52.472 75.09-101.67c-45.532-23.321-75.09-60.619-75.09-102.79C12.938 61.9 95.9 4.716 198.155 4.716 300.41 4.715 383.37 61.9 383.37 132.502z" /></svg></span><a href="https://www.tecmint.com/linux-compress-decompress-bz2-files-using-bzip2/#comments">2 Comments</a></span> 		</div>
+<center style="padding-bottom:20px;padding-top:40px;">
+<!-- Tag ID: tecmint_leaderboard_article_top -->
+<div align="center" id="tecmint_leaderboard_article_top">
+<script data-cfasync="false" type="text/javascript">
+freestar.config.enabled_slots.push({ placementName: "tecmint_leaderboard_article_top", slotId: "tecmint_leaderboard_article_top" });
+</script>
+</div>
+</center>
+</header>
+<div class="entry-content" itemprop="text">
+<p>To compress a file(s), is to significantly decrease the size of the file(s) by encoding data in the file(s) using less bits, and it is normally a useful practice <a href="https://www.tecmint.com/rsync-local-remote-file-synchronization-commands/" target="_blank" rel="noopener">during backup and transfer of a file(s)</a> over a network. On the other hand, decompressing a file(s) means restoring data in the file(s) to its original state.</p>
+<p style="padding: 15px; background-color: #9d1815; border-left: 5px solid #f95652;"><b style="color: #ffc2c1; font-weight: bold;">Suggested Read:</b> <a style="color: #fff; font-weight: bold; text-decoration: none;" href="https://www.tecmint.com/18-tar-command-examples-in-linux/" target="_blank" rel="noopener">Learn Linux &#8216;tar&#8217; Command with This 18 Examples</a></p>
+<p>There are several <a href="https://www.tecmint.com/command-line-archive-tools-for-linux/" target="_blank" rel="noopener">file compression and decompression tools</a> available in Linux such as <strong>gzip</strong>, <strong>7-zip</strong>, <strong>Lrzip</strong>, <a href="https://www.tecmint.com/peazip-linux-file-manager-and-file-archive-tool/" target="_blank" rel="noopener">PeaZip</a> and many more.</p>
+<p>In this tutorial, we will look at how to compress and decompress <code>.bz2</code> files using the bzip2 tool in Linux.</p>
+<p><strong>Bzip2</strong> is a well known compression tool and it’s available on most if not all the major Linux distributions, you can use the appropriate command for your distribution to install it.</p>
+<pre>$ sudo apt install bzip2     [On <strong>Debian/Ubuntu</strong>] 
+$ sudo yum install  bzip2    [On <strong>CentOS/RHEL</strong>]
+$ sudo dnf install bzip2     [On <strong>Fedora 22+</strong>]
+</pre>
+<p>The conventional syntax of using <strong>bzip2</strong> is:</p>
+<pre>$ bzip2 option(s) filenames 
+</pre>
+<h3>How to Use &#8220;bzip2&#8221; to Compress Files in Linux</h3>
+<center style="padding-bottom: 45px;padding-top:35px;"><div align="center" id="tecmint_incontent"><script data-cfasync="false" type="text/javascript">freestar.config.enabled_slots.push({ placementName: "tecmint_incontent", slotId: "tecmint_incontent" });</script></div></center><p>You can compress a file as below, where the flag <code>-z</code> enables file compression:</p>
+<pre>$ bzip2 filename
+OR
+$ bzip2 -z filename
+</pre>
+<p>To compress a <code>.tar</code> file, use the command format:</p>
+<pre>$ bzip2 -z backup.tar
+</pre>
+<p><strong style="color: red;">Important</strong>: By default, <strong>bzip2</strong> deletes the input files during compression or decompression, to keep the input files, use the <code>-k</code> or <code>--keep</code> option.</p>
+<p>In addition, the <code>-f</code> or <code>--force</code> flag will force <strong>bzip2</strong> to overwrite an existing output file.</p>
+<pre>------ <strong>To keep input file</strong>  ------
+$ bzip2 -zk filename
+$ bzip2 -zk backup.tar
+</pre>
+<p>You can as well set the block size to <strong>100k</strong> upto<strong> 900k</strong>, using <code>-1</code> or <code>--fast</code> to <code>-9</code> or <strong>&#8211;best</strong> as shown in the below examples:</p>
+<pre>$ bzip2 -k1  Etcher-linux-x64.AppImage
+$ ls -lh  Etcher-linux-x64.AppImage.bz2 
+$ bzip2 -k9  Etcher-linux-x64.AppImage 
+$ bzip2 -kf9  Etcher-linux-x64.AppImage 
+$ ls -lh Etcher-linux-x64.AppImage.bz2 
+</pre>
+<p>The screenshot below shows how to use options to keep the input file, force <strong>bzip2</strong> to overwrite an output file and set the block size during compression.</p>
+<figure id="attachment_23301" aria-describedby="caption-attachment-23301" style="width: 814px" class="wp-caption aligncenter"><a href="https://www.tecmint.com/wp-content/uploads/2016/11/Compress-Files-Using-bzip2-in-Linux.png"><img src="https://www.tecmint.com/wp-content/plugins/lazy-load/images/1x1.trans.gif" data-lazy-src="https://www.tecmint.com/wp-content/uploads/2016/11/Compress-Files-Using-bzip2-in-Linux.png" decoding="async" class="size-full wp-image-23301" alt="Compress Files Using bzip2 in Linux" width="824" height="268" srcset="https://www.tecmint.com/wp-content/uploads/2016/11/Compress-Files-Using-bzip2-in-Linux.png 824w, https://www.tecmint.com/wp-content/uploads/2016/11/Compress-Files-Using-bzip2-in-Linux-768x250.png 768w" sizes="(max-width: 824px) 100vw, 824px"><noscript><img decoding="async" class="size-full wp-image-23301" src="https://www.tecmint.com/wp-content/uploads/2016/11/Compress-Files-Using-bzip2-in-Linux.png" alt="Compress Files Using bzip2 in Linux" width="824" height="268" srcset="https://www.tecmint.com/wp-content/uploads/2016/11/Compress-Files-Using-bzip2-in-Linux.png 824w, https://www.tecmint.com/wp-content/uploads/2016/11/Compress-Files-Using-bzip2-in-Linux-768x250.png 768w" sizes="(max-width: 824px) 100vw, 824px" /></noscript></a><figcaption id="caption-attachment-23301" class="wp-caption-text">Compress Files Using bzip2 in Linux</figcaption></figure>
+<h3>How to Use &#8220;bzip2&#8221; to Decompress Files in Linux</h3>
+<p>To decompress a <code>.bz2</code> file, make use of the <code>-d</code> or <code>--decompress</code> option like so:</p>
+<pre>$ bzip2 -d filename.bz2
+</pre>
+<p><strong style="color: red;">Note</strong>: The file must end with a <code>.bz2</code> extension for the command above to work.</p>
+<pre>$ bzip2 -vd Etcher-linux-x64.AppImage.bz2 
+$ bzip2 -vfd Etcher-linux-x64.AppImage.bz2 
+$ ls -l Etcher-linux-x64.AppImage 
+</pre>
+<figure id="attachment_23302" aria-describedby="caption-attachment-23302" style="width: 815px" class="wp-caption aligncenter"><a href="https://www.tecmint.com/wp-content/uploads/2016/11/Decompression-bzip2-File-in-Linux.png"><img src="https://www.tecmint.com/wp-content/plugins/lazy-load/images/1x1.trans.gif" data-lazy-src="https://www.tecmint.com/wp-content/uploads/2016/11/Decompression-bzip2-File-in-Linux.png" decoding="async" loading="lazy" class="size-full wp-image-23302" alt="Decompress bzip2 File in Linux" width="825" height="173" srcset="https://www.tecmint.com/wp-content/uploads/2016/11/Decompression-bzip2-File-in-Linux.png 825w, https://www.tecmint.com/wp-content/uploads/2016/11/Decompression-bzip2-File-in-Linux-768x161.png 768w" sizes="(max-width: 825px) 100vw, 825px"><noscript><img decoding="async" loading="lazy" class="size-full wp-image-23302" src="https://www.tecmint.com/wp-content/uploads/2016/11/Decompression-bzip2-File-in-Linux.png" alt="Decompress bzip2 File in Linux" width="825" height="173" srcset="https://www.tecmint.com/wp-content/uploads/2016/11/Decompression-bzip2-File-in-Linux.png 825w, https://www.tecmint.com/wp-content/uploads/2016/11/Decompression-bzip2-File-in-Linux-768x161.png 768w" sizes="(max-width: 825px) 100vw, 825px" /></noscript></a><figcaption id="caption-attachment-23302" class="wp-caption-text">Decompress bzip2 File in Linux</figcaption></figure>
+<p>To view the <strong>bzip2</strong> help page and <strong>man page</strong>, type the command below:</p>
+<pre>$ bzip2  -h
+$ man bzip2
+</pre>
+<p>Lastly, with the simple elaborations above, I believe you are now capable of compressing and decompressing <code>.bz2</code> files using the <strong>bzip2</strong> tool in Linux. However, for any questions or feedback, reach us using the comment section below.</p>
+<p>Importantly, you may want to go over a few important <a href="https://www.tecmint.com/18-tar-command-examples-in-linux/" target="_blank" rel="noopener">Tar command examples</a> in Linux so as to learn using the <strong>tar</strong> utility to <a href="https://www.tecmint.com/compress-files-and-finding-files-in-linux/" target="_blank" rel="noopener">create compressed archive files</a>.</p>
+</div>
+<footer class="entry-meta" aria-label="Entry meta">
+<span class="tags-links"><span class="gp-icon icon-tags"><svg viewBox="0 0 512 512" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="1em" height="1em"><path d="M20 39.5c-8.836 0-16 7.163-16 16v176c0 4.243 1.686 8.313 4.687 11.314l224 224c6.248 6.248 16.378 6.248 22.626 0l176-176c6.244-6.244 6.25-16.364.013-22.615l-223.5-224A15.999 15.999 0 00196.5 39.5H20zm56 96c0-13.255 10.745-24 24-24s24 10.745 24 24-10.745 24-24 24-24-10.745-24-24z"/><path d="M259.515 43.015c4.686-4.687 12.284-4.687 16.97 0l228 228c4.686 4.686 4.686 12.284 0 16.97l-180 180c-4.686 4.687-12.284 4.687-16.97 0-4.686-4.686-4.686-12.284 0-16.97L479.029 279.5 259.515 59.985c-4.686-4.686-4.686-12.284 0-16.97z" /></svg></span><span class="screen-reader-text">Tags </span><a href="https://www.tecmint.com/tag/linux-tricks/" rel="tag">Linux Tricks</a>, <a href="https://www.tecmint.com/tag/tar-command-examples/" rel="tag">tar command examples</a></span> 		<nav id="nav-below" class="post-navigation" aria-label="Single Post">
+<span class="screen-reader-text">Post navigation</span>
+<div class="nav-previous"><span class="gp-icon icon-arrow-left"><svg viewBox="0 0 192 512" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill-rule="evenodd" clip-rule="evenodd" stroke-linejoin="round" stroke-miterlimit="1.414"><path d="M178.425 138.212c0 2.265-1.133 4.813-2.832 6.512L64.276 256.001l111.317 111.277c1.7 1.7 2.832 4.247 2.832 6.513 0 2.265-1.133 4.813-2.832 6.512L161.43 394.46c-1.7 1.7-4.249 2.832-6.514 2.832-2.266 0-4.816-1.133-6.515-2.832L16.407 262.514c-1.699-1.7-2.832-4.248-2.832-6.513 0-2.265 1.133-4.813 2.832-6.512l131.994-131.947c1.7-1.699 4.249-2.831 6.515-2.831 2.265 0 4.815 1.132 6.514 2.831l14.163 14.157c1.7 1.7 2.832 3.965 2.832 6.513z" fill-rule="nonzero" /></svg></span><span class="prev" title="Previous"><a href="https://www.tecmint.com/deep-learning-artificial-intelligence-training-course/" rel="prev">Deal: Get This Deep Learning &#038; Artificial Intelligence Introductory Training</a></span></div><div class="nav-next"><span class="gp-icon icon-arrow-right"><svg viewBox="0 0 192 512" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill-rule="evenodd" clip-rule="evenodd" stroke-linejoin="round" stroke-miterlimit="1.414"><path d="M178.425 256.001c0 2.266-1.133 4.815-2.832 6.515L43.599 394.509c-1.7 1.7-4.248 2.833-6.514 2.833s-4.816-1.133-6.515-2.833l-14.163-14.162c-1.699-1.7-2.832-3.966-2.832-6.515 0-2.266 1.133-4.815 2.832-6.515l111.317-111.316L16.407 144.685c-1.699-1.7-2.832-4.249-2.832-6.515s1.133-4.815 2.832-6.515l14.163-14.162c1.7-1.7 4.249-2.833 6.515-2.833s4.815 1.133 6.514 2.833l131.994 131.993c1.7 1.7 2.832 4.249 2.832 6.515z" fill-rule="nonzero" /></svg></span><span class="next" title="Next"><a href="https://www.tecmint.com/find-open-ports-in-linux/" rel="next">How to Find Out List of All Open Ports in Linux</a></span></div>		</nav>
+</footer>
+<div class="alertbox">If you liked this article, then do <a style="text-decoration:underline;color:bb0e30;" rel="nofollow" target="_blank" href="https://newsletter.tecmint.com/subscription?f=hj6Ohm9gck3Z0PQ2BBBTh892iaCbDV3jJJa3hD8ULUlubOgnbo8aF44vt2HZfdc36g">subscribe to email alerts</a> for Linux tutorials. If you have any questions or doubts? do <a style="text-decoration:underline;color:bb0e30;" href="https://www.tecmint.com/linux-compress-decompress-bz2-files-using-bzip2/#comments">ask for help in the comments</a> section.</div><center style="padding-bottom:20px;padding-top:40px;">
+<!-- Tag ID: tecmint_incontent_2 -->
+<div align="center" id="tecmint_incontent_2">
+<script data-cfasync="false" type="text/javascript">
+freestar.config.enabled_slots.push({ placementName: "tecmint_incontent_2", slotId: "tecmint_incontent_2" });
+</script>
+</div>
+</center>
+<div class="after-post-box">
+<h2>If You Appreciate What We Do Here On TecMint, You Should Consider:</h2>
+<p>TecMint is the fastest growing and most trusted community site for any kind of Linux Articles, Guides and Books on the web. Millions of people visit TecMint! to search or browse the thousands of published articles available FREELY to all.</p>
+<p>If you like what you are reading, please consider buying us a coffee ( or 2 ) as a token of appreciation.</p>
+<p align="center"><a href="https://www.buymeacoffee.com/tecmint" rel="nofollow" target="_blank"><img width="340px" height="77px" alt="Support Us" src="https://www.tecmint.com/wp-content/uploads/2015/01/coffee.png" alt="Coffee"></a></p>
+<p style="text-align: center;"><strong style=" color:#fe3300;font-size:20px;">We are thankful for your never ending support.</strong></p>
+</div>
+<div class="wpsp-related-posts  grid-container">
+<h2>Related Posts</h2>
+<style>.wp-show-posts-columns#wpsp-38213 {margin-left: -2em; }.wp-show-posts-columns#wpsp-38213 .wp-show-posts-inner {margin: 0 0 2em 2em; }</style><section id="wpsp-38213" class=" wp-show-posts-columns wp-show-posts" style=""><article class=" wp-show-posts-single post-15346 post type-post status-publish format-standard has-post-thumbnail hentry category-linux-commands tag-linux-commands-2 wpsp-col-4" itemtype="http://schema.org/CreativeWork" itemscope><div class="wp-show-posts-inner" style="">		<div class="wp-show-posts-image  wpsp-image-center ">
+<a href="https://www.tecmint.com/linux-dir-command-usage-with-examples/"  title="How to Use &#8216;dir&#8217; Command with Different Options and Arguments in Linux"><img src="https://www.tecmint.com/wp-content/plugins/lazy-load/images/1x1.trans.gif" data-lazy-src="https://www.tecmint.com/wp-content/uploads/2015/08/Linux-dir-Command-Usage.png" width="717" height="343" class="attachment-full size-full wp-post-image" alt="dir Command Usage in Linux" decoding="async" loading="lazy" itemprop="image" srcset="https://www.tecmint.com/wp-content/uploads/2015/08/Linux-dir-Command-Usage.png 717w, https://www.tecmint.com/wp-content/uploads/2015/08/Linux-dir-Command-Usage-620x297.png 620w" sizes="(max-width: 717px) 100vw, 717px"><noscript><img width="717" height="343" src="https://www.tecmint.com/wp-content/uploads/2015/08/Linux-dir-Command-Usage.png" class="attachment-full size-full wp-post-image" alt="dir Command Usage in Linux" decoding="async" loading="lazy" itemprop="image" srcset="https://www.tecmint.com/wp-content/uploads/2015/08/Linux-dir-Command-Usage.png 717w, https://www.tecmint.com/wp-content/uploads/2015/08/Linux-dir-Command-Usage-620x297.png 620w" sizes="(max-width: 717px) 100vw, 717px" /></noscript></a>		</div>
+<header class="wp-show-posts-entry-header">
+<p class="wp-show-posts-entry-title" itemprop="headline"><a href="https://www.tecmint.com/linux-dir-command-usage-with-examples/" rel="bookmark">How to Use &#8216;dir&#8217; Command with Different Options and Arguments in Linux</a></p>						</header><!-- .entry-header -->
+</div><!-- wp-show-posts-inner --></article><article class=" wp-show-posts-single post-28602 post type-post status-publish format-standard has-post-thumbnail hentry category-linux-commands wpsp-col-4" itemtype="http://schema.org/CreativeWork" itemscope><div class="wp-show-posts-inner" style="">		<div class="wp-show-posts-image  wpsp-image-center ">
+<a href="https://www.tecmint.com/mkdir-command-examples/"  title="Linux mkdir Command Examples"><img src="https://www.tecmint.com/wp-content/plugins/lazy-load/images/1x1.trans.gif" data-lazy-src="https://www.tecmint.com/wp-content/uploads/2018/02/mkdir-Command-Examples.png" width="720" height="340" class="attachment-full size-full wp-post-image" alt="mkdir Command Examples" decoding="async" loading="lazy" itemprop="image"><noscript><img width="720" height="340" src="https://www.tecmint.com/wp-content/uploads/2018/02/mkdir-Command-Examples.png" class="attachment-full size-full wp-post-image" alt="mkdir Command Examples" decoding="async" loading="lazy" itemprop="image" /></noscript></a>		</div>
+<header class="wp-show-posts-entry-header">
+<p class="wp-show-posts-entry-title" itemprop="headline"><a href="https://www.tecmint.com/mkdir-command-examples/" rel="bookmark">Linux mkdir Command Examples</a></p>						</header><!-- .entry-header -->
+</div><!-- wp-show-posts-inner --></article><article class=" wp-show-posts-single post-28553 post type-post status-publish format-standard has-post-thumbnail hentry category-linux-commands wpsp-col-4" itemtype="http://schema.org/CreativeWork" itemscope><div class="wp-show-posts-inner" style="">		<div class="wp-show-posts-image  wpsp-image-center ">
+<a href="https://www.tecmint.com/egrep-command-examples/"  title="20 Linux egrep Command Examples"><img src="https://www.tecmint.com/wp-content/plugins/lazy-load/images/1x1.trans.gif" data-lazy-src="https://www.tecmint.com/wp-content/uploads/2018/02/egrep-command-examples.png" width="720" height="340" class="attachment-full size-full wp-post-image" alt="Linux egrep Command Examples" decoding="async" loading="lazy" itemprop="image"><noscript><img width="720" height="340" src="https://www.tecmint.com/wp-content/uploads/2018/02/egrep-command-examples.png" class="attachment-full size-full wp-post-image" alt="Linux egrep Command Examples" decoding="async" loading="lazy" itemprop="image" /></noscript></a>		</div>
+<header class="wp-show-posts-entry-header">
+<p class="wp-show-posts-entry-title" itemprop="headline"><a href="https://www.tecmint.com/egrep-command-examples/" rel="bookmark">20 Linux egrep Command Examples</a></p>						</header><!-- .entry-header -->
+</div><!-- wp-show-posts-inner --></article><article class=" wp-show-posts-single post-30221 post type-post status-publish format-standard has-post-thumbnail hentry category-linux-commands category-ssh wpsp-col-4" itemtype="http://schema.org/CreativeWork" itemscope><div class="wp-show-posts-inner" style="">		<div class="wp-show-posts-image  wpsp-image-center ">
+<a href="https://www.tecmint.com/ssh-command-usage/"  title="Basic SSH Command Usage and Configuration in Linux"><img src="https://www.tecmint.com/wp-content/plugins/lazy-load/images/1x1.trans.gif" data-lazy-src="https://www.tecmint.com/wp-content/uploads/2018/08/Basic-SSH-Command-Examples.png" width="720" height="340" class="attachment-full size-full wp-post-image" alt="Basic SSH Command Examples" decoding="async" loading="lazy" itemprop="image"><noscript><img width="720" height="340" src="https://www.tecmint.com/wp-content/uploads/2018/08/Basic-SSH-Command-Examples.png" class="attachment-full size-full wp-post-image" alt="Basic SSH Command Examples" decoding="async" loading="lazy" itemprop="image" /></noscript></a>		</div>
+<header class="wp-show-posts-entry-header">
+<p class="wp-show-posts-entry-title" itemprop="headline"><a href="https://www.tecmint.com/ssh-command-usage/" rel="bookmark">Basic SSH Command Usage and Configuration in Linux</a></p>						</header><!-- .entry-header -->
+</div><!-- wp-show-posts-inner --></article><article class=" wp-show-posts-single post-11978 post type-post status-publish format-standard has-post-thumbnail hentry category-linux-commands wpsp-col-4" itemtype="http://schema.org/CreativeWork" itemscope><div class="wp-show-posts-inner" style="">		<div class="wp-show-posts-image  wpsp-image-center ">
+<a href="https://www.tecmint.com/most-used-linux-commands/"  title="Most Commonly Used Linux Commands You Should Know"><img src="https://www.tecmint.com/wp-content/plugins/lazy-load/images/1x1.trans.gif" data-lazy-src="https://www.tecmint.com/wp-content/uploads/2015/03/Most-Used-Linux-Commands.png" width="720" height="340" class="attachment-full size-full wp-post-image" alt="Most Used Linux Commands" decoding="async" loading="lazy" itemprop="image"><noscript><img width="720" height="340" src="https://www.tecmint.com/wp-content/uploads/2015/03/Most-Used-Linux-Commands.png" class="attachment-full size-full wp-post-image" alt="Most Used Linux Commands" decoding="async" loading="lazy" itemprop="image" /></noscript></a>		</div>
+<header class="wp-show-posts-entry-header">
+<p class="wp-show-posts-entry-title" itemprop="headline"><a href="https://www.tecmint.com/most-used-linux-commands/" rel="bookmark">Most Commonly Used Linux Commands You Should Know</a></p>						</header><!-- .entry-header -->
+</div><!-- wp-show-posts-inner --></article><article class=" wp-show-posts-single post-47801 post type-post status-publish format-standard has-post-thumbnail hentry category-linux-commands wpsp-col-4" itemtype="http://schema.org/CreativeWork" itemscope><div class="wp-show-posts-inner" style="">		<div class="wp-show-posts-image  wpsp-image-center ">
+<a href="https://www.tecmint.com/rmdir-command-examples/"  title="Linux rmdir Command Examples for Beginners"><img src="https://www.tecmint.com/wp-content/plugins/lazy-load/images/1x1.trans.gif" data-lazy-src="https://www.tecmint.com/wp-content/uploads/2022/09/rmdir-Command-Examples.png" width="720" height="340" class="attachment-full size-full wp-post-image" alt="rmdir Command Examples" decoding="async" loading="lazy" itemprop="image"><noscript><img width="720" height="340" src="https://www.tecmint.com/wp-content/uploads/2022/09/rmdir-Command-Examples.png" class="attachment-full size-full wp-post-image" alt="rmdir Command Examples" decoding="async" loading="lazy" itemprop="image" /></noscript></a>		</div>
+<header class="wp-show-posts-entry-header">
+<p class="wp-show-posts-entry-title" itemprop="headline"><a href="https://www.tecmint.com/rmdir-command-examples/" rel="bookmark">Linux rmdir Command Examples for Beginners</a></p>						</header><!-- .entry-header -->
+</div><!-- wp-show-posts-inner --></article><div class="wpsp-clear"></div></section><!-- .wp-show-posts --></div>	</div>
+</article>
+<div class="comments-area">
+<div id="comments">
+<h3 class="comments-title">2 thoughts on &ldquo;How to Compress and Decompress a .bz2 File in Linux&rdquo;</h3>
+<ol class="comment-list">
+<li id="comment-834692" class="comment even thread-even depth-1 parent">
+<article class="comment-body" id="div-comment-834692"  itemtype="https://schema.org/Comment" itemscope>
+<footer class="comment-meta" aria-label="Comment meta">
+<img src="https://www.tecmint.com/wp-content/plugins/lazy-load/images/1x1.trans.gif" data-lazy-src="https://secure.gravatar.com/avatar/ea022e042e84651e98b157b2cbbcbde8?s=50&#038;d=blank&#038;r=g" alt srcset="https://secure.gravatar.com/avatar/ea022e042e84651e98b157b2cbbcbde8?s=100&#038;d=blank&#038;r=g 2x" class="avatar avatar-50 photo" height="50" width="50" loading="lazy" decoding="async"><noscript><img alt='' src='https://secure.gravatar.com/avatar/ea022e042e84651e98b157b2cbbcbde8?s=50&#038;d=blank&#038;r=g' srcset='https://secure.gravatar.com/avatar/ea022e042e84651e98b157b2cbbcbde8?s=100&#038;d=blank&#038;r=g 2x' class='avatar avatar-50 photo' height='50' width='50' loading='lazy' decoding='async'/></noscript>					<div class="comment-author-info">
+<div class="comment-author vcard" itemprop="author" itemtype="https://schema.org/Person" itemscope>
+<cite itemprop="name" class="fn">Tomek</cite>						</div>
+<div class="entry-meta comment-metadata">
+<a href="https://www.tecmint.com/linux-compress-decompress-bz2-files-using-bzip2/#comment-834692">
+<time datetime="2016-11-03T23:26:34+05:30" itemprop="datePublished">
+November 3, 2016 at 11:26 pm									</time>
+</a>
+</div>
+</div>
+</footer>
+<div class="comment-content" itemprop="text">
+<p>Hi,<br />
+What does mean -v?</p>
+<span class="reply"><a rel='nofollow' class='comment-reply-link' href='https://www.tecmint.com/linux-compress-decompress-bz2-files-using-bzip2/?replytocom=834692#respond' data-commentid="834692" data-postid="23300" data-belowelement="div-comment-834692" data-respondelement="respond" data-replyto="Reply to Tomek" aria-label='Reply to Tomek'>Reply</a></span>				</div>
+</article>
+<ul class="children">
+<li id="comment-834904" class="comment odd alt depth-2">
+<article class="comment-body" id="div-comment-834904"  itemtype="https://schema.org/Comment" itemscope>
+<footer class="comment-meta" aria-label="Comment meta">
+<img src="https://www.tecmint.com/wp-content/plugins/lazy-load/images/1x1.trans.gif" data-lazy-src="https://secure.gravatar.com/avatar/4e444ab611c7b8c7bcb76e58d2e82ae0?s=50&#038;d=blank&#038;r=g" alt srcset="https://secure.gravatar.com/avatar/4e444ab611c7b8c7bcb76e58d2e82ae0?s=100&#038;d=blank&#038;r=g 2x" class="avatar avatar-50 photo" height="50" width="50" loading="lazy" decoding="async"><noscript><img alt='' src='https://secure.gravatar.com/avatar/4e444ab611c7b8c7bcb76e58d2e82ae0?s=50&#038;d=blank&#038;r=g' srcset='https://secure.gravatar.com/avatar/4e444ab611c7b8c7bcb76e58d2e82ae0?s=100&#038;d=blank&#038;r=g 2x' class='avatar avatar-50 photo' height='50' width='50' loading='lazy' decoding='async'/></noscript>					<div class="comment-author-info">
+<div class="comment-author vcard" itemprop="author" itemtype="https://schema.org/Person" itemscope>
+<cite itemprop="name" class="fn"><a href='https://www.tecmint.com' rel='external nofollow ugc' class='url'>Aaron Kili</a></cite>						</div>
+<div class="entry-meta comment-metadata">
+<a href="https://www.tecmint.com/linux-compress-decompress-bz2-files-using-bzip2/#comment-834904">
+<time datetime="2016-11-04T13:03:54+05:30" itemprop="datePublished">
+November 4, 2016 at 1:03 pm									</time>
+</a>
+</div>
+</div>
+</footer>
+<div class="comment-content" itemprop="text">
+<p>@Tomek</p>
+<p>The flag <strong>-v</strong> means verbose mode, where the compression ratio of each file is processed and displayed to the user. You can look through the <strong>bzip2</strong> man page for more details.</p>
+<span class="reply"><a rel='nofollow' class='comment-reply-link' href='https://www.tecmint.com/linux-compress-decompress-bz2-files-using-bzip2/?replytocom=834904#respond' data-commentid="834904" data-postid="23300" data-belowelement="div-comment-834904" data-respondelement="respond" data-replyto="Reply to Aaron Kili" aria-label='Reply to Aaron Kili'>Reply</a></span>				</div>
+</article>
+</li><!-- #comment-## -->
+</ul><!-- .children -->
+</li><!-- #comment-## -->
+</ol><!-- .comment-list -->
+<div id="respond" class="comment-respond">
+<h3 id="reply-title" class="comment-reply-title">Got something to say? Join the discussion. <small><a rel="nofollow" id="cancel-comment-reply-link" href="/linux-compress-decompress-bz2-files-using-bzip2/#respond" style="display:none;">Cancel reply</a></small></h3><form action="https://www.tecmint.com/wp-comments-post.php" method="post" id="commentform" class="comment-form" novalidate><p>
+Have a question or suggestion? Please leave a comment to start the discussion. Please keep in mind that all comments are moderated and your email address will NOT be published.
+</p><p class="comment-form-comment"><label for="comment" class="screen-reader-text">Comment</label><textarea autocomplete="new-password"  id="b311dc7799"  name="b311dc7799"   cols="45" rows="8" required></textarea><textarea id="comment" aria-label="hp-comment" aria-hidden="true" name="comment" autocomplete="new-password" style="padding:0 !important;clip:rect(1px, 1px, 1px, 1px) !important;position:absolute !important;white-space:nowrap !important;height:1px !important;width:1px !important;overflow:hidden !important;" tabindex="-1"></textarea><script data-noptimize>document.getElementById("comment").setAttribute( "id", "a71e582fc93ecd8a35a130afb013424d" );document.getElementById("b311dc7799").setAttribute( "id", "comment" );</script></p><label for="author" class="screen-reader-text">Name</label><input placeholder="Name *" id="author" name="author" type="text" value="" size="30" required />
+<label for="email" class="screen-reader-text">Email</label><input placeholder="Email *" id="email" name="email" type="email" value="" size="30" required />
+<p class="comment-form-cookies-consent"><input id="wp-comment-cookies-consent" name="wp-comment-cookies-consent" type="checkbox" value="yes" /> <label for="wp-comment-cookies-consent">Save my name, email, and website in this browser for the next time I comment.</label></p>
+<p class="form-submit"><input name="submit" type="submit" id="submit" class="submit" value="Post Comment" /> <input type='hidden' name='comment_post_ID' value='23300' id='comment_post_ID' />
+<input type='hidden' name='comment_parent' id='comment_parent' value='0' />
+</p></form>	</div><!-- #respond -->
+</div><!-- #comments -->
+</div>
+</main>
+</div>
+<div class="widget-area sidebar is-right-sidebar grid-25 tablet-grid-25 grid-parent" id="right-sidebar">
+<div class="inside-right-sidebar">
+<aside id="custom_html-9" class="widget_text widget inner-padding widget_custom_html"><div class="textwidget custom-html-widget"><center>
+<!-- Tag ID: tecmint_right_rail_1 -->
+<div align="center" data-freestar-ad="__336x280 __300x600" id="tecmint_right_rail_1">
+<script data-cfasync="false" type="text/javascript">
+freestar.config.enabled_slots.push({ placementName: "tecmint_right_rail_1", slotId: "tecmint_right_rail_1" });
+</script>
+</div>
+</center></div></aside><aside id="custom_html-8" class="widget_text widget inner-padding widget_custom_html"><div class="textwidget custom-html-widget"><a style="color: #c33;font-weight:700; text-align: center;    display: inline-block;text-decoration: underline;" href="https://www.tecmint.com/free-online-linux-learning-guide-for-beginners/" target="_blank" rel="noopener">A Beginners Guide To Learn Linux  for Free [with Examples]</a></div></aside><aside id="custom_html-4" class="widget_text widget inner-padding widget_custom_html"><div class="textwidget custom-html-widget"><center>
+<!-- Tag ID: tecmint_right_rail_2 -->
+<div align="center" data-freestar-ad="__336x280 __300x600" id="tecmint_right_rail_2">
+<script data-cfasync="false" type="text/javascript">
+freestar.config.enabled_slots.push({ placementName: "tecmint_right_rail_2", slotId: "tecmint_right_rail_2" });
+</script>
+</div>
+</center></div></aside><aside id="custom_html-5" class="widget_text widget inner-padding widget_custom_html"><div class="textwidget custom-html-widget"><a style="color: #c33;font-weight:700; text-align: center;    display: inline-block;text-decoration: underline;" href="https://www.tecmint.com/red-hat-rhcsa-rhce-exam-certification-book/" target="_blank" rel="noopener">Red Hat RHCSA/RHCE 8 Certification Study Guide [eBooks]</a></div></aside><aside id="custom_html-6" class="widget_text widget inner-padding widget_custom_html"><div class="textwidget custom-html-widget"><a style="color: #c33;font-weight:700; text-align: center;    display: inline-block;text-decoration: underline;" href="https://www.tecmint.com/linux-foundation-lfcs-lfce-certification-exam-book/" target="_blank" rel="noopener">Linux Foundation LFCS and LFCE Certification Study Guide [eBooks]</a></div></aside><aside id="wpsp_widget-2" class="widget inner-padding widget_wpsp_widget"><h2 class="widget-title">Linux Commands and Tools</h2><style>.wp-show-posts-columns#wpsp-38336 {margin-left: -2em; }.wp-show-posts-columns#wpsp-38336 .wp-show-posts-inner {margin: 0 0 2em 2em; }</style><section id="wpsp-38336" class=" wp-show-posts" style=""><article class=" wp-show-posts-single wpsp-clearfix post-23273 post type-post status-publish format-standard has-post-thumbnail hentry category-linux-commands tag-linux-tricks" itemtype="http://schema.org/CreativeWork" itemscope><div class="wp-show-posts-inner" style="">						<header class="wp-show-posts-entry-header">
+<p class="wp-show-posts-entry-title" itemprop="headline"><a href="https://www.tecmint.com/convert-files-to-utf-8-encoding-in-linux/" rel="bookmark">How to Convert Files to UTF-8 Encoding in Linux</a></p>						</header><!-- .entry-header -->
+</div><!-- wp-show-posts-inner --><div class="wpsp-clear"></div></article><article class=" wp-show-posts-single wpsp-clearfix post-1007 post type-post status-publish format-standard has-post-thumbnail hentry category-linux-commands category-monitoring-tools" itemtype="http://schema.org/CreativeWork" itemscope><div class="wp-show-posts-inner" style="">						<header class="wp-show-posts-entry-header">
+<p class="wp-show-posts-entry-title" itemprop="headline"><a href="https://www.tecmint.com/linux-performance-monitoring-with-vmstat-and-iostat-commands/" rel="bookmark">Linux Performance Monitoring with Vmstat and Iostat Commands</a></p>						</header><!-- .entry-header -->
+</div><!-- wp-show-posts-inner --><div class="wpsp-clear"></div></article><article class=" wp-show-posts-single wpsp-clearfix post-41877 post type-post status-publish format-standard has-post-thumbnail hentry category-linux-commands tag-column-command-examples" itemtype="http://schema.org/CreativeWork" itemscope><div class="wp-show-posts-inner" style="">						<header class="wp-show-posts-entry-header">
+<p class="wp-show-posts-entry-title" itemprop="headline"><a href="https://www.tecmint.com/linux-column-command/" rel="bookmark">Different Ways to Use Column Command in Linux</a></p>						</header><!-- .entry-header -->
+</div><!-- wp-show-posts-inner --><div class="wpsp-clear"></div></article><article class=" wp-show-posts-single wpsp-clearfix post-3951 post type-post status-publish format-standard has-post-thumbnail hentry category-linux-commands category-php" itemtype="http://schema.org/CreativeWork" itemscope><div class="wp-show-posts-inner" style="">						<header class="wp-show-posts-entry-header">
+<p class="wp-show-posts-entry-title" itemprop="headline"><a href="https://www.tecmint.com/linux-shell-access-on-browser-using-php-shell/" rel="bookmark">Exploring Linux Shell (Terminal) Remotely Using PHP Shell</a></p>						</header><!-- .entry-header -->
+</div><!-- wp-show-posts-inner --><div class="wpsp-clear"></div></article><article class=" wp-show-posts-single wpsp-clearfix post-28766 post type-post status-publish format-standard has-post-thumbnail hentry category-linux-commands tag-apt-tips tag-yum-tips" itemtype="http://schema.org/CreativeWork" itemscope><div class="wp-show-posts-inner" style="">						<header class="wp-show-posts-entry-header">
+<p class="wp-show-posts-entry-title" itemprop="headline"><a href="https://www.tecmint.com/install-particular-package-version-in-centos-ubuntu-debian/" rel="bookmark">How to Install Particular Package Version in CentOS and Ubuntu</a></p>						</header><!-- .entry-header -->
+</div><!-- wp-show-posts-inner --><div class="wpsp-clear"></div></article><article class=" wp-show-posts-single wpsp-clearfix post-17272 post type-post status-publish format-standard has-post-thumbnail hentry category-linux-commands tag-commandline-tools tag-linux-tricks" itemtype="http://schema.org/CreativeWork" itemscope><div class="wp-show-posts-inner" style="">						<header class="wp-show-posts-entry-header">
+<p class="wp-show-posts-entry-title" itemprop="headline"><a href="https://www.tecmint.com/defragment-linux-system-partitions-and-directories/" rel="bookmark">How to Repair and Defragment Linux System Partitions and Directories</a></p>						</header><!-- .entry-header -->
+</div><!-- wp-show-posts-inner --><div class="wpsp-clear"></div></article></section><!-- .wp-show-posts --></aside><aside id="custom_html-7" class="widget_text widget inner-padding widget_custom_html"><div class="textwidget custom-html-widget"><center>
+<!-- Tag ID: tecmint_right_rail_3 -->
+<div align="center" data-freestar-ad="__300x600" id="tecmint_right_rail_3">
+<script data-cfasync="false" type="text/javascript">
+freestar.config.enabled_slots.push({ placementName: "tecmint_right_rail_3", slotId: "tecmint_right_rail_3" });
+</script>
+</div>
+</center></div></aside>	</div>
+</div>
+
+</div>
+</div>
+<center style="padding-top:22px;padding-bottom:30px;">
+<!-- Tag ID: tecmint_leaderboard_btf -->
+<div align="center" data-freestar-ad="__1200x309" id="tecmint_leaderboard_btf">
+<script data-cfasync="false" type="text/javascript">
+freestar.config.enabled_slots.push({ placementName: "tecmint_leaderboard_btf", slotId: "tecmint_leaderboard_btf" });
+</script>
+</div>
+</center>
+<div class="site-footer footer-bar-active footer-bar-align-center">
+<div id="footer-widgets" class="site footer-widgets">
+<div class="footer-widgets-container grid-container grid-parent">
+<div class="inside-footer-widgets">
+<div class="footer-widget-1 grid-parent grid-33 tablet-grid-50 mobile-grid-100">
+<aside id="wpsp_widget-3" class="widget inner-padding widget_wpsp_widget"><h2 class="widget-title">Linux Server Monitoring Tools</h2><style>.wp-show-posts-columns#wpsp-38337 {margin-left: -2em; }.wp-show-posts-columns#wpsp-38337 .wp-show-posts-inner {margin: 0 0 2em 2em; }</style><section id="wpsp-38337" class=" wp-show-posts" style=""><article class=" wp-show-posts-single wpsp-clearfix post-478 post type-post status-publish format-standard has-post-thumbnail hentry category-monitoring-tools tag-linux-monitoring tag-munin-network-monitoring" itemtype="http://schema.org/CreativeWork" itemscope><div class="wp-show-posts-inner" style="">						<header class="wp-show-posts-entry-header">
+<p class="wp-show-posts-entry-title" itemprop="headline"><a href="https://www.tecmint.com/install-munin-network-monitoring-in-rhel-centos-fedora/" rel="bookmark">Install Munin (Network Monitoring) in RHEL, CentOS and Fedora</a></p>						</header><!-- .entry-header -->
+</div><!-- wp-show-posts-inner --><div class="wpsp-clear"></div></article><article class=" wp-show-posts-single wpsp-clearfix post-722 post type-post status-publish format-standard has-post-thumbnail hentry category-linux-commands category-monitoring-tools category-networking-commands" itemtype="http://schema.org/CreativeWork" itemscope><div class="wp-show-posts-inner" style="">						<header class="wp-show-posts-entry-header">
+<p class="wp-show-posts-entry-title" itemprop="headline"><a href="https://www.tecmint.com/20-netstat-commands-for-linux-network-management/" rel="bookmark">20 Netstat Commands for Linux Network Management</a></p>						</header><!-- .entry-header -->
+</div><!-- wp-show-posts-inner --><div class="wpsp-clear"></div></article><article class=" wp-show-posts-single wpsp-clearfix post-4798 post type-post status-publish format-standard has-post-thumbnail hentry category-monitoring-tools tag-linux-bandwidth-limit tag-trickle-bandwidth-limit tag-user-bandwidth-limit" itemtype="http://schema.org/CreativeWork" itemscope><div class="wp-show-posts-inner" style="">						<header class="wp-show-posts-entry-header">
+<p class="wp-show-posts-entry-title" itemprop="headline"><a href="https://www.tecmint.com/limit-linux-network-bandwidth-usage-with-trickle/" rel="bookmark">How to Limit Network Bandwidth Usage in Linux Using Trickle</a></p>						</header><!-- .entry-header -->
+</div><!-- wp-show-posts-inner --><div class="wpsp-clear"></div></article><article class=" wp-show-posts-single wpsp-clearfix post-27522 post type-post status-publish format-standard has-post-thumbnail hentry category-monitoring-tools tag-linux-monitoring" itemtype="http://schema.org/CreativeWork" itemscope><div class="wp-show-posts-inner" style="">						<header class="wp-show-posts-entry-header">
+<p class="wp-show-posts-entry-title" itemprop="headline"><a href="https://www.tecmint.com/strace-commands-for-troubleshooting-and-debugging-linux/" rel="bookmark">10 Strace Commands for Troubleshooting and Debugging Linux Processes</a></p>						</header><!-- .entry-header -->
+</div><!-- wp-show-posts-inner --><div class="wpsp-clear"></div></article><article class=" wp-show-posts-single wpsp-clearfix post-36063 post type-post status-publish format-standard has-post-thumbnail hentry category-monitoring-tools category-ubuntu tag-linux-network-monitoring tag-linux-server-monitoring tag-ubuntu-tips" itemtype="http://schema.org/CreativeWork" itemscope><div class="wp-show-posts-inner" style="">						<header class="wp-show-posts-entry-header">
+<p class="wp-show-posts-entry-title" itemprop="headline"><a href="https://www.tecmint.com/install-and-connect-an-agent-to-pandora-fms-server/" rel="bookmark">How To Install and Connect an Agent to Pandora FMS Server</a></p>						</header><!-- .entry-header -->
+</div><!-- wp-show-posts-inner --><div class="wpsp-clear"></div></article><article class=" wp-show-posts-single wpsp-clearfix post-25248 post type-post status-publish format-standard has-post-thumbnail hentry category-monitoring-tools" itemtype="http://schema.org/CreativeWork" itemscope><div class="wp-show-posts-inner" style="">						<header class="wp-show-posts-entry-header">
+<p class="wp-show-posts-entry-title" itemprop="headline"><a href="https://www.tecmint.com/linux-process-management/" rel="bookmark">All You Need To Know About Processes in Linux [Comprehensive Guide]</a></p>						</header><!-- .entry-header -->
+</div><!-- wp-show-posts-inner --><div class="wpsp-clear"></div></article></section><!-- .wp-show-posts --></aside>	</div>
+<div class="footer-widget-2 grid-parent grid-33 tablet-grid-50 mobile-grid-100">
+<aside id="wpsp_widget-4" class="widget inner-padding widget_wpsp_widget"><h2 class="widget-title">Learn Linux Tricks &#038; Tips</h2><style>.wp-show-posts-columns#wpsp-38338 {margin-left: -2em; }.wp-show-posts-columns#wpsp-38338 .wp-show-posts-inner {margin: 0 0 2em 2em; }</style><section id="wpsp-38338" class=" wp-show-posts" style=""><article class=" wp-show-posts-single wpsp-clearfix post-19824 post type-post status-publish format-standard has-post-thumbnail hentry category-linux-commands tag-linux-tricks" itemtype="http://schema.org/CreativeWork" itemscope><div class="wp-show-posts-inner" style="">						<header class="wp-show-posts-entry-header">
+<p class="wp-show-posts-entry-title" itemprop="headline"><a href="https://www.tecmint.com/set-limits-on-user-processes-using-ulimit-in-linux/" rel="bookmark">How to Set Limits on User Running Processes in Linux</a></p>						</header><!-- .entry-header -->
+</div><!-- wp-show-posts-inner --><div class="wpsp-clear"></div></article><article class=" wp-show-posts-single wpsp-clearfix post-15272 post type-post status-publish format-standard has-post-thumbnail hentry category-linux-commands tag-linux-tricks" itemtype="http://schema.org/CreativeWork" itemscope><div class="wp-show-posts-inner" style="">						<header class="wp-show-posts-entry-header">
+<p class="wp-show-posts-entry-title" itemprop="headline"><a href="https://www.tecmint.com/fslint-find-and-remove-duplicate-unwanted-files-in-linux/" rel="bookmark">How to Find and Remove Duplicate/Unwanted Files in Linux Using &#8216;FSlint&#8217; Tool</a></p>						</header><!-- .entry-header -->
+</div><!-- wp-show-posts-inner --><div class="wpsp-clear"></div></article><article class=" wp-show-posts-single wpsp-clearfix post-28508 post type-post status-publish format-standard has-post-thumbnail hentry category-linux-commands tag-linux-tricks" itemtype="http://schema.org/CreativeWork" itemscope><div class="wp-show-posts-inner" style="">						<header class="wp-show-posts-entry-header">
+<p class="wp-show-posts-entry-title" itemprop="headline"><a href="https://www.tecmint.com/delete-root-mails-mailbox-file-in-linux/" rel="bookmark">How to Delete Root Mails (Mailbox) File in Linux</a></p>						</header><!-- .entry-header -->
+</div><!-- wp-show-posts-inner --><div class="wpsp-clear"></div></article><article class=" wp-show-posts-single wpsp-clearfix post-23327 post type-post status-publish format-standard has-post-thumbnail hentry category-linux-commands tag-linux-tricks" itemtype="http://schema.org/CreativeWork" itemscope><div class="wp-show-posts-inner" style="">						<header class="wp-show-posts-entry-header">
+<p class="wp-show-posts-entry-title" itemprop="headline"><a href="https://www.tecmint.com/find-open-ports-in-linux/" rel="bookmark">How to Find Out List of All Open Ports in Linux</a></p>						</header><!-- .entry-header -->
+</div><!-- wp-show-posts-inner --><div class="wpsp-clear"></div></article><article class=" wp-show-posts-single wpsp-clearfix post-15442 post type-post status-publish format-standard has-post-thumbnail hentry category-linux-commands tag-linux-tricks" itemtype="http://schema.org/CreativeWork" itemscope><div class="wp-show-posts-inner" style="">						<header class="wp-show-posts-entry-header">
+<p class="wp-show-posts-entry-title" itemprop="headline"><a href="https://www.tecmint.com/convert-from-rpm-to-deb-and-deb-to-rpm-package-using-alien/" rel="bookmark">How to Convert From RPM to DEB and DEB to RPM Package Using Alien</a></p>						</header><!-- .entry-header -->
+</div><!-- wp-show-posts-inner --><div class="wpsp-clear"></div></article><article class=" wp-show-posts-single wpsp-clearfix post-25742 post type-post status-publish format-standard has-post-thumbnail hentry category-linux-commands tag-linux-tricks" itemtype="http://schema.org/CreativeWork" itemscope><div class="wp-show-posts-inner" style="">						<header class="wp-show-posts-entry-header">
+<p class="wp-show-posts-entry-title" itemprop="headline"><a href="https://www.tecmint.com/pushd-and-popd-linux-filesystem-navigation/" rel="bookmark">Use &#8216;pushd&#8217; and &#8216;popd&#8217; for Efficient Filesystem Navigation in Linux</a></p>						</header><!-- .entry-header -->
+</div><!-- wp-show-posts-inner --><div class="wpsp-clear"></div></article></section><!-- .wp-show-posts --></aside>	</div>
+<div class="footer-widget-3 grid-parent grid-33 tablet-grid-50 mobile-grid-100">
+<aside id="wpsp_widget-5" class="widget inner-padding widget_wpsp_widget"><h2 class="widget-title">Best Linux Tools</h2><style>.wp-show-posts-columns#wpsp-38100 {margin-left: -2em; }.wp-show-posts-columns#wpsp-38100 .wp-show-posts-inner {margin: 0 0 2em 2em; }</style><section id="wpsp-38100" class=" wp-show-posts" style=""><article class=" wp-show-posts-single wpsp-clearfix post-20426 post type-post status-publish format-standard has-post-thumbnail hentry category-top-tools tag-clipboard-managers" itemtype="http://schema.org/CreativeWork" itemscope><div class="wp-show-posts-inner" style="">						<header class="wp-show-posts-entry-header">
+<p class="wp-show-posts-entry-title" itemprop="headline"><a href="https://www.tecmint.com/best-clipboard-managers-for-linux/" rel="bookmark">10 Best Clipboard Managers for Linux</a></p>						</header><!-- .entry-header -->
+</div><!-- wp-show-posts-inner --><div class="wpsp-clear"></div></article><article class=" wp-show-posts-single wpsp-clearfix post-9549 post type-post status-publish format-standard has-post-thumbnail hentry category-download-managers category-top-tools category-torrent-clients tag-flareget tag-uget tag-xdm" itemtype="http://schema.org/CreativeWork" itemscope><div class="wp-show-posts-inner" style="">						<header class="wp-show-posts-entry-header">
+<p class="wp-show-posts-entry-title" itemprop="headline"><a href="https://www.tecmint.com/download-managers-for-linux/" rel="bookmark">10 Most Popular Download Managers for Linux in 2021</a></p>						</header><!-- .entry-header -->
+</div><!-- wp-show-posts-inner --><div class="wpsp-clear"></div></article><article class=" wp-show-posts-single wpsp-clearfix post-42539 post type-post status-publish format-standard has-post-thumbnail hentry category-open-source category-top-tools tag-microsoft-alternatives-apps" itemtype="http://schema.org/CreativeWork" itemscope><div class="wp-show-posts-inner" style="">						<header class="wp-show-posts-entry-header">
+<p class="wp-show-posts-entry-title" itemprop="headline"><a href="https://www.tecmint.com/powerpoint-alternatives-for-linux/" rel="bookmark">The Best PowerPoint Alternatives for Linux</a></p>						</header><!-- .entry-header -->
+</div><!-- wp-show-posts-inner --><div class="wpsp-clear"></div></article><article class=" wp-show-posts-single wpsp-clearfix post-20915 post type-post status-publish format-standard has-post-thumbnail hentry category-top-tools tag-irc-clients tag-linux-chat-applications" itemtype="http://schema.org/CreativeWork" itemscope><div class="wp-show-posts-inner" style="">						<header class="wp-show-posts-entry-header">
+<p class="wp-show-posts-entry-title" itemprop="headline"><a href="https://www.tecmint.com/best-irc-clients-for-linux/" rel="bookmark">9 Best IRC Clients for Linux in 2021</a></p>						</header><!-- .entry-header -->
+</div><!-- wp-show-posts-inner --><div class="wpsp-clear"></div></article><article class=" wp-show-posts-single wpsp-clearfix post-32824 post type-post status-publish format-standard has-post-thumbnail hentry category-linux-commands category-top-tools tag-commandline-tools tag-linux-http-clients" itemtype="http://schema.org/CreativeWork" itemscope><div class="wp-show-posts-inner" style="">						<header class="wp-show-posts-entry-header">
+<p class="wp-show-posts-entry-title" itemprop="headline"><a href="https://www.tecmint.com/command-line-http-clients-for-linux/" rel="bookmark">Best Command Line HTTP Clients for Linux</a></p>						</header><!-- .entry-header -->
+</div><!-- wp-show-posts-inner --><div class="wpsp-clear"></div></article><article class=" wp-show-posts-single wpsp-clearfix post-43866 post type-post status-publish format-standard has-post-thumbnail hentry category-top-tools" itemtype="http://schema.org/CreativeWork" itemscope><div class="wp-show-posts-inner" style="">						<header class="wp-show-posts-entry-header">
+<p class="wp-show-posts-entry-title" itemprop="headline"><a href="https://www.tecmint.com/open-source-elearning-platforms-for-linux/" rel="bookmark">Top 5 Open-Source eLearning Platforms for Linux</a></p>						</header><!-- .entry-header -->
+</div><!-- wp-show-posts-inner --><div class="wpsp-clear"></div></article></section><!-- .wp-show-posts --></aside>	</div>
+</div>
+</div>
+</div>
+<footer class="site-info" aria-label="Site"  itemtype="https://schema.org/WPFooter" itemscope>
+<div class="inside-site-info grid-container grid-parent">
+<div class="footer-bar">
+<aside id="nav_menu-2" class="widget inner-padding widget_nav_menu"><div class="menu-footer-container"><ul id="menu-footer" class="menu"><li id="menu-item-18572" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-18572"><a href="https://www.tecmint.com/donate-to-tecmint/">Donate to TecMint</a></li>
+<li id="menu-item-10437" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-10437"><a href="https://www.tecmint.com/contact-us/">Contact Us</a></li>
+<li id="menu-item-10442" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-10442"><a href="https://www.tecmint.com/advertise/">Advertise on TecMint</a></li>
+<li id="menu-item-10441" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-10441"><a href="https://www.tecmint.com/services/">Linux Services</a></li>
+<li id="menu-item-10435" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-10435"><a href="https://www.tecmint.com/copyright-policy/">Copyright Policy</a></li>
+<li id="menu-item-10436" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-10436"><a href="https://www.tecmint.com/privacy-policy/">Privacy Policy</a></li>
+<li id="menu-item-13339" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-13339"><a href="https://www.tecmint.com/career/">Career</a></li>
+<li id="menu-item-24288" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-24288"><a href="https://www.tecmint.com/sponsored-post-guidelines-tecmint/">Sponsored Post</a></li>
+</ul></div></aside>		</div>
+<div class="copyright-bar">
+Tecmint: Linux Howtos, Tutorials &amp; Guides &copy; 2022. All Rights Reserved.
+<p>The material in this site cannot be republished either online or offline, without our permission.</p>
+<p>Hosting Sponsored by : <a style="font-weight:bold;color:yellow" href="https://linode.gvw92c.net/tecmint" target="_blank" rel="nofollow">Linode Cloud Hosting</a></p>				</div>
+</div>
+</footer>
+</div>
+<a title="Scroll back to top" aria-label="Scroll back to top" rel="nofollow" href="#" class="generate-back-to-top" style="opacity:0;visibility:hidden;" data-scroll-speed="400" data-start-scroll="300">
+<span class="gp-icon icon-arrow-up"><svg viewBox="0 0 330 512" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill-rule="evenodd" clip-rule="evenodd" stroke-linejoin="round" stroke-miterlimit="1.414"><path d="M305.863 314.916c0 2.266-1.133 4.815-2.832 6.514l-14.157 14.163c-1.699 1.7-3.964 2.832-6.513 2.832-2.265 0-4.813-1.133-6.512-2.832L164.572 224.276 53.295 335.593c-1.699 1.7-4.247 2.832-6.512 2.832-2.265 0-4.814-1.133-6.513-2.832L26.113 321.43c-1.699-1.7-2.831-4.248-2.831-6.514s1.132-4.816 2.831-6.515L158.06 176.408c1.699-1.7 4.247-2.833 6.512-2.833 2.265 0 4.814 1.133 6.513 2.833L303.03 308.4c1.7 1.7 2.832 4.249 2.832 6.515z" fill-rule="nonzero" /></svg></span>
+</a><script id="generate-a11y">!function(){"use strict";if("querySelector"in document&&"addEventListener"in window){var e=document.body;e.addEventListener("mousedown",function(){e.classList.add("using-mouse")}),e.addEventListener("keydown",function(){e.classList.remove("using-mouse")})}}();</script><div class="wplogout-float-social-wrapper hide-on-mobile hide-on-tablet">
+<a class="wplogout-float-social-sharing wplogout-social-facebook" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fwww.tecmint.com%2Flinux-compress-decompress-bz2-files-using-bzip2%2F" target="_blank" rel="nofollow"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24"><path d="M9 8h-3v4h3v12h5v-12h3.642l.358-4h-4v-1.667c0-.955.192-1.333 1.115-1.333h2.885v-5h-3.808c-3.596 0-5.192 1.583-5.192 4.615v3.385z"/></svg></a>
+<a class="wplogout-float-social-sharing wplogout-social-twitter" href="https://twitter.com/intent/tweet?text=How+to+Compress+and+Decompress+a+.bz2+File+in+Linux&amp;url=https%3A%2F%2Fwww.tecmint.com%2Flinux-compress-decompress-bz2-files-using-bzip2%2F&amp;via=tecmint" target="_blank" rel="nofollow"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24"><path d="M24 4.557c-.883.392-1.832.656-2.828.775 1.017-.609 1.798-1.574 2.165-2.724-.951.564-2.005.974-3.127 1.195-.897-.957-2.178-1.555-3.594-1.555-3.179 0-5.515 2.966-4.797 6.045-4.091-.205-7.719-2.165-10.148-5.144-1.29 2.213-.669 5.108 1.523 6.574-.806-.026-1.566-.247-2.229-.616-.054 2.281 1.581 4.415 3.949 4.89-.693.188-1.452.232-2.224.084.626 1.956 2.444 3.379 4.6 3.419-2.07 1.623-4.678 2.348-7.29 2.04 2.179 1.397 4.768 2.212 7.548 2.212 9.142 0 14.307-7.721 13.995-14.646.962-.695 1.797-1.562 2.457-2.549z"/></svg></a>
+<a class="wplogout-float-social-sharing wplogout-social-linkedin" href="https://www.linkedin.com/shareArticle?url=https%3A%2F%2Fwww.tecmint.com%2Flinux-compress-decompress-bz2-files-using-bzip2%2F&amp;title=How+to+Compress+and+Decompress+a+.bz2+File+in+Linux&amp;mini=true" target="_blank" rel="nofollow"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24"><path d="M4.98 3.5c0 1.381-1.11 2.5-2.48 2.5s-2.48-1.119-2.48-2.5c0-1.38 1.11-2.5 2.48-2.5s2.48 1.12 2.48 2.5zm.02 4.5h-5v16h5v-16zm7.982 0h-4.968v16h4.969v-8.399c0-4.67 6.029-5.052 6.029 0v8.399h4.988v-10.131c0-7.88-8.922-7.593-11.018-3.714v-2.155z"/></svg></a>
+<a class="wplogout-float-social-sharing wplogout-social-reddit" href="https://reddit.com/submit?url=https%3A%2F%2Fwww.tecmint.com%2Flinux-compress-decompress-bz2-files-using-bzip2%2F&title=How+to+Compress+and+Decompress+a+.bz2+File+in+Linux" target="_blank" rel="nofollow"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24"><path d="M24 11.779c0-1.459-1.192-2.645-2.657-2.645-.715 0-1.363.286-1.84.746-1.81-1.191-4.259-1.949-6.971-2.046l1.483-4.669 4.016.941-.006.058c0 1.193.975 2.163 2.174 2.163 1.198 0 2.172-.97 2.172-2.163s-.975-2.164-2.172-2.164c-.92 0-1.704.574-2.021 1.379l-4.329-1.015c-.189-.046-.381.063-.44.249l-1.654 5.207c-2.838.034-5.409.798-7.3 2.025-.474-.438-1.103-.712-1.799-.712-1.465 0-2.656 1.187-2.656 2.646 0 .97.533 1.811 1.317 2.271-.052.282-.086.567-.086.857 0 3.911 4.808 7.093 10.719 7.093s10.72-3.182 10.72-7.093c0-.274-.029-.544-.075-.81.832-.447 1.405-1.312 1.405-2.318zm-17.224 1.816c0-.868.71-1.575 1.582-1.575.872 0 1.581.707 1.581 1.575s-.709 1.574-1.581 1.574-1.582-.706-1.582-1.574zm9.061 4.669c-.797.793-2.048 1.179-3.824 1.179l-.013-.003-.013.003c-1.777 0-3.028-.386-3.824-1.179-.145-.144-.145-.379 0-.523.145-.145.381-.145.526 0 .65.647 1.729.961 3.298.961l.013.003.013-.003c1.569 0 2.648-.315 3.298-.962.145-.145.381-.144.526 0 .145.145.145.379 0 .524zm-.189-3.095c-.872 0-1.581-.706-1.581-1.574 0-.868.709-1.575 1.581-1.575s1.581.707 1.581 1.575-.709 1.574-1.581 1.574z"/></svg></a>
+</div><!-- Quantcast Choice. Consent Manager Tag v2.0 (for TCF 2.0) -->
+<script type="text/javascript" async=true>
+(function() {
+var host = window.location.hostname;
+var element = document.createElement('script');
+var firstScript = document.getElementsByTagName('script')[0];
+var url = 'https://quantcast.mgr.consensu.org'
+.concat('/choice/', 'XaecbbMz6DF2q', '/', host, '/choice.js')
+var uspTries = 0;
+var uspTriesLimit = 3;
+element.async = true;
+element.type = 'text/javascript';
+element.src = url;
+firstScript.parentNode.insertBefore(element, firstScript);
+function makeStub() {
+var TCF_LOCATOR_NAME = '__tcfapiLocator';
+var queue = [];
+var win = window;
+var cmpFrame;
+function addFrame() {
+var doc = win.document;
+var otherCMP = !!(win.frames[TCF_LOCATOR_NAME]);
+if (!otherCMP) {
+if (doc.body) {
+var iframe = doc.createElement('iframe');
+iframe.style.cssText = 'display:none';
+iframe.name = TCF_LOCATOR_NAME;
+doc.body.appendChild(iframe);
+} else {
+setTimeout(addFrame, 5);
+}
+}
+return !otherCMP;
+}
+function tcfAPIHandler() {
+var gdprApplies;
+var args = arguments;
+if (!args.length) {
+return queue;
+} else if (args[0] === 'setGdprApplies') {
+if (
+args.length > 3 &&
+args[2] === 2 &&
+typeof args[3] === 'boolean'
+) {
+gdprApplies = args[3];
+if (typeof args[2] === 'function') {
+args[2]('set', true);
+}
+}
+} else if (args[0] === 'ping') {
+var retr = {
+gdprApplies: gdprApplies,
+cmpLoaded: false,
+cmpStatus: 'stub'
+};
+if (typeof args[2] === 'function') {
+args[2](retr);
+}
+} else {
+queue.push(args);
+}
+}
+function postMessageEventHandler(event) {
+var msgIsString = typeof event.data === 'string';
+var json = {};
+try {
+if (msgIsString) {
+json = JSON.parse(event.data);
+} else {
+json = event.data;
+}
+} catch (ignore) {}
+var payload = json.__tcfapiCall;
+if (payload) {
+window.__tcfapi(
+payload.command,
+payload.version,
+function(retValue, success) {
+var returnMsg = {
+__tcfapiReturn: {
+returnValue: retValue,
+success: success,
+callId: payload.callId
+}
+};
+if (msgIsString) {
+returnMsg = JSON.stringify(returnMsg);
+}
+event.source.postMessage(returnMsg, '*');
+},
+payload.parameter
+);
+}
+}
+while (win) {
+try {
+if (win.frames[TCF_LOCATOR_NAME]) {
+cmpFrame = win;
+break;
+}
+} catch (ignore) {}
+if (win === window.top) {
+break;
+}
+win = win.parent;
+}
+if (!cmpFrame) {
+addFrame();
+win.__tcfapi = tcfAPIHandler;
+win.addEventListener('message', postMessageEventHandler, false);
+}
+};
+makeStub();
+var uspStubFunction = function() {
+var arg = arguments;
+if (typeof window.__uspapi !== uspStubFunction) {
+setTimeout(function() {
+if (typeof window.__uspapi !== 'undefined') {
+window.__uspapi.apply(window.__uspapi, arg);
+}
+}, 500);
+}
+};
+var checkIfUspIsReady = function() {
+uspTries++;
+if (window.__uspapi === uspStubFunction && uspTries < uspTriesLimit) {
+console.warn('USP is not accessible');
+} else {
+clearInterval(uspInterval);
+}
+};
+if (typeof window.__uspapi === 'undefined') {
+window.__uspapi = uspStubFunction;
+var uspInterval = setInterval(checkIfUspIsReady, 6000);
+}
+})();
+</script>
+<!-- End Quantcast Choice. Consent Manager Tag v2.0 (for TCF 2.0) --><script src='https://www.tecmint.com/wp-content/plugins/light/js/jquery.fancybox.pack.js?ver=6.1' id='fancybox-js'></script>
+<script src='https://www.tecmint.com/wp-content/plugins/light/js/light.js?ver=6.1' id='fancybox-load-js'></script>
+<!--[if lte IE 11]>
+<script src='https://www.tecmint.com/wp-content/themes/tecmint/assets/js/classList.min.js?ver=3.1.3' id='generate-classlist-js'></script>
+<![endif]-->
+<script id='generate-menu-js-extra'>
+var generatepressMenu = {"toggleOpenedSubMenus":"1","openSubMenuLabel":"Open Sub-Menu","closeSubMenuLabel":"Close Sub-Menu"};
+</script>
+<script src='https://www.tecmint.com/wp-content/themes/tecmint/assets/js/menu.min.js?ver=3.1.3' id='generate-menu-js'></script>
+<script src='https://www.tecmint.com/wp-content/themes/tecmint/assets/js/dropdown-click.min.js?ver=3.1.3' id='generate-dropdown-click-js'></script>
+<script id='generate-navigation-search-js-extra'>
+var generatepressNavSearch = {"open":"Open Search Bar","close":"Close Search Bar"};
+</script>
+<script src='https://www.tecmint.com/wp-content/themes/tecmint/assets/js/navigation-search.min.js?ver=3.1.3' id='generate-navigation-search-js'></script>
+<script id='generate-back-to-top-js-extra'>
+var generatepressBackToTop = {"smooth":"1"};
+</script>
+<script src='https://www.tecmint.com/wp-content/themes/tecmint/assets/js/back-to-top.min.js?ver=3.1.3' id='generate-back-to-top-js'></script>
+<script src='https://www.tecmint.com/wp-includes/js/comment-reply.min.js?ver=6.1' id='comment-reply-js'></script>
+<script src='https://www.tecmint.com/wp-content/plugins/lazy-load/js/jquery.sonar.min.js?ver=0.6.1' id='jquery-sonar-js'></script>
+<script src='https://www.tecmint.com/wp-content/plugins/lazy-load/js/lazy-load.js?ver=0.6.1' id='wpcom-lazy-load-images-js'></script>
+<script src='https://www.tecmint.com/wp-content/plugins/wp-show-posts/js/jquery.matchHeight.js?ver=1.1.3' id='wpsp-matchHeight-js'></script>
+</body>
+</html><!-- WP Fastest Cache file was created in 0.32424998283386 seconds, on 08-11-22 10:44:53 --><!-- via php -->
