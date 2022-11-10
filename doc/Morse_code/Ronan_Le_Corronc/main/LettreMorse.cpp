@@ -1,123 +1,123 @@
+#include "Arduino.h"
 #include "LettreMorse.h"
 
 LettreMorse::LettreMorse(){};
 
 void LettreMorse::morseConverter(int letter){
 
-  if(letter > 64 && letter < 91) {letter += 32;}
+  if(letter > 64 && letter < 91) {letter += 32;} // Permet d'afficher les majuscules comme les minuscules
 
   switch (letter){
     case 'a':
-        LettreMorse::morse = ".-";
+        morse = ".-";
         break;
     case 'b':
-        LettreMorse::morse = "-...";
+        morse = "-...";
         break;
     case 'c':
-        LettreMorse::morse = "-.-.";
+        morse = "-.-.";
         break;
     case 'd':
-        LettreMorse::morse = "-..";
+        morse = "-..";
         break;
     case 'e':
-        LettreMorse::morse = ".";
+        morse = ".";
         break;
     case 'f':
-        LettreMorse::morse = "..-.";
+        morse = "..-.";
         break;
     case 'g':
-        LettreMorse::morse = "--.";
+        morse = "--.";
         break;
     case 'h':
-        LettreMorse::morse = "....";
+        morse = "....";
         break;
     case 'i':
-        LettreMorse::morse = "..";
+        morse = "..";
         break;
     case 'j':
-        LettreMorse::morse = ".---";
+        morse = ".---";
         break;
     case 'k':
-        LettreMorse::morse = "-.-";
+        morse = "-.-";
         break;
     case 'l':
-        LettreMorse::morse = ".-..";
+        morse = ".-..";
         break;
     case 'm':
-        LettreMorse::morse = "--";
+        morse = "--";
         break;
     case 'n':
-        LettreMorse::morse = "-.";
+        morse = "-.";
         break;
     case 'o':
-        LettreMorse::morse = "---";
+        morse = "---";
         break;
     case 'p':
-        LettreMorse::morse = ".--.";
+        morse = ".--.";
         break;
     case 'q':
-        LettreMorse::morse = "--.-";
+        morse = "--.-";
         break;
     case 'r':
-        LettreMorse::morse = ".-.";
+        morse = ".-.";
         break;
     case 's':
-        LettreMorse::morse = "...";
+        morse = "...";
         break;
     case 't':
-        LettreMorse::morse = "-";
+        morse = "-";
         break;
     case 'u':
-        LettreMorse::morse = "..-";
+        morse = "..-";
         break;
     case 'v':
-        LettreMorse::morse = "...-";
+        morse = "...-";
         break;
     case 'w':
-        LettreMorse::morse = ".--";
+        morse = ".--";
         break;
     case 'x':
-        LettreMorse::morse = "-..-";
+        morse = "-..-";
         break;
     case 'y':
-        LettreMorse::morse = "-.--";
+        morse = "-.--";
         break;
     case 'z':
-        LettreMorse::morse = "--..";
+        morse = "--..";
         break;
     case '1':
-        LettreMorse::morse = ".----";
+        morse = ".----";
         break;
     case '2':
-        LettreMorse::morse = "..---";
+        morse = "..---";
         break;
     case '3':
-        LettreMorse::morse = "...--";
+        morse = "...--";
         break;
     case '4':
-        LettreMorse::morse = "....-";
+        morse = "....-";
         break;
     case '5':
-        LettreMorse::morse = ".....";
+        morse = ".....";
         break;
     case '6':
-        LettreMorse::morse = "-....";
+        morse = "-....";
         break;
     case '7':
-        LettreMorse::morse = "--...";
+        morse = "--...";
         break;
     case '8':
-        LettreMorse::morse = "---..";
+        morse = "---..";
         break;
     case '9':
-        LettreMorse::morse = "----.";
+        morse = "----.";
         break;
     case '0':
-        LettreMorse::morse = "-----";
+        morse = "-----";
         break;
     default:
-        LettreMorse::morse = "";
+        morse = "";
         break;
     }
-
 }
