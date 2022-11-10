@@ -71,7 +71,7 @@ void Traducteur::clignotements(const uint8_t pin){
         changer_etat_pin(pin);
     }
 
-    if (this->indice_courant < this->longueur_mot){ // tant qu'on a pas traiter toutes les lettres
+    if (this->indice_courant < this->longueur_mot){ // tant qu'on a pas traité toutes les lettres
         switch (this->car_courant)
         {
         case '-': // cas où la led est allumée et en clignotement long
