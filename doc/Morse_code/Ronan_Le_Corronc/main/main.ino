@@ -2,7 +2,6 @@
 #include "LettreMorse.h"
 #include "Translation.h"
 
-const int led = 13;
 const int blinkSpeed = 200; // Correspond à la durée des périodes de la LED (passage entre éteint et allumé)
 int incomingByte;
 
@@ -30,7 +29,9 @@ void loop() {
 
     for(int i = 0; i < tr.binary_tram_size; i++){
       delay(blinkSpeed);
-      digitalWrite(led, tr.binary_tram[i]); // Affiche l'état de la LED indiqué dans la trame temporelle finale.
+      digitalWrite(LED_BUILTIN, tr.binary_tram[i]); // Affiche l'état de la LED indiqué dans la trame temporelle finale.
     }
+
+    delay(blinkSpeed*2); // Pause entre chaque LED
   }
 }
