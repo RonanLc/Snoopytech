@@ -34,22 +34,26 @@ The I2CDev library basically provides a more intuitive interface of the I2C devi
 The MPU6050 class provides a full coverage of the GY-521 functionalities and convenient functions to access specific informations about the sensor. 
 It uses the on-board DMP to lighten calculations.
 
-I ran a few tests using the examples given with these libraries and the results are intersting. The code from the sketch [MPU6050_DMP6]() returns the yaw, pitch and roll of the sensor (in degrees); the acceleration can be given gravity-free or not. 
-
 ### **Test**
+
+I ran a few tests using the examples given with these libraries and the results are intersting. The code from the sketch [MPU6050_DMP6]() returns the yaw, pitch and roll of the sensor (in degrees); the acceleration can be given gravity-free or not. 
 
 Initial condition :
 
+![IMG_2100](https://user-images.githubusercontent.com/95374519/202851304-9c7775ee-f5f1-4270-90ee-5951ae7b5909.jpg)
+
 Output : 
+
+![Capture d’écran 2022-11-19 130050](https://user-images.githubusercontent.com/95374519/202851163-7997a3f1-e536-4d92-9c96-bd1a9986d14f.png)
+
 
 90° roll rotation :
 
+![IMG_2101](https://user-images.githubusercontent.com/95374519/202851306-81b7165a-b39e-46d8-9bbf-c7ecc2c91bdd.jpg)
+
 Output :
 
-
-
-
-
+![Capture d’écran 2022-11-19 130132](https://user-images.githubusercontent.com/95374519/202851395-5d904215-9968-4b21-be04-c910323e7bc4.png)
 
 The fact that the code is modular makes it easy to access the wanted informations. 
 
@@ -65,7 +69,3 @@ The non-printed / non-cut parts such as the spacers have a set size that the pri
 
 Holes had to be added to the body to receive the Jetson and the Uno. An additional hole was pierced in the vertical side of the body to allow connections to the Jetson during the prototyping.
 Both cards have been added to the body, using 7mm spacers (available in the FabLab).
-
-
-
-
