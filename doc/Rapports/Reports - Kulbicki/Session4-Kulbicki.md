@@ -36,7 +36,7 @@ It uses the on-board DMP to lighten calculations.
 
 ### **Test**
 
-I ran a few tests using the examples given with these libraries and the results are intersting. The code from the sketch [MPU6050_DMP6](https://github.com/RonanLc/Snoopytech/tree/main/lib/MPU6050/examples) returns the yaw, pitch and roll of the sensor (in degrees); the acceleration can be given gravity-free or not. 
+I ran a few tests using the examples given with these libraries and the results are intersting. The code from the sketch [MPU6050_DMP6](https://github.com/RonanLc/Snoopytech/tree/main/code/sensor/MPU6050_DMP6) returns the yaw, pitch and roll of the sensor (in degrees); the acceleration can be given gravity-free or not. 
 
 Initial condition :
 
