@@ -1,0 +1,10 @@
+[Unit]
+Description=Sauvegarde de la database classicmodels avec dump-database.sh
+After=network.target
+[Service]
+WorkingDirectory=/home/maximilien/Desktop/TD_SQL
+User=maximilien
+Type=oneshot
+ExecStart=/home/maximilien/Desktop/TD_SQL/dump-database.sh
+[Install]
+WantedBy=multi-user.target

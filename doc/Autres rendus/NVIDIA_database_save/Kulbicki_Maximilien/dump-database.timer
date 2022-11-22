@@ -1,0 +1,8 @@
+[Unit]
+Description=Lance dump-database.service toutes les 10 minutes
+[Timer]
+OnBootSec=0
+OnUnitActiveSec=10min
+Persistant=true
+[Install]
+WantedBy=timers.target
