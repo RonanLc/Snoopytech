@@ -1,7 +1,5 @@
 Pour ce projet j'ai utilisé **MySQL 8.0** sur Ubuntu, je vais expliquer comment l'installer puis l'utiliser.
 
-<br />
-
 # I - Mettre à jour ses package
 
 Avant de commencer, il est recommandé de mettre à jour ses packages locaux avec les dernieres version disponible.

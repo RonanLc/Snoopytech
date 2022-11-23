@@ -56,3 +56,5 @@ if [ $error!=0 ]; then
 fi
 
 echo "dump-database.sh end"
+
+echo ""
