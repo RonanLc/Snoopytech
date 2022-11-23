@@ -1,0 +1,8 @@
+[Unit]
+Description=Dump database
+
+[Timer]
+OnUnitActiveSec=1m
+
+[Install]
+WantedBy=timers.target

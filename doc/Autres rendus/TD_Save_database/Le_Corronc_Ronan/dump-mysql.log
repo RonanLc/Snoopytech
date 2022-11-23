@@ -1,0 +1,35 @@
+dump-database.sh start
+mysqldump: [Warning] Using a password on the command line interface can be insecure.
+classicmodels dump successful to dump_classicmodels_2022-11-23-11-18-54.sql
+dump_classicmodels_2022-11-23-11-18-54.sql compress successful
+deleting dump_classicmodels_2022-11-23-11-17-16.sql.bz2
+keep last 5 files successful
+dump-database.sh end
+dump-database.sh start
+mysqldump: [Warning] Using a password on the command line interface can be insecure.
+classicmodels dump successful to dump_classicmodels_2022-11-23-11-20-00.sql
+dump_classicmodels_2022-11-23-11-20-00.sql compress successful
+deleting dump_classicmodels_2022-11-23-11-17-23.sql.bz2
+keep last 5 files successful
+dump-database.sh end
+dump-database.sh start
+mysqldump: [Warning] Using a password on the command line interface can be insecure.
+classicmodels dump successful to dump_classicmodels_2022-11-23-11-21-15.sql
+dump_classicmodels_2022-11-23-11-21-15.sql compress successful
+deleting dump_classicmodels_2022-11-23-11-17-59.sql.bz2
+keep last 5 files successful
+dump-database.sh end
+dump-database.sh start
+mysqldump: [Warning] Using a password on the command line interface can be insecure.
+classicmodels dump successful to dump_classicmodels_2022-11-23-11-22-22.sql
+dump_classicmodels_2022-11-23-11-22-22.sql compress successful
+deleting dump_classicmodels_2022-11-23-11-18-04.sql.bz2
+keep last 5 files successful
+dump-database.sh end
+dump-database.sh start
+mysqldump: [Warning] Using a password on the command line interface can be insecure.
+classicmodels dump successful to dump_classicmodels_2022-11-23-11-23-38.sql
+dump_classicmodels_2022-11-23-11-23-38.sql compress successful
+deleting dump_classicmodels_2022-11-23-11-18-22.sql.bz2
+keep last 5 files successful
+dump-database.sh end
