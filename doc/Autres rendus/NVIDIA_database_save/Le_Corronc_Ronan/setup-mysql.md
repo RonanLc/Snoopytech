@@ -116,7 +116,7 @@ mysql> exit;
 
 <br />
 
-# Importer une base de données dans MySQL
+# VI - Importer une base de données dans MySQL
 
 Nous allons ici utiliser l'exemple de base de données classicmodels disponible [ici](https://www.mysqltutorial.org/wp-content/uploads/2018/03/mysqlsampledatabase.zip).
 
@@ -156,3 +156,22 @@ source /home/user/Documents/TDdata/mysqlsampledatabase.sql
 
 ![database add](assets/ajout_base_de_donnee.png)
 
+<br />
+
+*Note : la commande ``drop database`` permet de supprimer des bases de donnees du serveur*
+
+```shell
+drop database classicmodels
+```
+
+<br/>
+
+# VII - Exporter sa base de données
+
+Pour utiliser ou sauvegarder votre base de données vous allez devoir l'exporter.
+
+Pour ce faire utilisez la commande ``mysqldump`` :
+
+```shell
+mysqldump -u root -p classicmodels
+```
