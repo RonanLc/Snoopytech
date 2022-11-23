@@ -40,7 +40,7 @@ Ainsi cette commande permet d'ajuster la sécurité du serveur MySQL
 
 Un mot de passe vous sera demandé, il correspond au mot de passe d'accès à votre utilisateur MySQL et non à votre utilisateur Ubuntu.
 
-![MySQL Secure Installation](main/doc/Autres%20rendus/NVIDIA_database_save/Le_Corronc_Ronan/assets/mysql_secure_installation.png)
+![MySQL Secure Installation](../assets/mysql_secure_installation.png)
 
 De nombreuses questions vous seront demandé, je recommande de tout activer en indiquant Y (yes) à toutes.
 
