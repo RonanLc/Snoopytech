@@ -9,7 +9,7 @@ dump_name="$dump_access/dump_save_$time_info.sql"
 log_access="/var/log/dump-mysql.log"
 
 # on sauvegarde la database dans un fichier dump
-mysqldump -u maximilien classicmodels > $dump_name
+mysqldump -u maximilien classicmodels > $dump_name 2>> $log_access 
 
 # on compresse au format bz2 et on supprime l'ancien fichier
 bzip2 $dump_name
@@ -29,16 +29,8 @@ then
 	done
 fi
 
-# partie visant à controler la taille du fichier log
-size_log=$(du -h $log_access | cut -b 1)
 
-if [[ $size_log -gt 4 ]]
-then
-	echo "End of classicmodels' attempt to save - $time_info - new log" > $log_access
-else
-	echo "End of classicmodels' attempt to save - $time_info" >> $log_access
-
-fi
+echo "End of classicmodels' attempt to save - $time_info"
 
 exit 0
 
