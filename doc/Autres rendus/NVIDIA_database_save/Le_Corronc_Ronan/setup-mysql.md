@@ -42,8 +42,39 @@ Un mot de passe vous sera demandé, il correspond au mot de passe d'accès à vo
 
 ![MySQL Secure Installation](assets/mysql_secure_installation.png)
 
-De nombreuses questions vous seront demandé, je recommande de tout activer en indiquant Y (yes) à toutes.
+De nombreuses questions vous seront demandées, je recommande de tout activer en indiquant Y (yes) à toutes.
 
 Votre accès à MySQL est désormais sécurisé.
+
+# IV - Controler le serveur à l'aide de systemd
+
+Le serveur devrait se lancer automatiquement après avoir été paramétré. Vous pouvez regarder son état avec cette commande :
+
+```shell
+/$sudo systemctl status mysql
+```
+
+![mysql status off](assets/mysql_status_off.png)
+
+Si le serveur est inactif, vous pouvez le démarrer avec la commande suivante :
+
+```shell
+/$sudo systemctl start mysql
+```
+
+Le serveur est désormait actif.
+
+![mysql status on](assets/mysql_status_on.png)
+
+Commande pour qu'il se lance automatiquement à chaque démarrage du système :
+
+```shell
+/$sudo systemctl enable mysql
+```
+
+
+
+
+
 
 [lien](https://www.mysqltutorial.org/wp-content/uploads/2018/03/mysqlsampledatabase.zip)
