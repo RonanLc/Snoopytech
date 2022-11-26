@@ -75,8 +75,6 @@ And here are the very first turns of the motor of our future robot!
 
 [![first turns of the robot's motor](assets/session_5/First_turns_of_the_robots_motor.gif)](https://youtu.be/H11FsNPKSh8)
 
-*Click to view the YouTube video.*
-
 During this test I noticed two things. First, the motor doesn't seem to be going at its maximum speed so the pulse durations of the pwm would have to be changed. Second, the PWM is also used to change the direction of rotation of the motor.
 
 The next command allows to choose the orientation of the servo motor normally. It supports an input from 0 to 180.
