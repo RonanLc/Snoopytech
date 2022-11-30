@@ -1,11 +1,16 @@
 #ifndef SRC_LETTRE_MORSE_H_
 #define SRC_LETTRE_MORSE_H_
 
-class LettreMorse { // Convertit les lettres en morse
+/**
+ * Cette classe regroupe tous les éléments pour convertir des caractères en morse
+ * 
+ * Elle regroupe 1 fonction utilisable
+*/
+class LettreMorse {    
     public:
         LettreMorse();
-        void morseConverter(int letter); // Traduit la lettre en morse
-        const char* morse; // Contient la traduction morse de la lettre entrée
+        void morseConverter(int letter);
+        const char* morse;                  // Contient la traduction morse de la lettre entrée dans morseConverter()
     private:
 };
 

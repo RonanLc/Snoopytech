@@ -1,11 +1,20 @@
 #include "Arduino.h"
 #include "LettreMorse.h"
 
+/**
+ * Constructeur
+*/
 LettreMorse::LettreMorse(){};
 
+/**
+ * Cette fonction sert à traduire une lettre ou un chiffre en morse
+ * 
+ * Argument (int): Lettre ou chiffre à traduire en morse
+ * Return:
+*/
 void LettreMorse::morseConverter(int letter){
 
-  if(letter > 64 && letter < 91) {letter += 32;} // Permet d'afficher les majuscules comme les minuscules
+  if(letter > 64 && letter < 91) {letter += 32;}    // Permet de remplacer les majuscules par des minuscules en utilisant la table ASCII
 
   switch (letter){
     case 'a':
@@ -115,6 +124,9 @@ void LettreMorse::morseConverter(int letter){
         break;
     case '0':
         morse = "-----";
+        break;
+    case ' ':
+        morse = " ";
         break;
     default:
         morse = "";
