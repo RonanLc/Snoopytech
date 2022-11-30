@@ -28,7 +28,6 @@ Conserve le nombre de clignotement
 void LettreMorse::traduction_lettre(char lettre){
 
     // on traite le cas des lettres majuscules 
-    // à l'aide du code ASCII associé à la lettre
     if ((lettre>=65) && (lettre<=90)){
         lettre+=32;
     }
@@ -111,6 +110,36 @@ void LettreMorse::traduction_lettre(char lettre){
         break;
     case 'z':
         strcpy(this->sequence,"--..");
+        break;
+    case '1':
+        strcpy(this->sequence,".----");
+        break;
+    case '2':
+        strcpy(this->sequence,"..---");
+        break;
+    case '3':
+        strcpy(this->sequence,"...--");
+        break;
+    case '4':
+        strcpy(this->sequence,"....-");
+        break;
+    case '5':
+        strcpy(this->sequence,".....");
+        break;
+    case '6':
+        strcpy(this->sequence,"-....");
+        break;
+    case '7':
+        strcpy(this->sequence,"--...");
+        break;
+    case '8':
+        strcpy(this->sequence,"---..");
+        break;
+    case '9':
+        strcpy(this->sequence,"----.");
+        break;
+    case '0':
+        strcpy(this->sequence,"-----");
         break;
     default:
         strcpy(this->sequence,"");

@@ -28,14 +28,14 @@ Sinon, n'ajoute rien.
 */
 void Traducteur::ajouter_lettre_morse(const char lettre){
     
-    if ( (lettre>=97 && lettre<=122) || (lettre>=65 && lettre<=90)){ // cas où le caractère est une lettre minuscule ou majuscule
+    if ( (lettre>=97 && lettre<=122) || (lettre>=65 && lettre<=90) || isdigit(lettre)){ // cas où le caractère est une lettre minuscule ou majuscule ou un chiffre
         LettreMorse lettre_morse(lettre);
         strcat(this->sequence_finale,lettre_morse.get_sequence());
         strcat(this->sequence_finale,"|"); // ajout d'un espace entre les lettres 
     }
 
     else if (lettre==32){ // cas où le caractère est un espace
-        strcat(this->sequence_finale,"|"); // on ajoute deux espaces pour differencier deux mots
+        strcat(this->sequence_finale,"||"); // on ajoute deux espaces pour differencier deux mots
     }
 };
 
@@ -88,7 +88,7 @@ void Traducteur::clignotements(){
         changer_etat_pin(this->pin);
     }
 
-    if (this->indice_courant < this->longueur_mot){ // tant qu'on a pas traité toutes les lettres
+    if (this->indice_courant < this->longueur_mot){ // tant qu'on a pas traiter toutes les lettres
         switch (this->car_courant)
         {
         case '-': // cas où la led est allumée et en clignotement long
@@ -99,7 +99,7 @@ void Traducteur::clignotements(){
             }
             break;
 
-        case '.': // cas où la led est allumée et en clignotement court
+        case '.':
             if (millis()-this->timer >= this->trait_court){
                 this->indice_courant++;
                 this->car_courant=' ';
@@ -107,7 +107,7 @@ void Traducteur::clignotements(){
             }
             break;
 
-        case '|': // led éteinte et transition entre lettre/mot
+        case '|':
             if (millis()-this->timer >= this->intervalle_long){
                 this->indice_courant++;
                 this->car_courant=' ';
@@ -115,7 +115,7 @@ void Traducteur::clignotements(){
             }
             break;
 
-        case ' ': // led éteinte et transition entre symbole
+        case ' ':
             if(millis()-this->timer>=this->intervalle_court){
                 this->car_courant=this->sequence_finale[this->indice_courant];
                 changer_etat_pin(this->pin);

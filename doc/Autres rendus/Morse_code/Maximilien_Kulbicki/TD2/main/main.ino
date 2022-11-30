@@ -1,7 +1,7 @@
 #include "Traducteur.hpp"
 
 const int led = LED_BUILTIN;
-const char sos[90]="OU est l'érreur?";
+const char sos[90]="OU 3st 1'érreur ?";
 
 Traducteur mot(sos,led);
 
