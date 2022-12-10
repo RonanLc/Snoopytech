@@ -8,7 +8,7 @@ This session was centered around the definition of a simple class allowing to us
 
 This class is strongly inspired by the example given by the MPU6050 library and uses many of its functions. 
 The main purpose of the Gyroscope class is to make a brief class that regroups all the functions and data needed from the MPU6050 library. 
-For instance, our robot doesn't need all the data and function used in the example. We want to be able to access the yaw/pitch/roll of the robot and its real accelearation (gravity-free). 
+For instance, our robot doesn't need all the data and function used in the example. We want to be able to access the yaw/pitch/roll of the robot and its real acceleration (gravity-free). 
 
 The Gyroscope class has to setup the GY-521, establish the wanted data and allow us to retrieve this data. 
 
