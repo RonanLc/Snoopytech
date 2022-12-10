@@ -6,11 +6,17 @@
 
 Gyroscope::Gyroscope() {}
 
+
+/*
+The interrupt function.
+*/
 volatile bool mpuInterrupt = false; // indicates whether MPU interrupt pin has gone high
 void dmpDataReady()
 {
     mpuInterrupt = true;
 }
+
+
 /*
 Gets the gyro ready
 */

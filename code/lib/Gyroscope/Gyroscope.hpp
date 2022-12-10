@@ -11,7 +11,6 @@ Gyroscope Class
 Contains :
 - get_yaw_pitch_roll(container)
 - get_real_acceleration(container)
-
 */
 class Gyroscope
 {
