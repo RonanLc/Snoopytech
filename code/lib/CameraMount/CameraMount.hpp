@@ -9,16 +9,18 @@ It uses two servo SG-90.
 class CameraMount
 {
 public:
-    CameraMount();
+    CameraMount(uint8_t pin_head, uint8_t pin_foot);
 
-    void setup_cm(uint8_t pin_head, uint8_t pin_foot);
+    void setup_cm();
 
     void move_y(int deg); // x axis
     void move_x(int deg); // y axis
     void move(int deg_x, int deg_y);
 
+    //    void stabilize(int x_aim, int y_aim);     // will use the current state, the aim state gievn by difference with gyro
     void go_to_center();
     int convert(int deg);
+    void get_position(int *container);
 
 private:
     ServoTimer2 x;
@@ -31,6 +33,10 @@ private:
     int min_x = 750;
     int mid_x = 1500; // value for which we consider the x at 90°
     int max_x = 2250;
+
+    // int min_y = 750;
+    // int mid_y = 1500;
+    // int max_y = 2250;
 
     int current[2]; // containes the mount's current position [x,y] in degrees
     int aim[2];

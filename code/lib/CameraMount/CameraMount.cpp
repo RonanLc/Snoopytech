@@ -1,14 +1,16 @@
 #include "CameraMount.hpp"
 
-CameraMount::CameraMount(){};
+CameraMount::CameraMount(uint8_t pin_head, uint8_t pin_foot)
+{
+    this->pin_x = pin_head;
+    this->pin_y = pin_foot;
+};
 
 /*
 Sets up both servo, a x and a foot
 */
-void CameraMount::setup_cm(uint8_t pin_head, uint8_t pin_foot)
+void CameraMount::setup_cm()
 {
-    this->pin_x = pin_head;
-    this->pin_y = pin_foot;
     x.attach(this->pin_x);
     y.attach(this->pin_y);
     this->current[0] = x.read();
