@@ -10,7 +10,7 @@ We now have all the main components to build the robot.
 
 <br>
 
-# Préparations des moteurs
+## Préparations des moteurs
 
 Before starting to use the motors, some preparation has to be done. Here we received connectors with the motors so I decided to solder them to the motors and ESCs to easily connect them.
 
