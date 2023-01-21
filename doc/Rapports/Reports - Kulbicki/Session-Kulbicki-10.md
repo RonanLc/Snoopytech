@@ -32,7 +32,7 @@ To do so, we can change the configuration file for Docker ```/etc/docker/daemon.
 
     "data-root":"/home/docker-data"
 
-````/home/docker-data``` being the folder we intend to download our Docker images in.
+```/home/docker-data``` being the folder we intend to download our Docker images in.
 
 After doing so, we just need to reload the Docker daemon :
 
@@ -58,7 +58,7 @@ It can be installed with the command:
 
     sudo apt install fswebcam
 
-I wrote a small ```bash``` program to test it. This program takes ````jpeg``` picture with a 640x480 resolution every second for 10 seconds, and saves them in the ```/home/Pictures``` directory.
+I wrote a small ```bash``` program to test it. This program takes ```jpeg``` picture with a 640x480 resolution every second for 10 seconds, and saves them in the ```/home/Pictures``` directory.
 
 
 ![bash](https://user-images.githubusercontent.com/95374519/213876895-14dd3373-9cb1-48bc-a7d8-7de80ca74cd5.png)
