@@ -60,7 +60,9 @@ It can be installed with the command:
 
 I wrote a small ```bash``` program to test it. This program takes ````jpeg``` picture with a 640x480 resolution every second for 10 seconds, and saves them in the ```/home/Pictures``` directory.
 
-[program]
+
+![bash](https://user-images.githubusercontent.com/95374519/213876895-14dd3373-9cb1-48bc-a7d8-7de80ca74cd5.png)
+
 
 More specific tools such as ```motion``` or ```mjpg-streamer``` can be used to redirect the camera output on a localhost HTML page. These packages are mainly used for surveillance purposes, which is an objective for this project.
 
@@ -76,7 +78,7 @@ The servo-control study will give us the right parameters to change efficiently 
 
 I represented the servo-motor system in Scilab with a Xcos diagram :
 
-[photo]
+![xcos](https://user-images.githubusercontent.com/95374519/213876892-11e2c715-afd4-4bf1-8180-d5ccfe869bff.png)
 
 Here is a list of the parameters used in the diagram :
 
@@ -117,21 +119,24 @@ The signal sent by the sensor's ```AO pin``` chnages states from ```HIGH``` to `
 
 My teacher Mr Masson and I assembled a simple model for the speed detection. 
 
-The program used to calculate the speed is the [following](). 
+The program used to calculate the speed is the [following](https://github.com/RonanLc/Snoopytech/blob/main/code/test/rpm_brushless.ino). 
 
 The program ask the motor to stay at 0 rps for 5 seconds and then asks it to turn at 90 rps. 
 
 The curve below shows the evolution of the motor speed over time.
 The y-axis is the speed (rps) and the x-axis is the time (miliseconds).
 
-[ri1]
+
+![ri1](https://user-images.githubusercontent.com/95374519/213876867-20671fbc-90dd-4e08-ba33-9355da78e807.png)
+
+
 
 The results aren't bery satisfying due the small time period I chose for the speed calculation. It calculates the speed every 200ms, which leaves the motor plenty of time to change speed from one period to another. 
 Hence, Ronan tried the same program with a smaller time period (50ms).
 
 The results are much more satisfying and we can retrieve more informations out of the curve. 
 
-[ri2]
+![ri2](https://user-images.githubusercontent.com/95374519/213876869-c837d9a3-8d26-4305-8f9f-777b537d6568.png)
 
 For next week's session, I will start the study of the correctional coefficient, using the parameters of the motor that we'll be able to deduce from this previous plot.
 
@@ -147,4 +152,6 @@ This technic proved to be imprecise and useless.
 To ease the work of the cutting, I 3D printed a template of the tube (with the holes) slightly wider than the tube.
 This piece will allow us to drill through the tubes precisely. 
 
-[photo]
+
+![tube](https://user-images.githubusercontent.com/95374519/213876873-8a58e534-baca-4acf-a9e0-3be3027dd04a.png)
+
