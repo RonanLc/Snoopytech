@@ -28,7 +28,7 @@ We now have a 64Gb partition mounted in the ```/home``` folder.
 ### Running a Docker container
 
 Installing Docker images represents important amount of storage. Thus, we need to find a way to pull the images and download them on the freshly mounted micro-sd card. 
-To do so, we can change the configuration file for Docker ````/etc/docker/daemon.json``` and add the next line at the end of the file :
+To do so, we can change the configuration file for Docker ```/etc/docker/daemon.json``` and add the next line at the end of the file :
 
     "data-root":"/home/docker-data"
 
