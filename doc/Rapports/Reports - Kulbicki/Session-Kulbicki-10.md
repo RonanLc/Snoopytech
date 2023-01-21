@@ -131,7 +131,7 @@ The y-axis is the speed (rps) and the x-axis is the time (miliseconds).
 
 
 
-The results aren't bery satisfying due the small time period I chose for the speed calculation. It calculates the speed every 200ms, which leaves the motor plenty of time to change speed from one period to another. 
+The results aren't very satisfying due the small time period I chose for the speed calculation. It calculates the speed every 200ms, which leaves the motor plenty of time to change speed from one period to another. 
 Hence, Ronan tried the same program with a smaller time period (50ms).
 
 The results are much more satisfying and we can retrieve more informations out of the curve. 
