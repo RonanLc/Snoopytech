@@ -55,3 +55,10 @@ Ce programme permet de récuperer la vitesse de rotation d'un moteur brushless g
 
 Ce programme est celui qui sera exécuté sur l'Arduino. Il regroupe toutes les classes utilisées. 
 Pour l'instant, il permet de changer l'orientation des deux nacelles du robot selon l'inclinaison du gyroscope. 
+
+
+## Jetson Nano
+
+Nous nous sommes initiés aux possibles librairies et structures proposées par Nvidia visant à faire de l'IA (classification d'image, détection d'objets, estimation de profondeur, ...) sur la Jetson Nano à travers le cours dédié de [Nvidia](https://developer.nvidia.com/embedded/learn/jetson-ai-certification-programs#course_outline). 
+En lançant le conteneur docker dédié, nous avons rencontré de nombreux problèmes de librairies manquantes ou obsolètes et avons décidé de poursuivre sur d'autres logiciels. 
+Nous nous sommes notamment intéréssés aux programmes chargés dans le conteneur [Hello AI World](https://github.com/dusty-nv/jetson-inference) qui ciblent davantage les besoins de notre projet (détection d'objets et estimation de profondeur). Cependant, lorsque nous tentons de lancer des programmes permettant de visualier ce que la caméra enregistre, des erreurs de librairies manquantes apparaissent. Nous pensons qu'il s'agit des librairies CUDA, CUDNN ou TensorFLow qui sont obsolètes. 
