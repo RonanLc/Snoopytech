@@ -47,7 +47,7 @@ Utilisation:
 
 ## Programme d'essai
 
-1. [rmp_brushless](https://github.com/RonanLc/Snoopytech/tree/main/code/test/rpm_brushless.ino)
+1. [rpm_brushless](https://github.com/RonanLc/Snoopytech/tree/main/code/test/rpm_brushless.ino)
 
 Ce programme permet de récuperer la vitesse de rotation d'un moteur brushless grâce à un capteur à effet Hall. Nous l'utilisons dans l'étude de l'asservissement de position des moteurs. 
 
