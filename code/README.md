@@ -10,16 +10,16 @@ Nous implementerons des fonctions de traitements d'images et de classifications 
 
 Voici une liste de librairie que nous utilisons afin de rendre certains capteurs/actionneurs opérationnels :
 
-1. [I2Cdev]() 
+1. [I2Cdev](https://github.com/jrowberg/i2cdevlib) 
 
 Cette librairie facilite le contrôle de module communiquant avec l'Arduino par le biais de bus I2C. Nous l'utilisons notamment dans la librairie ```MPU6050```.
 
-2. [MPU6050]()
+2. [MPU6050](https://github.com/jrowberg/i2cdevlib/tree/master/Arduino/MPU6050)
 
 Cette librairie est destinée à controler le capteur GY-521 (gyroscope). Elle permet d'utiliser le DMP (digital motion processor) qui est sollicité pour renvoyer des données stables et lisibles. 
 Nous implementons cette librairie dans la classe ```Gyroscope```.
 
-3. [ServoTimer2-master]()
+3. [ServoTimer2-master](https://github.com/nabontra/ServoTimer2)
 
 Cette librairie permet de controler les servomoteurs et ESC de notre robot en évitant de créer des conflits liés au Timer1 de l'Arduino. Nous l'implementons dans la classe ```CameraMount```.
 
@@ -27,7 +27,7 @@ Cette librairie permet de controler les servomoteurs et ESC de notre robot en é
 
 Cette section regroupe les classes et les programmes que nous avons écrits. 
 
-1. Gyroscope
+1. [Gyroscope](https://github.com/RonanLc/Snoopytech/tree/main/code/lib/Gyroscope)
 
 Cette classe facilite l'utilisation du gyroscope GY-521. Elle implémente les classes MPU6050 et I2Cdev. 
 
@@ -35,7 +35,7 @@ Utilisation:
 - permet d'initialiser un gyroscope sur le pin 2 d'une Arduino Uno
 - calcule et renvoie l'accelération réelle et le roulis/tangage/lacet du capteur
 
-2. CameraMount 
+2. [CameraMount](https://github.com/RonanLc/Snoopytech/tree/main/code/lib/CameraMount) 
 
 Cette classe crée des objets contrôlant une nacelle de notre robot. Une nacelle est une structure sur laquelle se monte des capteurs qui ont besoin d'une orientation indépendante du corps du robot. La nacelle se compose de deux servomoteurs SG-90.
 
@@ -47,11 +47,11 @@ Utilisation:
 
 ## Programme d'essai
 
-1. [rmp_brushless]()
+1. [rmp_brushless](https://github.com/RonanLc/Snoopytech/tree/main/code/test/rpm_brushless.ino)
 
 Ce programme permet de récuperer la vitesse de rotation d'un moteur brushless grâce à un capteur à effet Hall. Nous l'utilisons dans l'étude de l'asservissement de position des moteurs. 
 
-2. [main.cpp]() 
+2. [main.cpp](https://github.com/RonanLc/Snoopytech/blob/main/code/src/main.cpp) 
 
 Ce programme est celui qui sera exécuté sur l'Arduino. Il regroupe toutes les classes utilisées. 
 Pour l'instant, il permet de changer l'orientation des deux nacelles du robot selon l'inclinaison du gyroscope. 
