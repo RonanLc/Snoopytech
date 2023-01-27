@@ -45,7 +45,7 @@ Utilisation:
 - réinitialise la position de la nacelle 
 - renvoie la postion de la nacelle
 
-## Programme d'essai
+## Programmes d'essais
 
 1. [rpm_brushless](https://github.com/RonanLc/Snoopytech/tree/main/code/test/rpm_brushless.ino)
 
