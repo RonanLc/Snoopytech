@@ -12,23 +12,31 @@ We also rethought the way the shoulders (and consequently the legs) should be li
 
 The following image represents the element holding the {motor+motor-reducer} used for the shoulder : 
 
-[image support]
+
+![SUPPORT MOT](https://user-images.githubusercontent.com/95374519/216767870-a51ae1ea-a088-4a2b-9365-f24ef76e1177.png)
+
 
 This element is anchored in the body. 
 
 The following image represents the object maintening the tubes for the shoulder at the middle of the body :
 
-[image ancrage]
+
+![ancarge_tube_int](https://user-images.githubusercontent.com/95374519/216767754-dfcaee95-0607-4b59-8871-e3e764082f4f.png)
+
 
 This element also holds the {motor+motor-reducer} used for the shoulder.
 
 The following element is the new support plate for the body :
 
-[support plaque]
+
+![plaque_support](https://user-images.githubusercontent.com/95374519/216767752-2d7530b9-7c36-4b92-a6a1-bf792efd4b7f.png)
+
 
 All of these elements can be assembled to form the new body of our robot :
 
-[new body]
+
+![new_body](https://user-images.githubusercontent.com/95374519/216767747-4327f321-04fe-48d3-9319-ed7e90af39bf.png)
+
 
 ## Shoulder shell
 
@@ -37,23 +45,27 @@ To make the assembling easier, the shoulder will be sliced (longwise) into two p
 
 The following image represents the entire shoulder :
 
-[shoulder]
+
+![coque_epaule](https://user-images.githubusercontent.com/95374519/216767743-c70101b6-2718-497c-89fa-5ade3fa8c5e4.png)
+
 
 The following image represents the gear leading in motion the shoulder :
 
-[b1]
+
+![b1_coque](https://user-images.githubusercontent.com/95374519/216767766-c6e037f4-7256-4699-ada3-195dad46543a.png)
+
 
 The following image represents the retaining ring :
 
-[anneau maintien]
 
-The following image represents the assembly of the {shoudler shell + gear + retaining ring} :
+![anneau_maintien](https://user-images.githubusercontent.com/95374519/216767757-5fc61b55-bb17-4f16-aa46-fdcb35ed82e8.png)
 
-[assemblage epaule]
 
 The following image represents the assembly of the legs in the shoulder :
 
-[assemblage post epaule]
+
+![assemablage_eapule](https://user-images.githubusercontent.com/95374519/216767758-c81bbbcf-35ab-427e-abac-25170a195e67.png)
+
 
 ## Body assembly 
 
@@ -62,11 +74,15 @@ We assembled the leg into the shoulder, the body and the shoudler on the body.
 
 The following image shows a draft of the robot assembly :
 
-[full robot]
+
+![assemblage_corps](https://user-images.githubusercontent.com/95374519/216767761-d70ec4dc-facf-43c9-9613-6cc36c75c8c0.png)
+
 
 
 ## Next week's objective 
 
 For next week's mission, we will figure out a way to fit the potentiometer into the legs and start printing/testing the effectiveness of the shoulder.
+
+
 
 
