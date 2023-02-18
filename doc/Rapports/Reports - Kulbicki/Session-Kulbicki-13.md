@@ -51,7 +51,7 @@ Unfortunetly, both belts broke at their extremities since that's where they are 
 
 As for the weight tests, I mainly wanted to know if the leg is able to carry its own weigth (650g). It appears that the hip manages to hold up the shoulder with ease
 whereas the knee struggles. This is due to the belt not being tense enough. Ronan tried correcting this issue by modeling a small device capable of adjusting the
-tension of the cable. However, he modeled the device to tense the belt close to the hip joint. I suggest moving the device down to the knee joint to increase the tesnion.
+tension of the cable. However, he modeled a device to tense the belt close to the hip joint. I suggest moving the device down towards the knee joint to increase the tesnion.
 
 
 ![tendeur](https://user-images.githubusercontent.com/95374519/219867806-95511a4d-af96-4748-948e-9d6508eee574.jpeg)
