@@ -27,7 +27,10 @@ Finally, I had to prepare the belts for the knee and hip.
 After mounting all the pieces together, we are left with a leg that weighs around 650g (imprecise because not all the screws and bolts were mounted).
 
 
-[photo montage]
+![montage](https://user-images.githubusercontent.com/95374519/219867816-c7f015f7-cc79-4072-a4b9-64fe11087ee6.jpeg)
+
+
+![hip belt](https://user-images.githubusercontent.com/95374519/219867812-9e0765dc-e2b8-423d-89c5-8e60b7af3166.jpeg)
 
 
 ## Mobility and weight test
@@ -43,14 +46,22 @@ The test I led on the leg was mainly to see if the belts were tense enough to ma
 I wasn't able to capture a video of the leg being functionnal but I was able to make both the knee and hip move at the same time.
 Unfortunetly, both belts broke at their extremities since that's where they are screwed in their respective bearings. 
 
-[photo courroie cassée]
+
+![knee belt](https://user-images.githubusercontent.com/95374519/219867815-746d071b-560f-4d77-bf1a-f3e9a661cd45.jpeg)
 
 As for the weight tests, I mainly wanted to know if the leg is able to carry its own weigth (650g). It appears that the hip manages to hold up the shoulder with ease
 whereas the knee struggles. This is due to the belt not being tense enough. Ronan tried correcting this issue by modeling a small device capable of adjusting the
 tension of the cable. However, he modeled the device to tense the belt close to the hip joint. I suggest moving the device down to the knee joint to increase the tesnion.
+
+
+![tendeur](https://user-images.githubusercontent.com/95374519/219867806-95511a4d-af96-4748-948e-9d6508eee574.jpeg)
+
+
 Regarding the tension of the hip belt, it is mainly due to the structure of the shoulder shell. Indeed, the circled print on the following image tenses the belt when the shoulder is assembled.
 
-[photo epaule tendeur]
+
+![sheel](https://user-images.githubusercontent.com/95374519/219867819-1ad6ac3f-3333-4e28-90eb-b01dff7968c0.png)
+
 
 ## Next week's objective 
 
