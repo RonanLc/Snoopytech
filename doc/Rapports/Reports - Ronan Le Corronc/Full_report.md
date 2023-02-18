@@ -865,3 +865,123 @@ The system is a first version and may need to be improved. It is possible that t
 We still have to add the potentiometers on the joints. Then we will be able to print the whole robot.
 
 <br>
+
+
+# Week 6 - February 7, 2022 - 122h
+
+## Installation of the potentiometers
+
+We now had to install the potentiometers within the system to be able to have a feedback on the position of the joints.
+
+The main difficulties were to design simple, reliable systems with as little change as possible in the design of the robot.
+
+Maximilien Kulbicki took care of the hip joint and I took care of the knee and shoulder joints.
+
+### **1 - The knee**
+
+For the knee, I dismantled the potentiometers to keep only two pieces. This allowed to save a lot of space because the potentiometers were very imposing.
+
+The two parts are a fixed part, having the tracks (the brown part) and a mobile part making the contact between these tracks (the white part).
+
+![pot knee](assets/session_12/pot_genou.png)
+
+So I used the steel axis of the joint. This one will be fixed to the tibia and will turn if we move this joint. I fixed the mobile part to it.
+
+And with the help of a 3D printed part I could connect the fixed part to the thigh. These two parts will vary according to the movement and we can know the position.
+
+To connect the axle to the mobile part, I wanted to drill the axle in its length and come to tarod it. Because of the lack of material, the operation seemed complicated. Pascal Masson helped me to find a solution and succeeded in cutting the axis so that it could be assembled directly.
+
+![Steel axis](assets/session_12/axe_acier.png)
+
+### **2 - The soulder**
+
+For the shoulder I used the same two pieces of the potentiometer. I positioned the mobile part on the shoulder shell and the fixed part on the frame.
+
+![pot shoulder](assets/session_12/pot_epaule.png)
+
+The mobile part will be through a carbon tube that will be fixed to the bearing of the shoulder shell.
+
+The fixed part will be attached to a 3D printed part that will be fixed inside the carbon tube.
+
+<br>
+
+
+## Assemblage de l'épaule
+
+After finishing the potentiometers and correcting the last errors. We were able to start prototyping a leg.
+
+I printed a version of the shell in a beautiful color and assembled the different components inside.
+
+![montage 1](assets/session_12/montage_1.png)
+
+![montage 2](assets/session_12/montage_2.png)
+
+![montage 3](assets/session_12/montage_3.png)
+
+The parts fit together perfectly and the system has very little play for the moment.
+
+It remains however to print a gearbox and re-cut the steel axes of the system.
+
+<br>
+
+
+## Next
+
+The goal is to have a prototype of leg before the next vacations. I think it's possible.
+
+We only have to print a gearbox, cut the steel axles, then make the final assembly with the belts.
+
+<br>
+
+# Week 7 - February 14, 2022 - 128h
+
+## Printing the reducer
+
+We were missing a reducer to finish the leg, so I printed it in PLA and assembled it.
+
+Some parts had a printing problem so I had to go back twice.
+
+We had enough bearings to make two so the gearbox was almost complete, it just lacked the steel shaft for the output rotation.
+
+![Reducer](assets/session_13/reducer_PLA.png)
+
+<br>
+
+## the assembly of the knee
+
+The knee is composed of two main parts:
+
+- one that we will consider fixed here, it is composed of the two plates of the thighs, the external protections and the potentiometer.
+
+![leg part 1](assets/session_13/part_1.png)
+
+- the second one which is mobile, it is composed of the tibia, the steel axis and the second part of the potentiometer.
+
+![leg part 1](assets/session_13/part_2.png)
+
+I had to re-cut the plexiglass plate of the second part. I also had to find a solution to fix the steel axis to the plexiglass plate.
+
+So I chose to use the same technique used in [the reducers](https://github.com/RonanLc/Snoopytech/blob/main/doc/Rapports/Reports%20-%20Ronan%20Le%20Corronc/Session_11.md). I drilled the plate in its length and came to screw in a screw pressing on the rod.
+
+![axis fixation](assets/session_13/axis_fixation.png)
+
+I also soldered 3 wires on the potentiometer to allow to get the position of the potentiometer.
+
+We tested the values it returns but we have a problem with it, it only works on a certain range then returns 0 afterwards. I suspect that the potentiometer track was scratched during disassembly or assembly. We will have to correct this problem.
+
+The leg is fully assembled and fits perfectly with the shoulder.
+
+Maximilien took care of re-cutting the axles for the reducers and so we will be able to connect all the systems together with the belts.
+
+![System picture](assets/session_13/system.png)
+
+<br>
+
+
+## Next
+
+The goal is now to make the first tests of movement with the leg and torque tests.
+
+After that we will be able to focus on the position control of the leg and the production of the 3 other legs!
+
+<br>
