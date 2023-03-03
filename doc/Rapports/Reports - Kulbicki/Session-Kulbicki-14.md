@@ -37,20 +37,28 @@ The key is used to displace the rotation of the shoulder into the potentiometer.
 
 Here is a picture of the lock, the key and its assembly.
 
-[photo_paradis]
+
+![serrur](https://user-images.githubusercontent.com/95374519/222804700-b39923e3-2df8-456c-9766-4a5acfbf3682.png)
+![cle](https://user-images.githubusercontent.com/95374519/222804691-8d6269f3-abee-45ec-8d87-c2afaa4405ab.png)
+![shoudlerpot](https://user-images.githubusercontent.com/95374519/222804703-e87e0b85-0610-46d0-b43e-17705daff2b2.png)
+
 
 The potentiometer responsible for translating the hip's angle is mounted between the hip's retaining bearing and the shoudler's shell.
 It consists of two gears (15 teeth, 15mm of diameter) disposed in front of each other. One is combined to the retaining bearing (therefore retrieving the hip angle), while the other one is inserted in the potentiometer. 
 
 Here is a picture of the retaining bearing combined to the gear, a gear "key" and the assembly in the shoulder.
 
-[photo_spur]
+
+![B1+spur](https://user-images.githubusercontent.com/95374519/222804709-a649ccbb-06e7-40dd-a14e-d170b439cfe1.png)
+![spur](https://user-images.githubusercontent.com/95374519/222804707-25fc7bbf-50a6-4f32-8443-de50a11f2b24.png)
+![hip_pot](https://user-images.githubusercontent.com/95374519/222804697-54894262-ef57-40f0-b782-6e437d883f4e.png)
+
 
 These models must now be tested with the new potentiometers and see how reliable they are.
 
 ## Motor control class
 
-The [MotorJoint]() simple class allows to control a motor in order to set a specific angle on the potentiometer linked to it. 
+The [MotorJoint](https://github.com/RonanLc/Snoopytech/tree/main/code/lib/MotorJoint) simple class allows to control a motor in order to set a specific angle on the potentiometer linked to it. 
 
 The class creates objects retrieving data from the potentiometer and controls the speed of the motor using PID controls.
 
@@ -64,7 +72,7 @@ I haven't had any lessons explaining how to properly determine the derivative co
 This method is called the [Ziegler Nichols method](https://fr.wikipedia.org/wiki/M%C3%A9thode_de_Ziegler-Nichols).
 
 Thus, the PID study is resumed to finding the proportionnal constant. 
-I have used the Routh method on the system modeled during the [worksession 10]() to see the limits in terms of proportionnal constant. 
+I have used the Routh method on the system modeled during the [worksession 10](https://github.com/RonanLc/Snoopytech/blob/main/doc/Rapports/Reports%20-%20Kulbicki/Session-Kulbicki-10.md) to see the limits in terms of proportionnal constant. 
 The theoreticall result shows that any positive constant is good enough. 
 In reality, I doubt high values aren't going to break the system.
 
@@ -75,3 +83,20 @@ Since the potentiometer in the knee of the leg returns proper values, I will try
 ## Next week's objective 
 
 For next weeks session, I will start the building of the body and test out the MotorJoint class on the knee.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
