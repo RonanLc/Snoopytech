@@ -58,7 +58,7 @@ These models must now be tested with the new potentiometers and see how reliable
 
 ## Motor control class
 
-The [MotorJoint](https://github.com/RonanLc/Snoopytech/tree/main/code/lib/MotorJoint) simple class allows to control a motor in order to set a specific angle on the potentiometer linked to it. 
+The [MotorJoint](https://github.com/RonanLc/Snoopytech/tree/main/code/lib/MotorJoint) class allows to control a motor in order to set a specific angle on the potentiometer linked to it. 
 
 The class creates objects retrieving data from the potentiometer and controls the speed of the motor using PID controls.
 
