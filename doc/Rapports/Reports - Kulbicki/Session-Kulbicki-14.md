@@ -73,7 +73,7 @@ This method is called the [Ziegler Nichols method](https://fr.wikipedia.org/wiki
 
 Thus, the PID study is resumed to finding the proportionnal constant. 
 I have used the Routh method on the system modeled during the [worksession 10](https://github.com/RonanLc/Snoopytech/blob/main/doc/Rapports/Reports%20-%20Kulbicki/Session-Kulbicki-10.md) to see the limits in terms of proportionnal constant. 
-The theoreticall result shows that any positive constant is good enough. 
+The theoretical result shows that any positive constant is good enough. 
 In reality, I doubt high values aren't going to break the system.
 
 Therefore, I will use the Ziegler Nichols method to find a proportionnal constant suited for our system. 
