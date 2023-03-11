@@ -50,7 +50,9 @@ I used Excel to plot the graph of the position values fo the potentiometer and t
 
 Here is the excel graph of the motor's position : 
 
-[excel_graph]
+
+![graph_1](https://user-images.githubusercontent.com/95374519/224476619-4b6d3312-7a29-4507-8efd-59fdbd891ebf.png)
+
 
 The abscissa of the plot is the number of value read in the serial monitor.
 On the plot, the two red marks are used to determinate the time period of an oscillation.
@@ -76,12 +78,13 @@ The new potentiometers will hopefully be more reliable than the actual ones we a
 ## Miscelleanous 
 
 The following video shows the first servo test (kp=1;kd=0) :
-[Lien 1](https://youtube.com/shorts/CIPsLTu-o4s?feature=share)
+[Link 1](https://youtube.com/shorts/CIPsLTu-o4s?feature=share)
 
 The following video shows another servo test (kp=2.5;kd=0) :
-[Lien 2](https://youtube.com/shorts/CIPsLTu-o4s?feature=share)
+[Link 2](https://youtube.com/shorts/CIPsLTu-o4s?feature=share)
+
 The following video shows another servo test (kp=3;kd=0) :
-[Lien 3](https://youtube.com/shorts/zfZmmV3m1gE?feature=share)
+[Link 3](https://youtube.com/shorts/zfZmmV3m1gE?feature=share)
 
 ## Next week's objective 
 
