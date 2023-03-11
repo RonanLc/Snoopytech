@@ -78,7 +78,7 @@ The new potentiometers will hopefully be more reliable than the actual ones we a
 ## Miscelleanous 
 
 The following video shows the first servo test (kp=1;kd=0) :
-[Link 1](https://youtube.com/shorts/CIPsLTu-o4s?feature=share)
+[Link 1](https://youtube.com/shorts/YTnyQPPP8eM?feature=share)
 
 The following video shows another servo test (kp=2.5;kd=0) :
 [Link 2](https://youtube.com/shorts/CIPsLTu-o4s?feature=share)
