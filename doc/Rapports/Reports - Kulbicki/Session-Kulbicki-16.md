@@ -27,7 +27,7 @@ Furthermore, I launched 3D prints of the following pieces :
 
 Once all the pieces were made, I proceded to the assembly of the body.
 
-The result of the assembly is seen on the following picture :
+The result of the assembly is seen on the following pictures :
 
 ![2](https://user-images.githubusercontent.com/95374519/226121319-a6e36c62-2156-42f1-bad9-3a3797e7eedd.jpg)
 ![1](https://user-images.githubusercontent.com/95374519/226121324-a36373e9-9386-44d3-a8ed-4d164a090981.jpg)
