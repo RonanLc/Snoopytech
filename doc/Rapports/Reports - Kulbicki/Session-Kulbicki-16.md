@@ -29,7 +29,8 @@ Once all the pieces were made, I proceded to the assembly of the body.
 
 The result of the assembly is seen on the following picture :
 
-[photo_assemblage]()
+![2](https://user-images.githubusercontent.com/95374519/226121319-a6e36c62-2156-42f1-bad9-3a3797e7eedd.jpg)
+![1](https://user-images.githubusercontent.com/95374519/226121324-a36373e9-9386-44d3-a8ed-4d164a090981.jpg)
 
 ## Review of the build
 
@@ -45,3 +46,5 @@ The holes of the frame holding the axis of the motor are too wide, resulting in 
 ## Next week's objective 
 
 For next week's session, I will attend to hook up the third motor onto the leg. This underlines that I will need to find a (temporarely) solution for the potentiometer.
+
+
