@@ -13,12 +13,12 @@ The potentiometers return proper analogic values and their angle range is about 
 I used super glue to attach the potentiometer return the hip angle and put the hip in motion to see the quality of the gear moving the potentiometer.
 This can be seen in the following video :
 
-[video_pot]()
+[Link](https://youtube.com/shorts/3UBivNCR2bs?feature=share)
 
 I also glued the key that is plugged in the potentiometer of the shoulder and assembled the {key+potentiometer} in the carbon fiber tube maintening the shoudler.
 The result can be seen in the next video :
 
-[video_pot_shoulder]()
+[Link](https://youtube.com/shorts/v6eRysPjnHw?feature=share)
 
 The carbon fiber tubes had to be drilled in order to attach the socket of the potentiometer.
 
@@ -29,24 +29,28 @@ This phase took about two hours due to the amount of requiered pieces. The most 
 
 The following picture shows the assembled leg, with its new potentiometers :
 
-[photo_leg]()
+
+![IMG_2748](https://user-images.githubusercontent.com/95374519/229298551-f969f0d5-a31c-419e-9af4-661d5702fe18.jpeg)
+
 
 I then continued with the dissassembing of the body in order to install the leg and link it to its third motor-reducer (the one aboard the body).
 The mounted leg can be seen on the floowing pictures :
 
-[picture]
 
-[picture]
+![unnamed](https://user-images.githubusercontent.com/95374519/229298574-24ccd62c-a3a7-4fdc-9ebe-70ac0e6a0dfc.jpg)
+
+![IMG_2755](https://user-images.githubusercontent.com/95374519/229298581-5a75a940-89dc-4dab-878c-748a0e08575c.jpeg)
+
 
 ## Short motion tests
 
 The following videos show each joint's motion :
 
-[Knee_motion]()
+[Knee_motion](https://youtu.be/SUaDrIiHGKA)
 
-[Hip_motion]()
+[Hip_motion](https://youtu.be/5ANu7j0sUI8)
 
-[Shoulder_motion]()
+[Shoulder_motion](https://youtu.be/d3nsmIFnhjQ)
 
 As we can see, the knee and the hip joints move freely whereas the shoudler joint struggles
 This comes from the belt not being tense enough. 
@@ -61,18 +65,3 @@ I have resolved this issue by increasing the inner diameter where the screw was 
 
 For next week's session, I will attempt to solve the previously mentionned issue.
 Once all the issue have been delt with, I will proceed to adjust the offsets for each potentiometer in the ````MotorJoint``` code. 
-
-
-![unnamed](https://user-images.githubusercontent.com/95374519/229298574-24ccd62c-a3a7-4fdc-9ebe-70ac0e6a0dfc.jpg)
-![IMG_2755](https://user-images.githubusercontent.com/95374519/229298581-5a75a940-89dc-4dab-878c-748a0e08575c.jpeg)
-![IMG_2748](https://user-images.githubusercontent.com/95374519/229298551-f969f0d5-a31c-419e-9af4-661d5702fe18.jpeg)
-
-
-
-https://youtube.com/shorts/3UBivNCR2bs?feature=share
-
-
-https://youtu.be/d3nsmIFnhjQ
-https://youtu.be/SUaDrIiHGKA
-https://youtu.be/5ANu7j0sUI8
-https://youtube.com/shorts/v6eRysPjnHw?feature=share
