@@ -35,6 +35,7 @@ I then continued with the dissassembing of the body in order to install the leg 
 The mounted leg can be seen on the floowing pictures :
 
 [picture]
+
 [picture]
 
 ## Short motion tests
@@ -60,3 +61,18 @@ I have resolved this issue by increasing the inner diameter where the screw was 
 
 For next week's session, I will attempt to solve the previously mentionned issue.
 Once all the issue have been delt with, I will proceed to adjust the offsets for each potentiometer in the ````MotorJoint``` code. 
+
+
+![unnamed](https://user-images.githubusercontent.com/95374519/229298574-24ccd62c-a3a7-4fdc-9ebe-70ac0e6a0dfc.jpg)
+![IMG_2755](https://user-images.githubusercontent.com/95374519/229298581-5a75a940-89dc-4dab-878c-748a0e08575c.jpeg)
+![IMG_2748](https://user-images.githubusercontent.com/95374519/229298551-f969f0d5-a31c-419e-9af4-661d5702fe18.jpeg)
+
+
+
+https://youtube.com/shorts/3UBivNCR2bs?feature=share
+
+
+https://youtu.be/d3nsmIFnhjQ
+https://youtu.be/SUaDrIiHGKA
+https://youtu.be/5ANu7j0sUI8
+https://youtube.com/shorts/v6eRysPjnHw?feature=share
