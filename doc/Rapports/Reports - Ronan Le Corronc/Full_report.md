@@ -985,3 +985,221 @@ The goal is now to make the first tests of movement with the leg and torque test
 After that we will be able to focus on the position control of the leg and the production of the 3 other legs!
 
 <br>
+
+
+# Week 9 - February 28, 2022 - 132h
+
+During this session I decided to start working on the math to direct the robot.
+
+When the legs are finished, the goal is to make the robot move. Unfortunately, pre-recording movements like walking or turning is not enough. Based on this alone the robot will not be able to adapt to uneven terrain or changing loads. It must be able to find its own balance and adapt to any situation.
+
+So I try to determine different benchmarks on the robot and the equations allowing to go from one benchmark to another.
+
+## Definition of the benchmarks
+
+I have defined 5 different marks on the robot.
+
+- Rc : The reference centered in the middle of the robot, the one of the building
+- Rfl : The marker at the end of the left front foot
+- Rfr : The mark at the end of the right front foot
+- Rbl : The marker at the end of the left rear foot
+- Rbr : The mark at the end of the right rear foot
+
+I drew plans of the robot to locate them in space. The markers are thus placed as follows:
+
+![robot markers](assets/session_14/repere_vue.png)
+
+This will allow us to determine rotations and movements in space, according to the benchmarks.
+
+<br>
+
+## Kinematic study
+
+I have redrawn the robot in three dimensions to be able to determine the mathematical equations that will be useful to move the robot.
+
+I defined different names of axes and rotation as shown in the diagram.
+
+![3D view](assets/session_14/3D_view.png)
+
+To simplify the calculations I started by studying the tibia and the thigh. So the axis of rotation of the knee and the hip. This allows us to start the calculations in 2D like the following diagram:
+
+![2D view](assets/session_14/2D_view.png)
+
+The goal was to move from the R1 to the RL positions. Unfortunately I did not manage to have conclusive results for the moment.
+
+<br>
+
+## Next
+
+So I will focus on the mathematics to help find the equations to change the benchmark.
+
+<br>
+
+
+# Week 10 - March 7, 2022 - 136h
+
+## Communication in Nvidia Jeston nano and Arduino UNO
+
+The goal here is to be able to communicate between the two boards. 
+
+The Arduino board will be used as a low level board, it will apply the commands of the Nvidia and will control the different sensors and motors.
+The Nvidia card will be used to perform all the calculations and data analysis to determine the movements of the robot.
+
+The two cards must be able to communicate with each other without stopping.
+
+![both card](assets/session_15/both_cards.png)
+
+<br>
+
+
+## Wiring
+
+The wiring is quite simple, you just have to connect the RX of the arduino to the TX of the Nvidia. Then connect the RX of the Nvidia to the TX of the arduino.
+
+But when I looked a little bit more closely, I noticed a problem. The serial communication of the Nvidia works in 3.3V unlike the arduino which works in 5V. In the direction Nvidia -> Arduino, this is not a problem, the arduino will be able to read the bits received in 3.3V. But in the opposite direction you have to lower the voltage, the 5V can damage the Nvidia card.
+
+I thought at first to use only a voltage divider bridge. But according to my research, it works very well at low frequency, but by increasing the communication speed, we risk to lose a lot of bits.
+
+The solution was to add a level shifter, a small component designed for this use allowing to communicate with two different voltages.
+
+So the wiring is like this:
+
+![Wiring](assets/session_15/wiring.png)
+
+
+<br>
+
+
+## Programming
+
+The code is composed of two scripts, one in C that is run on the arduino and one in Python run on the Nvidia.
+
+The ``Python`` code is as follows:
+
+```Arduino
+void setup(){
+  Serial.begin(115200);
+  while(!Serial){;}
+}
+
+const char stopPoint = '|';
+
+void loop(){
+
+  if (Serial.available()>0) {
+
+    String commandFromJetson = Serial.readStringUntil(stopPoint);
+
+    String ackMsg = "Message :" + commandFromJetson;
+
+    Serial.print(ackMsg);
+  }
+  
+  delay(500);
+}
+```
+
+Here the code is only designed to receive a message from the serial communication and display it on the serial monitor.
+
+The ``Python`` code is as follows:
+
+```Python
+import serial
+import time
+
+#arduino = serial.Serial('/dev/ttyAcM0', 115200, timeout=5)
+
+arduino = serial.Serial(
+port = '/dev/ttyACM0',
+baudrate = 115200,
+byterate = serial.EIGHTBITS,
+parity = serial.PARITY_NONE,
+stopbits = serial.STOPBITS_ONE,
+timeout = 5,
+xonxoff = False,
+rtscts = False,
+dsrdtr = False,
+writeTimeout = 2)
+
+while True:
+    try:
+        arduino.write("Command from Jetson|".encode())
+        data = arduino.readline().decode()
+        if data:
+            print(data)
+        time.sleep(1)
+    except Exception as e:
+        print(e)
+        arduino.close()
+```
+
+This code is designed to first set the communication port and then, if everything works well, send the data to the arduino via the serial link. I use the ``serial`` library for that.
+
+<br>
+
+
+## Next
+
+For the moment the communication works only by connecting the Arduino board in USB to the Nvidia. The Nvidia board has only one USB port which is already used for the camera, so we have to free it by using the RX/TX pins. Unfortunately the communication does not work via these ports. The problem seems to come from the port declaration in the Python script, the port used is not the right one.
+
+So I will have to find the right port and redo some tests to have a reliable and functional communication.
+
+<br>
+
+
+# Week 11 - March 13, 2022 - 140h
+
+During this session I concentrated on printing parts. The robot's paste being soon finished, we have to print all the parts to be able to build the three others quickly.
+
+So I printed some parts that were already working.
+
+## Gearbox
+
+![reducer](assets/session_16/reducer.png)
+
+<br>
+
+## ESC bed
+
+![ESC bed stack](assets/session_16/ESC_bed_stack.png)
+
+![ESC bed empty](assets/session_16/ESC_bed_empty.png)
+
+![ESC bed full](assets/session_16/ESC_bed_full.png)
+
+The ESC beds are not very strong though. They bend when I hang all the ESCs on them, so I would have to modify them to fit more rigidly.
+
+<br>
+
+## Shoulder case
+
+![Shoulder close](assets/session_16/shoulder_close.png)
+
+![Shoulder open](assets/session_16/shoulder_open.png)
+
+The shoulders had to be reprinted many times because a lot of movements take place inside, we encountered many conflicts.
+
+<br>
+
+## Next
+
+I continue to print parts as soon as possible and modify them when necessary to finish the robot as soon as possible.
+
+<br>
+
+
+# Week 12 - March 21, 2022 - 143h
+
+During this session I focused on the laser cut parts. I modified the tibia by removing the 3D printed part at the strap. So we have only one piece in plexiglass which is much more resistant.
+
+![tibia 3D](assets/session_17/tibia_3D.png)
+
+![tibia](assets/session_17/tibia.png)
+
+I was also able to help Maximilien to make the body of the robot, so we cut the many plexiglass plates. Printed the parts allowing the assembly. And made a first assembly of the body.
+
+![Body view](assets/session_17/body.gif)
+
+<br>
+
+
