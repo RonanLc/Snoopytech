@@ -4,13 +4,18 @@
 Constructor for motor-controlled joint. 
 Takes a given ESC pin for the motor control and a pin for the potentiometer influenced by this same motor.
 */
-MotorJoint::MotorJoint(uint8_t pin_esc, uint8_t pin_pot){
+MotorJoint::MotorJoint(int pin_esc, uint16_t pin_pot, uint16_t min_joint, uint16_t max_joint){
     _pin_esc=pin_esc;
     _pot_mot=pin_pot;
+    _min_joint=min_joint;
+    _max_joint=max_joint;
 };
 
+/*
+Attachs the motor.
+*/
 void MotorJoint::setup_mj(){
-    esc_mot.attach(_pin_esc);
+    esc_mot.attach(_pin_esc,1000,3000);
 };
 
 /*
@@ -21,6 +26,14 @@ long MotorJoint::get_angle()
 {
     return map(analogRead(_pot_mot),0,1023,_min_angle_pot,_max_angle_pot);
 };
+
+/*
+Returns the current speed of the motor.
+No parameters.
+*/
+int MotorJoint::get_speed(){
+    return esc_mot.read();
+}
 
 /*
 Sets all PIDs constants to 0.
@@ -37,10 +50,10 @@ void MotorJoint::reset_pid_errors(){
 Calculates the normal, integral and derivative errors.
 Parameters : setAngle; currentAngle. 
 */
-void MotorJoint::calculateErrors(const uint8_t setAngle, uint8_t currentAngle){
-    _error=setAngle-currentAngle;
+void MotorJoint::calculateErrors(uint16_t setAngle, uint16_t currentAngle){
+    _error=currentAngle-setAngle;
     _error_sum+=_error;
-    _error_sum=minMax(_error_sum,-100/_ki,100/_ki); // arbritary floor values
+    //_error_sum=minMax(_error_sum,-100/_ki,100/_ki); // arbritary floor values
     _error_delta=_error-_previous_error;
     _previous_error=_error;
 };
@@ -51,7 +64,7 @@ Sets the motor speed (in rps).
 [90-180] => clockwise.
 90 => 0 rps.
 */
-void MotorJoint::set_speed(uint8_t setSpeed){
+void MotorJoint::set_speed(uint16_t setSpeed){
     esc_mot.write(setSpeed);
     _current_speed=esc_mot.read();
 };
@@ -65,31 +78,48 @@ void MotorJoint::reset_speed(){
 
 /*
 Sets an angle as a setpoint.
-Determines the motor's speed based on the current angles errors, using PID constants.
+Determines the necessary motor speed based on the current angle errors, using PID constants.
 Returns TRUE if success.
 */
-bool MotorJoint::set_angle(const uint8_t setAngle){
-    if ((setAngle > _min_angle_pot)&&(setAngle < _max_angle_pot)){
-        _current_angle=get_angle();
+bool MotorJoint::set_angle(uint16_t setAngle){
+    _current_angle=get_angle();
 
+    if ((setAngle > _min_joint)&&(setAngle < _max_joint)){ // if movement is possible, gives a +-2° freedom
         calculateErrors(setAngle,_current_angle);
 
-        long new_speed = _null_speed + (_kp * _error) + (_ki * _error_sum) + (_kd * _error_delta);
+        long new_speed = _null_speed + (_kp * _error) + (_kd * _error_delta) ;// + (_ki * _error_sum) ; 
 
-        new_speed=minMax(new_speed,_acw_max_speed,_cw_max_speed); // bounds the value 
+        new_speed = minMax(new_speed,_acw_max_speed,_cw_max_speed); // bounds the value 
 
         set_speed(new_speed);
 
         return 1;
     }
+    else if ((_current_angle>setAngle+2)&&(_current_angle<setAngle-2)){
+        reset_pid_errors();
+        reset_speed();
+        return 1;
+    }
 
+    reset_speed();
     return 0;
 };
 
 /*
 Bounds a value between a minimum value and maximum value.
 */
-long MotorJoint::minMax(long value, long min_value, long max_value){
+long MotorJoint::minMax(long value, long bound_1, long bound_2){
+    long max_value,min_value;
+
+    if (bound_1>bound_2){
+        max_value = bound_1;
+        min_value = bound_2;
+    }
+    else {
+        min_value = bound_1;
+        max_value = bound_2;
+    }
+
     if (value > max_value){
         value = max_value;
     }
