@@ -13,7 +13,7 @@ I also put the other joints in motion to know if they were operational for the m
 
 ## Servo parameters
 
-Before applying the [```MotorJoint```]() code on the leg to precisely drive it, parameters have to be set for each joint.
+Before applying the ```MotorJoint``` code on the leg to precisely drive it, parameters have to be set for each joint.
 These parameters gather :
 
     The minimum angle the joint can reach.
@@ -29,7 +29,7 @@ I collected all this data and here are the results :
     Hip joint : [min,max]=[60,160]°; ref=145°; d=-1.
     Shoulder joint : [min,max]=[11,164]°; ref=100°; d=1.
 
-After plugging in these values in the [main]() program, I tested the servo driving class on each joint with the PID correctionnal values (kp=0.75, kd=0.33). 
+After plugging in these values in the [main](https://github.com/RonanLc/Snoopytech/blob/main/code/src/main.cpp) program, I tested the servo driving class on each joint with the PID correctionnal values (kp=0.75, kd=0.33). 
 
 At first, I tried getting each joint to go from one angle to another slowly. They all succeed without any rebounds or rough movement.
 Then, I applied a small resistance (500g) on each joint as it was in motion. Most of the belts ripped off as the motor's speed quickly approached its maximum. 
