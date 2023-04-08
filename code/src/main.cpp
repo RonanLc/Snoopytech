@@ -96,7 +96,7 @@ void loop() {
   // Serial.print("  ");
   // Serial.println(genou_fr.get_speed());
 
-  //   // test genou front right
+  //   // test hanche front right
   // uint16_t setAngle = map(analogRead(control_hanche_fr),0,1023,0,90);
   // hanche_fr.set_angle(setAngle);
   // Serial.print(map(analogRead(control_hanche_fr),0,1023,0,90));
@@ -105,7 +105,7 @@ void loop() {
   // Serial.print("  ");
   // Serial.println(hanche_fr.get_speed());
 
-    // test genou front right
+    // test epaule front right
   uint16_t setAngle = map(analogRead(control_epaule_fr),0,1023,0,90);
   epaule_fr.set_angle(setAngle);
   Serial.print(map(analogRead(control_epaule_fr),0,1023,0,90));
