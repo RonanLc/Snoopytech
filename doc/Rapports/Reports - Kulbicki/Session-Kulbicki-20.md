@@ -73,14 +73,14 @@ $$\theta = \pi - arccos(\dfrac{AB² + AC² - BC²}{2\times AB\times AC}) -arctan
 
 $$\theta = arctan(\dfrac{M_z}{M_x})- arccos(\dfrac{AB² + AC² - BC²}{2\times AB\times AC})  $$
 
-with $ AC = \sqrt{M_x² + M_Z²}$.
+with $AC = \sqrt{M_x² + M_Z²}$.
 
 ### **Conditions to respect** 
 
 To allow these formulas to be effective on our leg, we must ensure the follwing conditions are respected :
-$$ Mz < AB + BC $$
-$$ |Mx| < AB + BC $$
-$$ Mz > 0 $$
+$$Mz < AB + BC$$
+$$|Mx| < AB + BC$$
+$$Mz > 0$$
 
 We must also ensure that the angles $\theta$ and $\psi$ are restricted to the potentiometers limits angles. 
 
