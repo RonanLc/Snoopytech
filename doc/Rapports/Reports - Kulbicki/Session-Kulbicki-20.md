@@ -122,3 +122,9 @@ The result are satisfying and allow to express $(\phi,\theta,\psi)$ precisely.
 
 For next week's session, I will try to implement these formulas in a simple code to test its efficiency.
 I will also have to start manufacturing new legs for the robot. 
+
+
+
+![IMG-2780](https://user-images.githubusercontent.com/95374519/232210430-b97b0412-1f3c-4b0e-b5b0-d731bdf1b23f.jpg)
+
+![IMG-2779](https://user-images.githubusercontent.com/95374519/232210433-0e095631-6ad1-4aee-b234-3d10236d0cb8.jpg)
