@@ -13,8 +13,10 @@ The lower leg can be represented in the $(x0z)$ plane, whereas the shoulder is s
 
 The following pictures give a simple representation of the leg in its planes :
 
-[photo_patte_basse]
-[photo_epaule]
+![IMG-2780](https://user-images.githubusercontent.com/95374519/232210482-9442be2a-43d8-47e4-b1fc-1ec0f1f033de.jpg)
+
+
+![IMG-2779](https://user-images.githubusercontent.com/95374519/232210486-771591ca-33c1-4f25-8772-1ae131762107.jpg)
 
 As shown on the pictures, the leg's position in this coordonate system is represented by a vector $(OC)$ whose coordinates are $(M_x,M_y,M_z)$.
 The points can be described as so :
@@ -43,6 +45,9 @@ At the end of this study, we should be able to input the requested position of o
 In this study, I won't develop much its progress but rather the theorems and relations allowing to obtain the results. 
 
 [picture_again_leg]
+
+![IMG-2780](https://user-images.githubusercontent.com/95374519/232210482-9442be2a-43d8-47e4-b1fc-1ec0f1f033de.jpg)
+
 
 In the first picture shown above, we have a representation of the problem and its different parameters.
 The goal is to expose all the relations between the different unknows $(\theta,\psi,M_x,M_z)$. 
@@ -81,7 +86,7 @@ We must also ensure that the angles $\theta$ and $\psi$ are restricted to the po
 
 ## **Shoulder inclination study**
 
-[picture_shoulder]
+![IMG-2779](https://user-images.githubusercontent.com/95374519/232210486-771591ca-33c1-4f25-8772-1ae131762107.jpg)
 
 The previous picture exposes the problem and all its unknows. 
 In this study, the aim is to obtain the relations between the different unknows $(\phi,M_z,M_y,M'_z)$.
@@ -125,6 +130,4 @@ I will also have to start manufacturing new legs for the robot.
 
 
 
-![IMG-2780](https://user-images.githubusercontent.com/95374519/232210430-b97b0412-1f3c-4b0e-b5b0-d731bdf1b23f.jpg)
 
-![IMG-2779](https://user-images.githubusercontent.com/95374519/232210433-0e095631-6ad1-4aee-b234-3d10236d0cb8.jpg)
