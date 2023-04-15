@@ -44,7 +44,6 @@ At the end of this study, we should be able to input the requested position of o
 
 In this study, I won't develop much its progress but rather the theorems and relations allowing to obtain the results. 
 
-[picture_again_leg]
 
 ![IMG-2780](https://user-images.githubusercontent.com/95374519/232210482-9442be2a-43d8-47e4-b1fc-1ec0f1f033de.jpg)
 
