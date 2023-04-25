@@ -44,7 +44,6 @@ At the end of this study, we should be able to input the requested position of o
 
 In this study, I won't develop much its progress but rather the theorems and relations allowing to obtain the results. 
 
-[picture_again_leg]
 
 ![IMG-2780](https://user-images.githubusercontent.com/95374519/232210482-9442be2a-43d8-47e4-b1fc-1ec0f1f033de.jpg)
 
@@ -55,8 +54,14 @@ The lengths $(AB)$ and $(BC)$ are known as the real length of the robot's leg.
 
 Using basic trigonometry, we are able to express $M_x$ and $M_z$ as a function of $\theta$ and $\psi$ :
 
+<<<<<<< HEAD
 $$  M_z = AB \times sin(\theta) + BC\times sin(\psi - \theta)$$
 $$ M_x = BC\times cos(\psi -\theta) - AB\times cos(\theta)$$
+=======
+$$M_z = AB \times sin(\theta) + BC\times sin(\psi - \theta)$$
+
+$$M_x = BC\times cos(\psi -\theta) - AC\times cos(\theta)$$
+>>>>>>> 3a23c6aa5986735b06f44131f0bc4efb3f6f00fa
 
 These formulas can be useful given that we know the angles but need the position.
 
@@ -73,14 +78,14 @@ $$\theta = \pi - arccos(\dfrac{AB² + AC² - BC²}{2\times AB\times AC}) -arctan
 
 $$\theta = arctan(\dfrac{M_z}{M_x})- arccos(\dfrac{AB² + AC² - BC²}{2\times AB\times AC})  $$
 
-with $ AC = \sqrt{M_x² + M_Z²}$.
+with $AC = \sqrt{M_x² + M_Z²}$.
 
 ### **Conditions to respect** 
 
 To allow these formulas to be effective on our leg, we must ensure the follwing conditions are respected :
-$$ Mz < AB + BC $$
-$$ |Mx| < AB + BC $$
-$$ Mz > 0 $$
+$$Mz < AB + BC$$
+$$|Mx| < AB + BC$$
+$$Mz > 0$$
 
 We must also ensure that the angles $\theta$ and $\psi$ are restricted to the potentiometers limits angles. 
 
