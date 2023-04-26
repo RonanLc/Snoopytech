@@ -54,14 +54,8 @@ The lengths $(AB)$ and $(BC)$ are known as the real length of the robot's leg.
 
 Using basic trigonometry, we are able to express $M_x$ and $M_z$ as a function of $\theta$ and $\psi$ :
 
-<<<<<<< HEAD
-$$  M_z = AB \times sin(\theta) + BC\times sin(\psi - \theta)$$
-$$ M_x = BC\times cos(\psi -\theta) - AB\times cos(\theta)$$
-=======
 $$M_z = AB \times sin(\theta) + BC\times sin(\psi - \theta)$$
-
-$$M_x = BC\times cos(\psi -\theta) - AC\times cos(\theta)$$
->>>>>>> 3a23c6aa5986735b06f44131f0bc4efb3f6f00fa
+$$M_x = BC\times cos(\psi -\theta) - AB\times cos(\theta)$$
 
 These formulas can be useful given that we know the angles but need the position.
 
