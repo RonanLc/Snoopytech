@@ -18,7 +18,7 @@ The length for each rod is :
 Thus, we have a total of 12 rods that are currently being installed in the motor reducers and knee. 
 
 Furthermore, I continued with the cutting/drilling of the carbon fiber tubes responsible for the hip and shoulder movement. 
-This task was easily done with the template built at the [session 10]().
+This task was easily done with the template built at the [session 10](https://github.com/RonanLc/Snoopytech/blob/main/doc/Rapports/Reports%20-%20Kulbicki/Session-Kulbicki-10.md).
 
 We now have an amount of 7 tubes that are ready to be mounted (3 hip axis + 3 shoudler axis + 1 large shoudler axis).
 
