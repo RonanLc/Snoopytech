@@ -1,4 +1,4 @@
-# Week 10 - March 7, 2022 - 136h
+# Week 10 - March 7, 2023 - 136h
 
 ## Communication in Nvidia Jeston nano and Arduino UNO
 

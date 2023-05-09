@@ -1,4 +1,4 @@
-# Week 6 - February 7, 2022 - 122h
+# Week 6 - February 7, 2023 - 122h
 
 ## Installation of the potentiometers
 

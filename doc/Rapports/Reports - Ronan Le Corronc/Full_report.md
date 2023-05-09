@@ -741,7 +741,7 @@ So I will continue to work on the reducers and the goal of the next session will
 
 <br>
 
-# Week 3 - January 16, 2022 - 106h
+# Week 3 - January 16, 2023 - 106h
 
 ## Modification of the gearbox
 
@@ -807,7 +807,7 @@ It remains now to build the rest of the leg, the hip joint. Then to correct as m
 
 <br>
 
-# Week 5 - January 31, 2022 - 114h
+# Week 5 - January 31, 2023 - 114h
 
 ## Modification of the gearboxes
 
@@ -867,7 +867,7 @@ We still have to add the potentiometers on the joints. Then we will be able to p
 <br>
 
 
-# Week 6 - February 7, 2022 - 122h
+# Week 6 - February 7, 2023 - 122h
 
 ## Installation of the potentiometers
 
@@ -933,7 +933,7 @@ We only have to print a gearbox, cut the steel axles, then make the final assemb
 
 <br>
 
-# Week 7 - February 14, 2022 - 128h
+# Week 7 - February 14, 2023 - 128h
 
 ## Printing the reducer
 
@@ -987,7 +987,7 @@ After that we will be able to focus on the position control of the leg and the p
 <br>
 
 
-# Week 9 - February 28, 2022 - 132h
+# Week 9 - February 28, 2023 - 132h
 
 During this session I decided to start working on the math to direct the robot.
 
@@ -1036,7 +1036,7 @@ So I will focus on the mathematics to help find the equations to change the benc
 <br>
 
 
-# Week 10 - March 7, 2022 - 136h
+# Week 10 - March 7, 2023 - 136h
 
 ## Communication in Nvidia Jeston nano and Arduino UNO
 
@@ -1147,7 +1147,7 @@ So I will have to find the right port and redo some tests to have a reliable and
 <br>
 
 
-# Week 11 - March 13, 2022 - 140h
+# Week 11 - March 13, 2023 - 140h
 
 During this session I concentrated on printing parts. The robot's paste being soon finished, we have to print all the parts to be able to build the three others quickly.
 
@@ -1188,7 +1188,7 @@ I continue to print parts as soon as possible and modify them when necessary to 
 <br>
 
 
-# Week 12 - March 21, 2022 - 143h
+# Week 12 - March 21, 2023 - 143h
 
 During this session I focused on the laser cut parts. I modified the tibia by removing the 3D printed part at the strap. So we have only one piece in plexiglass which is much more resistant.
 
