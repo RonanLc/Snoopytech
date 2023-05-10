@@ -1,4 +1,4 @@
-# Week 17 - April 25, 2023 - 148h
+# Week 17 - April 25, 2023 - 174h
 
 Our prototype leg being finished and functional, it was now time to make the 3 other legs. So I concentrated on this part.
 

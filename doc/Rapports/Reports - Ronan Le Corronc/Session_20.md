@@ -1,4 +1,4 @@
-# Week 15 - April 11, 2023 - 148h
+# Week 15 - April 11, 2023 - 164h
 
 ## Construction of the robot support
 

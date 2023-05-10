@@ -1,4 +1,4 @@
-# Week 18 - May 2, 2023 - 148h
+# Week 18 - May 2, 2023 - 208h
 
 During the previous session, we had printed and cut out all the necessary parts to make the 4 legs. We then assembled all these pieces to make the legs.
 
