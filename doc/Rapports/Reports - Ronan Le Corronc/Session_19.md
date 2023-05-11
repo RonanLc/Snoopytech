@@ -9,7 +9,7 @@ To do this I based myself on the same diagrams.
 ## Inverse equations
 
 So I was able to determine the following equations:
-$$  \textcolor{red}{ABo} = AB \times cos(\textcolor{green}{\Phi} - arcsin( \frac{A \times sin(\textcolor{green}{\Theta})}{AB} )) $$
+$$ \textcolor{red}{ABo} = AB \times cos(\textcolor{green}{\Phi} - arcsin( \frac{A \times sin(\textcolor{green}{\Theta})}{AB})) $$
 
 
 $$ \textcolor{green}{\Theta} = arccos( \frac{A^2 + B^2 + \textcolor{red}{Mx}^2 + \textcolor{red}{ABo}^2}{2 \times \sqrt{\textcolor{red}{Mx}^2 + \textcolor{red}{ABo}^2}}) $$
