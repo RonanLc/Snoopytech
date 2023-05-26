@@ -1,4 +1,4 @@
-# Week 12 - March 21, 2022 - 143h
+# Week 12 - March 21, 2023 - 143h
 
 During this session I focused on the laser cut parts. I modified the tibia by removing the 3D printed part at the strap. So we have only one piece in plexiglass which is much more resistant.
 

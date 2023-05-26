@@ -1,4 +1,4 @@
-# Week 11 - March 13, 2022 - 140h
+# Week 11 - March 13, 2023 - 140h
 
 During this session I concentrated on printing parts. The robot's paste being soon finished, we have to print all the parts to be able to build the three others quickly.
 

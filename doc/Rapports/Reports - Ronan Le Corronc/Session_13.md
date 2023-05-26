@@ -1,4 +1,4 @@
-# Week 7 - February 14, 2022 - 128h
+# Week 7 - February 14, 2023 - 128h
 
 ## Printing the reducer
 

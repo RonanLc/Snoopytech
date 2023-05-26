@@ -741,7 +741,7 @@ So I will continue to work on the reducers and the goal of the next session will
 
 <br>
 
-# Week 3 - January 16, 2022 - 106h
+# Week 3 - January 16, 2023 - 106h
 
 ## Modification of the gearbox
 
@@ -807,7 +807,7 @@ It remains now to build the rest of the leg, the hip joint. Then to correct as m
 
 <br>
 
-# Week 5 - January 31, 2022 - 114h
+# Week 5 - January 31, 2023 - 114h
 
 ## Modification of the gearboxes
 
@@ -867,7 +867,7 @@ We still have to add the potentiometers on the joints. Then we will be able to p
 <br>
 
 
-# Week 6 - February 7, 2022 - 122h
+# Week 6 - February 7, 2023 - 122h
 
 ## Installation of the potentiometers
 
@@ -933,7 +933,7 @@ We only have to print a gearbox, cut the steel axles, then make the final assemb
 
 <br>
 
-# Week 7 - February 14, 2022 - 128h
+# Week 7 - February 14, 2023 - 128h
 
 ## Printing the reducer
 
@@ -987,7 +987,7 @@ After that we will be able to focus on the position control of the leg and the p
 <br>
 
 
-# Week 9 - February 28, 2022 - 132h
+# Week 9 - February 28, 2023 - 132h
 
 During this session I decided to start working on the math to direct the robot.
 
@@ -1036,7 +1036,7 @@ So I will focus on the mathematics to help find the equations to change the benc
 <br>
 
 
-# Week 10 - March 7, 2022 - 136h
+# Week 10 - March 7, 2023 - 136h
 
 ## Communication in Nvidia Jeston nano and Arduino UNO
 
@@ -1147,7 +1147,7 @@ So I will have to find the right port and redo some tests to have a reliable and
 <br>
 
 
-# Week 11 - March 13, 2022 - 140h
+# Week 11 - March 13, 2023 - 140h
 
 During this session I concentrated on printing parts. The robot's paste being soon finished, we have to print all the parts to be able to build the three others quickly.
 
@@ -1188,7 +1188,7 @@ I continue to print parts as soon as possible and modify them when necessary to 
 <br>
 
 
-# Week 12 - March 21, 2022 - 143h
+# Week 12 - March 21, 2023 - 143h
 
 During this session I focused on the laser cut parts. I modified the tibia by removing the 3D printed part at the strap. So we have only one piece in plexiglass which is much more resistant.
 
@@ -1202,4 +1202,161 @@ I was also able to help Maximilien to make the body of the robot, so we cut the 
 
 <br>
 
+# Week 13 - March 28, 2023 - 149h
 
+During this session I focused on the kinematic study of the robot. As explained in [Report No. 14](https://github.com/RonanLc/Snoopytech/blob/main/doc/Rapports/Reports%20-%20Ronan%20Le%20Corronc/Session_14.md) we have to find the mathematical formulas allowing to pass from an orthonormal reference X Y Z to the angles of the leg.
+
+I decided to start over because my previous calculations were underdeveloped and wrong.
+
+## Schematics and name
+
+For these calculations I used the following notations and diagrams:
+
+![schematics](assets/session_18/schematics.png)
+
+**Mx**, **My**, **Mz** correspond to the desired X, Y, Z displacement.
+
+<br>
+
+## Direct equations
+
+So I was able to determine the following equations:
+
+$$ AB^2 = A^2 + B^2 - 2 \times A \times B \times cos(\textcolor{green}{\Theta}) $$
+
+$$ \textcolor{red}{Mx} \text{ = L } \times \text{cos(} \textcolor{green}{\Psi} \text{) + AB } \times \text{cos(} \textcolor{green}{\Phi} \text{ - arcsin(} \frac{A \times sin(\textcolor{green}{\Theta})}{AB} \text{))} \times \text{sin(} \textcolor{green}{\Psi} \text{)} $$
+
+$$ \textcolor{red}{My} \text{ = L } \times \text{sin(} \textcolor{green}{- \Psi} \text{) + AB } \times \text{cos(} \textcolor{green}{\Phi} \text{ - arcsin(} \frac{A \times sin(\textcolor{green}{\Theta})}{AB} \text{))} \times \text{cos(} \textcolor{green}{\Psi} \text{)} $$
+
+$$ \textcolor{red}{Mz} \text{ = AB } \times \text{sin(} \textcolor{green}{\Phi} \text{ - arcsin(} \frac{A \times sin(\textcolor{green}{\Theta})}{AB} \text{))} $$
+
+These equations correspond to the direct equations, they allow to obtain the X, Y, Z positions by knowing the angles of the robot legs.
+
+## Next
+
+I will focus on the inverse equations, the ones that allow to find the angles of the leg by knowing the X, Y, Z positions.
+
+<br>
+
+# Week 14 - April 4, 2023 - 155h
+
+I determined last week the direct equations, so now I have to find the inverse equations.
+
+To do this I based myself on the same diagrams.
+
+![schematics](assets/session_18/schematics.png)
+
+## Inverse equations
+
+So I was able to determine the following equations:
+
+
+$$\textcolor{red}{ABo} = AB \times cos(\textcolor{green}{\Phi} - arcsin( \frac{A \times sin(\textcolor{green}{\Theta})}{AB} ))$$
+
+
+$$ \textcolor{green}{\Theta} = arccos( \frac{A^2 + B^2 + \textcolor{red}{Mx}^2 + \textcolor{red}{ABo}^2}{2 \times \sqrt{\textcolor{red}{Mx}^2 + \textcolor{red}{ABo}^2}}) $$
+
+$$ \textcolor{green}{\Psi} = arctan(\frac{\textcolor{red}{My}}{\textcolor{red}{Mz}}) - arcsin(\frac{L}{\sqrt{\textcolor{red}{Mz}^2 + \textcolor{red}{My}^2}}) $$
+
+
+These equations correspond to the inverse equations, they allow to find the angles of the leg by knowing the X, Y, Z positions.
+
+Unfortunately I was not able to find the Phi angle equation. I tried the other equations with numerical values and the results seem inconsistent.
+
+## Next
+
+I will have to re-study these equations as they seem to be incorrect.
+
+<br>
+
+# Week 15 - April 11, 2023 - 164h
+
+## Construction of the robot support
+
+In order to start our tests of the robot we had to hold it in the air. Thanks to that its legs don't touch the ground and we can make tests.
+
+So I made a support to put it on.
+
+I raised the robot of 40cm because at the maximum the legs are 30cm, that leaves us a margin not to touch the ground.
+
+The robot rests on its plexiglass plate underneath. It rests on a wooden board that is the same size as its frame.
+
+The whole support is made of wood. You can see it on the picture below
+
+![Robot support](assets/session_20/support.png)
+
+<br>
+
+## Next
+
+The prototype of the leg being now finished, I would dedicate myself to the production of the three other legs during the next sessions.
+
+<br>
+
+# Week 17 - April 25, 2023 - 174h
+
+Our prototype leg being finished and functional, it was now time to make the 3 other legs. So I concentrated on this part.
+
+## 3D parts printing
+
+Each leg requires many 3D printed parts. I used my personal printer to be able to print all these parts, this allowed us to save time and productivity. So we had these parts to print:
+
+- 2 shoulder boxes (10:22 printing time each) 
+- 3 complete reducers (7h48 of printing each)
+- All the parts used for the articulations of the leg (9h12 of printing)
+
+That is to say a total, when the printing goes well, of 53h20 of printing per leg. We still had to print some extra parts because it happened that some prints failed.
+
+<br>
+
+## Plexiglass cutting
+
+To save time, the legs are made of plexiglass. So we had to cut the plexiglass plates with a laser cutter.
+
+There was a total of 12 pieces to cut, for one leg :
+
+- 1 tibia
+- 2 thighs
+- 1 support plate for the motors
+
+![parts list](assets/session_21/parts_list.png)
+
+![cutting parts](assets/session_21/cutting_parts.png)
+
+After cutting the tibia, I had to drill them with a dremel in their length to be able to put screws to hold the straps.
+
+![tibia holes](assets/session_21/tibia.png)
+
+<br>
+
+## Next
+
+Now that we have all the parts we will concentrate on the assembly of the legs and the reducers.
+
+<br>
+
+# Week 18 - May 2, 2023 - 208h
+
+During the previous session, we had printed and cut out all the necessary parts to make the 4 legs. We then assembled all these pieces to make the legs.
+
+## Reducers
+
+We had to assemble the 9 remaining gearboxes. I cut and machined the steel rods that will be used as the output shaft of the gearbox. I had to take the right dimensions and then cut a false flat to be able to fit it in the gearbox with a screw as explained in [Report No. 11](https://github.com/RonanLc/Snoopytech/blob/main/doc/Rapports/Reports%20-%20Ronan%20Le%20Corronc/Session_11.md).
+
+![reducers axes](assets/session_22/reducers_axes.png)
+
+Once this was done I had to trim the 3D printed parts. When a part is printed in 3D the first layers are more crushed according to the height of the plate. They are therefore wider and the reducer being designed to the nearest millimeter, these wider layers pose a problem during assembly. I had to cut them on each piece to assemble the gearbox correctly.
+
+After that I was able to add the bearings in the parts with a press (not having a press available I used a large pliers). Then I installed the steel axle.
+
+I then gave the different parts to Maximilien so that he could grease the gears and close them permanently.
+
+![reducer work table](assets/session_22/reducer_work_table.png)
+
+<br>
+
+## Next
+
+We were able to assemble the legs during our personal time and then install the legs on the chassis. We were able to have a fully assembled robot to finish this project.
+
+![Final robot picture](assets/session_22/final_robot.png)

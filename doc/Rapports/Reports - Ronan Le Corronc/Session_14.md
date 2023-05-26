@@ -1,4 +1,4 @@
-# Week 9 - February 28, 2022 - 132h
+# Week 9 - February 28, 2023 - 132h
 
 During this session I decided to start working on the math to direct the robot.
 

@@ -1,4 +1,4 @@
-# Week 3 - January 16, 2022 - 106h
+# Week 3 - January 16, 2023 - 106h
 
 ## Modification of the gearbox
 
