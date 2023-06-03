@@ -15,4 +15,4 @@ The laser cut elements must be cut in 3mm thick plexiglass (or wood).
 
 The dog was designed under Fusion360. You can see the preview of the assembly in the image below. 
 
-[photo]
+![assembly](https://github.com/RonanLc/Snoopytech/assets/95374519/205cfcf7-f138-427e-be72-0d7e284701b7)
