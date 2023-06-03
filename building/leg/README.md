@@ -1,1 +1,5 @@
-This section contains all the requiered elements for the building of the robot. 
+# Notice 
+
+This section contains the elements allowing to build a leg.
+
+[photo]

@@ -1,1 +1,5 @@
-This section contains all the requiered elements for the building of the robot. 
+# Notice 
+
+This section contains the knee elements of the leg.
+
+A potentiometer is mounted in the outside knee fixation (pot version). 
