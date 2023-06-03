@@ -1,1 +1,2 @@
-This section contains all the requiered elements for the building of the robot. 
+This section contains the tensor for the belt transmisson.
+
