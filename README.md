@@ -2,8 +2,7 @@
 
 Snoopy is a dog programmed to keep an eye on you. Behave or he might bite ! 
 
-
-[photo]
+![IMG-2881](https://github.com/RonanLc/Snoopytech/assets/95374519/984105c5-4482-4240-9c9a-9b0ac6045800)
 
 
 This robot is a school project aiming to reduce the workload of security guards during nightshifts.
