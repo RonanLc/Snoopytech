@@ -10,7 +10,8 @@ The other [bits](https://github.com/RonanLc/Snoopytech/tree/main/building/frame/
 
 The assembly of the vessel can be seen in the following image : 
 
-[photo]
+
+![body](https://github.com/RonanLc/Snoopytech/assets/95374519/47685b30-14b0-4bf3-89de-5c969a459ce7)
 
 
 The order of the inner frames from left to right are : 
@@ -20,4 +21,4 @@ The order of the inner frames from left to right are :
 5. Motor axis guide (x2)
 6. Plexiglass motor support (x2)
 7. Linning 
-8. lateral jetson frame
+8. Lateral jetson frame
